@@ -1,1 +1,554 @@
-[]
+[
+  {
+    "id": "congelados-2",
+    "category": "congelados",
+    "name": "BACON",
+    "mtc": 12.72
+  },
+  {
+    "id": "congelados-3",
+    "category": "congelados",
+    "name": "CARNE MCNUGGETS",
+    "mtc": 935.7
+  },
+  {
+    "id": "congelados-4",
+    "category": "congelados",
+    "name": "CARNE QUARTERÃO",
+    "mtc": 677.97
+  },
+  {
+    "id": "congelados-5",
+    "category": "congelados",
+    "name": "CARNE REGULAR",
+    "mtc": 1025.26
+  },
+  {
+    "id": "congelados-6",
+    "category": "congelados",
+    "name": "CARNE MCCHICKEN",
+    "mtc": 126.53
+  },
+  {
+    "id": "congelados-7",
+    "category": "congelados",
+    "name": "CARNE DE JR",
+    "mtc": 89.99
+  },
+  {
+    "id": "congelados-8",
+    "category": "congelados",
+    "name": "CARNE CRISPY",
+    "mtc": 0.43
+  },
+  {
+    "id": "congelados-9",
+    "category": "congelados",
+    "name": "NACHO",
+    "mtc": 3.62
+  },
+  {
+    "id": "congelados-10",
+    "category": "congelados",
+    "name": "PÃO DE QUEIJO",
+    "mtc": 4.71
+  },
+  {
+    "id": "congelados-11",
+    "category": "congelados",
+    "name": "TORTA DE BANANA",
+    "mtc": 17.39
+  },
+  {
+    "id": "congelados-12",
+    "category": "congelados",
+    "name": "TORTA DE MAÇÃ",
+    "mtc": 18.14
+  },
+  {
+    "id": "congelados-13",
+    "category": "congelados",
+    "name": "POLPETONE QUEIJO",
+    "mtc": 2.45
+  },
+  {
+    "id": "resfriados-2",
+    "category": "resfriados",
+    "name": "TIRAS DE ALFACE AMERICANA",
+    "mtc": 20.61
+  },
+  {
+    "id": "resfriados-3",
+    "category": "resfriados",
+    "name": "QUEIJO FATIADO",
+    "mtc": 866.51
+  },
+  {
+    "id": "resfriados-4",
+    "category": "resfriados",
+    "name": "QUEIJO EMMENTAL",
+    "mtc": 254.71
+  },
+  {
+    "id": "resfriados-5",
+    "category": "resfriados",
+    "name": "CEBOLA PICADA",
+    "mtc": 1.52
+  },
+  {
+    "id": "resfriados-6",
+    "category": "resfriados",
+    "name": "TOMATE 10KG",
+    "mtc": 52.71
+  },
+  {
+    "id": "resfriados-7",
+    "category": "resfriados",
+    "name": "AGUA GARRAFA",
+    "mtc": 17.49
+  },
+  {
+    "id": "resfriados-8",
+    "category": "resfriados",
+    "name": "AGUA COPO",
+    "mtc": 6.29
+  },
+  {
+    "id": "resfriados-9",
+    "category": "resfriados",
+    "name": "GOTA",
+    "mtc": 0.82
+  },
+  {
+    "id": "resfriados-10",
+    "category": "resfriados",
+    "name": "MOLHO CHEDDAR BISTU",
+    "mtc": 8.4
+  },
+  {
+    "id": "resfriados-11",
+    "category": "resfriados",
+    "name": "MOLHO CHEDDAR BISNAGA",
+    "mtc": 1.87
+  },
+  {
+    "id": "resfriados-12",
+    "category": "resfriados",
+    "name": "CASCÃO MCD",
+    "mtc": 97.23
+  },
+  {
+    "id": "resfriados-13",
+    "category": "resfriados",
+    "name": "CASQUINHA VALLY",
+    "mtc": 235.39
+  },
+  {
+    "id": "resfriados-14",
+    "category": "resfriados",
+    "name": "PETIT SUISSE",
+    "mtc": 100.05
+  },
+  {
+    "id": "resfriados-15",
+    "category": "resfriados",
+    "name": "SUCO UVA TETRAPACK",
+    "mtc": 30.07
+  },
+  {
+    "id": "resfriados-16",
+    "category": "resfriados",
+    "name": "MCFRUIT UVA",
+    "mtc": 3.36
+  },
+  {
+    "id": "resfriados-17",
+    "category": "resfriados",
+    "name": "CONC LARANJA REFRIGERADO",
+    "mtc": 2.81
+  },
+  {
+    "id": "resfriados-18",
+    "category": "resfriados",
+    "name": "BEB LACTEA BAU/2UND",
+    "mtc": 94.68
+  },
+  {
+    "id": "resfriados-19",
+    "category": "resfriados",
+    "name": "BEBIDA LACTEA CHOCOLATE",
+    "mtc": 8.96
+  },
+  {
+    "id": "resfriados-20",
+    "category": "resfriados",
+    "name": "MACA IN NATURA",
+    "mtc": 0
+  },
+  {
+    "id": "resfriados-21",
+    "category": "resfriados",
+    "name": "TANGERINA",
+    "mtc": 0
+  },
+  {
+    "id": "resfriados-22",
+    "category": "resfriados",
+    "name": "TOMATE CAPRESE",
+    "mtc": 0
+  },
+  {
+    "id": "resfriados-23",
+    "category": "resfriados",
+    "name": "MANTEIGA",
+    "mtc": 0.05
+  },
+  {
+    "id": "resfriados-24",
+    "category": "resfriados",
+    "name": "OVO",
+    "mtc": 6.76
+  },
+  {
+    "id": "resfriados-25",
+    "category": "resfriados",
+    "name": "MMS CHOCO AO LEITE",
+    "mtc": 11.28
+  },
+  {
+    "id": "resfriados-26",
+    "category": "resfriados",
+    "name": "BACON RESFRIADO",
+    "mtc": 12.91
+  },
+  {
+    "id": "resfriados-27",
+    "category": "resfriados",
+    "name": "TRUFA LINGUA DE GATO",
+    "mtc": 85.65
+  },
+  {
+    "id": "estoque-2",
+    "category": "estoque",
+    "name": "TAMPA REFRIG",
+    "mtc": 1008.61
+  },
+  {
+    "id": "estoque-4",
+    "category": "estoque",
+    "name": "TAMPA CBB 550 ML",
+    "mtc": 85.61
+  },
+  {
+    "id": "estoque-5",
+    "category": "estoque",
+    "name": "POTE DE KETCHUP",
+    "mtc": 0.5
+  },
+  {
+    "id": "estoque-6",
+    "category": "estoque",
+    "name": "COPO FLURRY",
+    "mtc": 89.79
+  },
+  {
+    "id": "estoque-7",
+    "category": "estoque",
+    "name": "COPO TOP SUNDAE",
+    "mtc": 70.12
+  },
+  {
+    "id": "estoque-8",
+    "category": "estoque",
+    "name": "COPO SUNDAE",
+    "mtc": 142.65
+  },
+  {
+    "id": "estoque-9",
+    "category": "estoque",
+    "name": "COPO SHAKE 440 ML",
+    "mtc": 100.4
+  },
+  {
+    "id": "estoque-10",
+    "category": "estoque",
+    "name": "COPO REFRI 12 oz P",
+    "mtc": 45.7
+  },
+  {
+    "id": "estoque-11",
+    "category": "estoque",
+    "name": "COPO REFRI 16oz M",
+    "mtc": 831.37
+  },
+  {
+    "id": "estoque-12",
+    "category": "estoque",
+    "name": "COPO REFRI 21 oz G",
+    "mtc": 7.97
+  },
+  {
+    "id": "estoque-16",
+    "category": "estoque",
+    "name": "COPO CORTESIA",
+    "mtc": 150
+  },
+  {
+    "id": "estoque-17",
+    "category": "estoque",
+    "name": "COPO CAFÉ 100 ML",
+    "mtc": 7.95
+  },
+  {
+    "id": "estoque-18",
+    "category": "estoque",
+    "name": "COPO DE CAFÉ 200ML",
+    "mtc": 8.33
+  },
+  {
+    "id": "estoque-19",
+    "category": "estoque",
+    "name": "COPO DE CAFÉ 300ML",
+    "mtc": 2.65
+  },
+  {
+    "id": "estoque-20",
+    "category": "estoque",
+    "name": "TAMPA DE CAFÉ 100ML",
+    "mtc": 7.95
+  },
+  {
+    "id": "estoque-21",
+    "category": "estoque",
+    "name": "TAMPA DE CAFÉ 200ML",
+    "mtc": 8.33
+  },
+  {
+    "id": "estoque-22",
+    "category": "estoque",
+    "name": "TAMPA DE CAFÉ 300ML",
+    "mtc": 2.65
+  },
+  {
+    "id": "estoque-24",
+    "category": "estoque",
+    "name": "EMB. BIG MAC",
+    "mtc": 368.52
+  },
+  {
+    "id": "estoque-25",
+    "category": "estoque",
+    "name": "EMB. QUARTERÃO",
+    "mtc": 131.16
+  },
+  {
+    "id": "estoque-26",
+    "category": "estoque",
+    "name": "D/ QUARTEIRAO",
+    "mtc": 13.39
+  },
+  {
+    "id": "estoque-27",
+    "category": "estoque",
+    "name": "EMB. MC crispy",
+    "mtc": 62.88
+  },
+  {
+    "id": "estoque-28",
+    "category": "estoque",
+    "name": "EMB. SIGNATURE",
+    "mtc": 90.08
+  },
+  {
+    "id": "estoque-29",
+    "category": "estoque",
+    "name": "EMB. SIGNATURE BALCÃO",
+    "mtc": 45.53
+  },
+  {
+    "id": "estoque-30",
+    "category": "estoque",
+    "name": "NUGGTS 6",
+    "mtc": 14.4
+  },
+  {
+    "id": "estoque-31",
+    "category": "estoque",
+    "name": "EMB. BATATA PREMIUM",
+    "mtc": 278.56
+  },
+  {
+    "id": "estoque-32",
+    "category": "estoque",
+    "name": "EMB. NUGGETS 10",
+    "mtc": 20.73
+  },
+  {
+    "id": "estoque-33",
+    "category": "estoque",
+    "name": "emba de tasty",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-34",
+    "category": "estoque",
+    "name": "PRODUTOS COPA",
+    "mtc": null
+  },
+  {
+    "id": "estoque-35",
+    "category": "estoque",
+    "name": "COB. CARAMELO /COCO",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-36",
+    "category": "estoque",
+    "name": "FAROFA DEFUMADA",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-37",
+    "category": "estoque",
+    "name": "FAROFA DE COCO",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-38",
+    "category": "estoque",
+    "name": "MOLHO JAMON",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-39",
+    "category": "estoque",
+    "name": "MOLHO CHIMUCHURRY",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-40",
+    "category": "estoque",
+    "name": "MOLHO TOMATE",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-41",
+    "category": "estoque",
+    "name": "MOLHO VERDE",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-42",
+    "category": "estoque",
+    "name": "MOLHO CHURRASCO",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-43",
+    "category": "estoque",
+    "name": "MOLHO VINAGRETE",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-44",
+    "category": "estoque",
+    "name": "MOLHO JALAPENO",
+    "mtc": 3.17
+  },
+  {
+    "id": "estoque-45",
+    "category": "estoque",
+    "name": "MOSTARDA PRETA",
+    "mtc": 3.17
+  },
+  {
+    "id": "smart-3",
+    "category": "smart",
+    "name": "BATATA",
+    "mtc": null
+  },
+  {
+    "id": "smart-4",
+    "category": "smart",
+    "name": "MC FRITES",
+    "mtc": 197
+  },
+  {
+    "id": "hortifruti-3",
+    "category": "hortifruti",
+    "name": "HORTIFRUT",
+    "mtc": null
+  },
+  {
+    "id": "hortifruti-4",
+    "category": "hortifruti",
+    "name": "TIRAS DE ALFACE",
+    "mtc": 197
+  },
+  {
+    "id": "hortifruti-5",
+    "category": "hortifruti",
+    "name": "TOMATE",
+    "mtc": 197
+  },
+  {
+    "id": "hortifruti-6",
+    "category": "hortifruti",
+    "name": "CEBOLA",
+    "mtc": 197
+  },
+  {
+    "id": "hortifruti-7",
+    "category": "hortifruti",
+    "name": "TOMATE CREPS",
+    "mtc": 197
+  },
+  {
+    "id": "coca_cola-3",
+    "category": "coca_cola",
+    "name": "fanta",
+    "mtc": 2
+  },
+  {
+    "id": "coca_cola-4",
+    "category": "coca_cola",
+    "name": "sprite",
+    "mtc": 2
+  },
+  {
+    "id": "coca_cola-5",
+    "category": "coca_cola",
+    "name": "coca zero",
+    "mtc": 10
+  },
+  {
+    "id": "coca_cola-6",
+    "category": "coca_cola",
+    "name": "coca cola",
+    "mtc": 10
+  },
+  {
+    "id": "coca_cola-7",
+    "category": "coca_cola",
+    "name": "agua copo",
+    "mtc": 1
+  },
+  {
+    "id": "coca_cola-8",
+    "category": "coca_cola",
+    "name": "agua garrafa",
+    "mtc": 6
+  },
+  {
+    "id": "coca_cola-9",
+    "category": "coca_cola",
+    "name": "agua garrafa com gas",
+    "mtc": 0
+  },
+  {
+    "id": "coca_cola-10",
+    "category": "coca_cola",
+    "name": "Guarana",
+    "mtc": 2
+  }
+]
