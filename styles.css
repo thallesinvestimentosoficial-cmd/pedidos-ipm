@@ -16,3 +16,111 @@
 .login-foot{text-align:center;color:#9aa4b2;font-size:11px;margin-top:9px}
 .logout-btn{margin-left:auto;border:1px solid #ffffff30;border-radius:7px;padding:6px 9px;background:#ffffff10;color:#fff;font-size:11px;cursor:pointer}
 @media(max-width:600px){.login-card{padding:26px 22px}}
+
+
+/* ===== Pedido IPM 1.0 · visual system refresh ===== */
+:root{
+  color-scheme:light;
+  font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;
+  color:#17243a;background:#f3f5f9;
+  --navy:#101d32;--red:#d92335;--muted:#738198;--line:#e5eaf1;
+  --surface:#fff;--soft:#f7f9fc;--radius:16px;
+}
+html{scroll-behavior:smooth}
+body{background:#f3f5f9;color:#17243a;font-size:14px;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+button{transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease}
+button:focus-visible,input:focus-visible{outline:3px solid #d9233530;outline-offset:2px}
+.sidebar{width:264px;padding:26px 18px;background:linear-gradient(165deg,#0e1a2d 0%,#172943 65%,#1d3452 100%);box-shadow:8px 0 30px #10203b12}
+.brand{gap:13px;margin-bottom:34px}
+.brand-mark{width:52px;height:52px;display:grid;place-items:center;padding:0;border-radius:16px;font-size:16px;letter-spacing:-.5px;background:linear-gradient(145deg,#f13b4a,#bd1428);box-shadow:0 9px 24px #d9273245}
+.brand strong{font-size:15px;letter-spacing:-.3px}
+.brand small{font-size:11px;color:#aebbd0}
+.workspace{padding:12px 13px;border-radius:12px;background:#ffffff0c;border:1px solid #ffffff12;font-size:11px;color:#c5d0df;margin-bottom:24px}
+.nav-item{font-size:13px;font-weight:600;letter-spacing:-.1px;padding:12px 13px;border-radius:11px;color:#c2cddd;margin:4px 0}
+.nav-item:hover:not(.active){background:#ffffff10;color:#fff;transform:translateX(2px)}
+.nav-item.active{background:linear-gradient(100deg,#e52d40,#bd1d30);box-shadow:0 8px 18px #d9273238}
+.sidebar-bottom{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:10px;padding-top:17px;font-size:12px}
+.sidebar-bottom small{font-size:11px}
+.user-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:#ffffff17;color:#fff;font-weight:800;font-size:12px;border:1px solid #ffffff20}
+.user-avatar.small{width:36px;height:36px;background:#f0f3f8;color:#24344d;border:1px solid #e4e9f0}
+.logout-btn{margin:0;padding:8px 10px;border-radius:9px;background:#ffffff10;border:1px solid #ffffff24}
+.main-area{margin-left:264px;width:calc(100% - 264px)}
+.topbar{height:86px;padding:0 clamp(20px,3vw,42px);background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid #e8edf3}
+.topbar .eyebrow,.login-card .eyebrow{font-size:10px;font-weight:800;letter-spacing:1.35px;color:#bd2637}
+.topbar h1{font-size:23px;line-height:1.2;letter-spacing:-.7px;font-weight:800;color:#142238;margin:5px 0}
+.top-actions{display:flex;align-items:center;gap:14px}
+.content{max-width:1500px;padding:30px clamp(18px,3vw,42px) 70px}
+.page-intro{margin-bottom:22px;align-items:center}
+.page-intro h2{font-size:22px;letter-spacing:-.65px;font-weight:800;color:#15243b;margin:0 0 5px}
+.page-intro p{font-size:13px;color:#77849a;line-height:1.5}
+.grid{gap:18px}
+.card{background:var(--surface);border:1px solid #e7ebf2;border-radius:17px;padding:22px;box-shadow:0 5px 18px #18294308}
+.card h3{font-size:15px;letter-spacing:-.25px;margin:0 0 16px;color:#1b2b43}
+.stats{gap:16px;margin:22px 0}
+.stat-card{min-height:132px;padding:21px 22px;position:relative;overflow:hidden}
+.stat-card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-30px;top:-32px;background:#f2f5fa}
+.stat-top{font-size:12px;font-weight:650;color:#718098;position:relative;z-index:1}
+.stat-value{font-size:32px;line-height:1.1;letter-spacing:-1.1px;font-weight:850;color:#15243b;margin-top:17px;font-variant-numeric:tabular-nums;position:relative;z-index:1}
+.pill{padding:7px 11px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.25px}
+.section-tabs{gap:8px;margin:18px 0}
+.category-tab{padding:10px 15px;border-radius:10px;font-size:12px;font-weight:700;color:#5f6d83;border:1px solid #e2e8f0;background:#fff}
+.category-tab:hover{border-color:#c8d1df;background:#f8faff}
+.category-tab.active{background:#172943;border-color:#172943;color:#fff;box-shadow:0 5px 13px #17294322}
+.table-wrap{border:1px solid #e6ebf2;border-radius:15px;box-shadow:0 4px 16px #18294306}
+table{min-width:720px}
+th{font-size:10px;letter-spacing:.65px;text-transform:uppercase;font-weight:800;color:#7d899b;background:#f7f9fc;padding:16px 17px}
+td{font-size:12px;color:#4a5870;padding:14px 17px;border-top:1px solid #edf0f5;font-variant-numeric:tabular-nums}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:#fafbfd}
+.product-name{font-size:12px;color:#20314a;font-weight:750}
+.number-input,.input{height:42px;border:1px solid #dfe5ed;border-radius:10px;background:#fbfcfe;padding:0 12px;color:#1d2b42;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;transition:border .15s,box-shadow .15s,background .15s}
+.number-input{width:108px;text-align:right}
+.number-input:focus,.input:focus{outline:none;border-color:#d72a3b;background:#fff;box-shadow:0 0 0 4px #d72a3b12}
+.gc-grid{gap:13px}
+.gc-day{padding:17px}
+.gc-day label{font-size:12px;font-weight:750;color:#53627a}
+.gc-day .input{margin-top:11px}
+.btn{padding:12px 17px;border-radius:10px;font-size:12px;font-weight:800;letter-spacing:.1px}
+.btn:hover{transform:translateY(-1px)}
+.primary{background:linear-gradient(135deg,#e63243,#c51e31);box-shadow:0 6px 15px #d9273230}
+.primary:hover{box-shadow:0 9px 20px #d9273240}
+.secondary{background:#f3f5f8;color:#526078;border:1px solid #e3e8ef}
+.mtc-link{border:0;background:#f2f5fa;border-radius:8px;padding:7px 10px;color:#344762;font-size:11px;font-weight:750;cursor:pointer}
+.mtc-link:hover{background:#e9eef6}
+.empty{padding:42px 20px;font-size:13px}
+.audit-row{display:flex;justify-content:space-between;gap:15px;padding:15px 4px;border-bottom:1px solid #edf0f5;font-size:12px}
+.audit-row small{color:#8390a3}
+.toast{border-radius:12px;padding:14px 18px;box-shadow:0 12px 35px #10203b30;font-size:13px;font-weight:650}
+.login-screen{background:radial-gradient(ellipse at 12% 12%,#31486b 0,#172943 38%,#0c1627 100%)}
+.login-card{padding:38px;border-radius:22px;box-shadow:0 28px 90px #0005;gap:12px}
+.login-brand{width:64px;height:64px;border-radius:18px;font-size:19px}
+.login-card h1{font-size:29px;letter-spacing:-.9px;font-weight:850}
+.login-subtitle{font-size:13px;line-height:1.5}
+.login-card>label:not(.remember-row){font-size:12px;font-weight:750}
+.login-card>input{height:49px;border-radius:11px;background:#fbfcfe}
+.login-submit{height:49px;border-radius:11px;font-size:13px;font-weight:850;background:linear-gradient(135deg,#e63243,#c51e31);box-shadow:0 7px 18px #d9273230}
+.mobile-nav{box-shadow:0 -8px 26px #10203b12;padding-top:8px}
+.mobile-nav .nav-item{color:#7c899d;border-radius:10px;font-weight:700}
+.mobile-nav .nav-item.active{color:#fff}
+@media(max-width:1000px){.sidebar{width:230px}.main-area{margin-left:230px;width:calc(100% - 230px)}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+ .sidebar{display:none}.main-area{margin:0;width:100%;padding-bottom:78px}
+ .topbar{height:74px;padding:0 17px}.topbar h1{font-size:20px}
+ .content{padding:20px 13px 32px}
+ .page-intro h2{font-size:20px}
+ .card{padding:17px;border-radius:14px}
+ .stats{gap:10px}.stat-card{padding:15px;min-height:108px}.stat-value{font-size:26px;margin-top:13px}
+ .stat-top{font-size:11px}
+ .gc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .gc-day{padding:13px}.gc-day label{font-size:11px}
+ .section-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px;scrollbar-width:none}
+ .section-tabs::-webkit-scrollbar{display:none}
+ .category-tab{white-space:nowrap;padding:10px 12px}
+ .mobile-nav{padding:7px 3px calc(7px + env(safe-area-inset-bottom));gap:2px}
+ .mobile-nav .nav-item{width:auto;flex:1;min-width:0;font-size:9px;line-height:1.25;padding:9px 2px;white-space:normal}
+ .mobile-nav .nav-item.active{box-shadow:none}
+ .audit-row{flex-direction:column;gap:5px}
+ .login-card{padding:29px 23px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
