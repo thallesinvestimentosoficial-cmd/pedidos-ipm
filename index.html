@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Aplicativo de contagem, análise de estoque e pedidos." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Pedidos | IPM</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">IPM</div><div><strong>Pedidos</strong><small>Gestão de estoque</small></div></div>
+      <div class="workspace"><span class="workspace-dot"></span> Ambiente de demonstração</div>
+      <nav id="side-nav" aria-label="Navegação principal"></nav>
+      <div class="sidebar-bottom"><div class="user-avatar">GP</div><div><strong>Gerente de Plantão</strong><small>Perfil de demonstração</small></div></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><div><div class="eyebrow">OPERAÇÃO · PEDIDOS</div><h1 id="page-title">Visão geral</h1></div><div class="top-actions"><span class="today" id="today-label"></span><button class="icon-btn" id="install-btn" hidden title="Instalar aplicativo">↓</button><div class="user-avatar small">GP</div></div></header>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação mobile"></nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="mtc-dialog"><form method="dialog" class="dialog-card"><div class="dialog-icon">!</div><h2>Editar MTC?</h2><p>Tem certeza de que deseja alterar o MTC deste produto? Essa mudança modifica a projeção de consumo e a sugestão de pedido.</p><div class="dialog-actions"><button class="btn secondary" value="cancel">Cancelar</button><button class="btn primary" id="confirm-mtc" value="confirm">Sim, editar MTC</button></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
