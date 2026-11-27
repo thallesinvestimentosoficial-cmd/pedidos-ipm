@@ -28,18 +28,18 @@
     </form>
   </section>
   <div class="app-shell" id="app-shell" hidden>
-    <aside class="sidebar">
+    <div class="mobile-backdrop" id="mobile-backdrop" hidden></div>
+    <aside class="sidebar" id="app-sidebar">
       <div class="brand"><div class="brand-mark">IPM</div><div><strong>Pedido IPM 1.0</strong><small>Gestão de estoque</small></div></div>
       <div class="workspace"><span class="workspace-dot"></span> Ambiente conectado</div>
       <nav id="side-nav" aria-label="Navegação principal"></nav>
       <div class="sidebar-bottom"><div class="user-avatar" id="profile-initials">IP</div><div><strong id="profile-name">Usuário</strong><small id="profile-role">Perfil</small></div><button class="logout-btn" id="logout-btn" type="button">Sair</button></div>
     </aside>
     <main class="main-area">
-      <header class="topbar"><div><div class="eyebrow">OPERAÇÃO · PEDIDOS</div><h1 id="page-title">Visão geral</h1></div><div class="top-actions"><span class="today" id="today-label"></span><button class="icon-btn" id="install-btn" hidden title="Instalar aplicativo">↓</button><div class="user-avatar small" id="top-initials">IP</div></div></header>
+      <header class="topbar"><div class="topbar-left"><button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="app-sidebar"><span></span><span></span><span></span></button><div><div class="eyebrow">OPERAÇÃO · PEDIDOS</div><h1 id="page-title">Visão geral</h1></div></div><div class="top-actions"><span class="today" id="today-label"></span><button class="icon-btn" id="install-btn" hidden title="Instalar aplicativo">↓</button><div class="user-avatar small" id="top-initials">IP</div></div></header>
       <div class="content" id="content"></div>
     </main>
   </div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação mobile"></nav>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <dialog id="mtc-dialog"><form method="dialog" class="dialog-card"><div class="dialog-icon">!</div><h2>Editar MTC?</h2><p>Tem certeza de que deseja alterar o MTC deste produto? Essa mudança modifica a projeção de consumo e a sugestão de pedido.</p><div class="dialog-actions"><button class="btn secondary" value="cancel">Cancelar</button><button class="btn primary" id="confirm-mtc" value="confirm">Sim, editar MTC</button></div></form></dialog>
   <script src="auth.js"></script>
