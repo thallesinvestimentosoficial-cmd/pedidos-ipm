@@ -115,7 +115,7 @@ async function loadActiveUsers(){
     const role=user.role==="admin"?"gun":user.role;
     const options=USER_ROLE_OPTIONS.map(([value,label])=>'<option value="'+value+'" '+(role===value?"selected":"")+'>'+label+'</option>').join("");
     const self=user.user_id===authUserId();
-    return '<tr data-user-id="'+escapeUserText(user.user_id)+'"><td><div class="user-name-cell"><b>'+escapeUserText(user.display_name||user.username)+'</b><small>@'+escapeUserText(user.username)+'</small></div></td><td><select class="user-role-select" data-user-role>'+options+'</select></td><td><span class="user-status-active"><i></i> Ativo</span></td><td><div class="user-row-actions"><button type="button" class="btn secondary" data-user-save>Salvar cargo</button><button type="button" class="btn secondary" data-user-disable '+(self?'disabled title="Não é possível desativar seu próprio acesso"':'')+'>Desativar</button><button type="button" class="btn danger" data-user-delete '+(self?'disabled title="Não é possível excluir sua própria conta"':'')+'>Excluir</button></div></td></tr>';
+    return '<tr data-user-id="'+escapeUserText(user.user_id)+'"><td><div class="user-name-cell"><b>'+escapeUserText(user.display_name||user.username)+'</b><small>@'+escapeUserText(user.username)+'</small></div></td><td><select class="user-role-select" data-user-role>'+options+'</select></td><td><div class="user-account-status"><span class="user-status-active"><i></i> Ativo</span>'+(user.force_password_reset?'<small class="user-reset-pending">Reset de senha solicitado</small>':'')+'</div></td><td><div class="user-row-actions"><button type="button" class="btn secondary" data-user-save>Salvar cargo</button><button type="button" class="btn secondary user-reset-btn" data-user-reset '+(self||user.force_password_reset?'disabled title="Reset já solicitado ou conta atual"':'')+'>'+(user.force_password_reset?'Reset solicitado':'Resetar senha')+'</button><button type="button" class="btn secondary" data-user-disable '+(self?'disabled title="Não é possível desativar seu próprio acesso"':'')+'>Desativar</button><button type="button" class="btn danger" data-user-delete '+(self?'disabled title="Não é possível excluir sua própria conta"':'')+'>Excluir</button></div></td></tr>';
    }).join("")+'</tbody></table></div>';
  }catch(error){
   if(count)count.textContent="Erro";
@@ -149,6 +149,11 @@ function wireUsers(){
    if(button.matches("[data-user-save]")){
     await userAdmin("update",{user_id:userId,role:row.querySelector("[data-user-role]").value,active:true});
     toast("Cargo atualizado.");await loadActiveUsers();
+   }else if(button.matches("[data-user-reset]")){
+    if(!confirm("Solicitar redefinição de senha para este usuário? Na próxima vez que entrar, ele precisará cadastrar uma nova senha antes de acessar o aplicativo."))return;
+    await userAdmin("request_password_reset",{user_id:userId});
+    toast("Reset solicitado. A pessoa deverá criar uma nova senha no próximo login.");
+    await loadActiveUsers();
    }else if(button.matches("[data-user-disable]")){
     if(!confirm("Desativar este usuário? Ele não poderá entrar no aplicativo."))return;
     await userAdmin("update",{user_id:userId,role:row.querySelector("[data-user-role]").value,active:false});
