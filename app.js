@@ -19,14 +19,19 @@ const nav=[["overview","Visão geral","home"],["inputs","Inputs","chart"],["coun
 function navIcon(name){const paths={home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',package:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 8v9l9 5 9-5V8M12 13v9"/>',chart:'<path d="M4 19V5m0 14h17"/><path d="m7 15 4-4 3 2 6-7"/>',clipboard:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6V7H9zM8 11h8m-8 4h8"/>',layers:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>',activity:'<path d="M3 12h4l3-8 4 16 3-8h4"/>',profile:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',settings:'<circle cx="12" cy="12" r="3"/><path d="M19 13.5a7 7 0 0 0 0-3l2-1.5-2-3.5-2.3 1a7 7 0 0 0-2.7-1.5L13.5 2h-3L10 5a7 7 0 0 0-2.7 1.5L5 5.5 3 9l2 1.5a7 7 0 0 0 0 3L3 15l2 3.5 2.3-1A7 7 0 0 0 10 19l.5 3h3l.5-3a7 7 0 0 0 2.7-1.5l2.3 1L21 15z"/>',truck:'<path d="M3 6h12v12H3zM15 10h4l3 4v4h-7"/><circle cx="7.5" cy="19" r="2"/><circle cx="18.5" cy="19" r="2"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'};return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +(paths[name]||paths.home)+'</svg>'}
 
 const adminModules=[["uniform","Projeção de estoque de uniforme","Uniformes"],["utensils","Projeção de utensílios","Utensílios"],["intermitentes","Projeção de intermitentes","Equipe"],["mercado_livre","Projeção de Mercado Livre","Compras"],["agua","Projeção de água","Consumo"],["luz","Projeção de gasto de luz","Energia"],["manutencao","Projeção de itens de manutenção","Manutenção"],["gastos","Controle de gastos","Financeiro"]];
+function adminShell(content){
+ const links=adminModules.map(([id,title])=>'<button class="admin-side-link '+(page==="admin_"+id?"active":"")+'" data-admin-module="'+id+'"><span>↗</span>'+title+'</button>').join("");
+ const heading=page==="admin"?"Painel administrativo":(adminModules.find(x=>"admin_"+x[0]===page)?.[1]||"Gestão Administrativa");
+ return '<div class="admin-workspace"><aside class="admin-sidebar"><div class="admin-brand"><span class="admin-brand-mark">IPM</span><div><b>Gestão Administrativa</b><small>Planejamento e controle</small></div></div><button class="admin-return" data-page="overview">‹ Voltar ao Pedido IPM</button><div class="admin-nav-label">ÁREAS ADMINISTRATIVAS</div><button class="admin-side-link '+(page==="admin"?"active":"")+'" data-page="admin"><span>⌂</span>Visão geral</button>'+links+'<div class="admin-side-bottom">Ambiente administrativo</div></aside><section class="admin-main"><header class="admin-topbar"><div><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></div><button class="admin-return-mobile" data-page="overview">‹ Pedido IPM</button></header><div class="admin-content">'+content+'</div></section></div>';
+}
 function adminPanel(){
  const cards=adminModules.map(([id,title,subtitle])=>'<button class="admin-module-card" data-admin-module="'+id+'"><span class="admin-module-icon">'+(id==="gastos"?"R$":"↗")+'</span><span class="admin-module-copy"><b>'+title+'</b><small>'+subtitle+'</small></span><span class="admin-module-arrow">›</span></button>').join("");
- return '<div class="page-intro admin-page-intro"><div><span class="eyebrow">PAINEL ADMINISTRATIVO</span><h2>Gestão Administrativa</h2><p>Projeções, planejamento e acompanhamento das despesas da unidade.</p></div></div><div class="admin-module-grid">'+cards+'</div>';
+ return adminShell('<div class="page-intro admin-page-intro"><div><span class="eyebrow">VISÃO GERAL</span><h2>Bem-vindo à Gestão Administrativa</h2><p>Escolha uma área para planejar, acompanhar projeções e controlar os gastos da unidade.</p></div></div><div class="admin-module-grid">'+cards+'</div>');
 }
 function adminModulePage(){
  const item=adminModules.find(x=>x[0]===page.slice(6));
  if(!item)return adminPanel();
- return '<div class="page-intro"><div><button class="admin-back-link" data-page="admin">‹ Gestão Administrativa</button><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>'+item[1]+'</h2><p>Área de planejamento e acompanhamento.</p></div></div><section class="card admin-module-placeholder"><div class="admin-placeholder-icon">↗</div><h3>'+item[1]+'</h3><p>Esta área está criada no painel. A próxima etapa é definir os dados de entrada, regras de cálculo, metas e relatórios deste controle.</p><span class="pill blue">Estrutura inicial</span></section>';
+ return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>'+item[1]+'</h2><p>Área independente de planejamento e acompanhamento.</p></div></div><section class="card admin-module-placeholder"><div class="admin-placeholder-icon">↗</div><h3>'+item[1]+'</h3><p>Esta área está criada no painel administrativo. Aqui serão desenvolvidos os cadastros, projeções, cálculos e relatórios específicos deste controle.</p><span class="pill blue">Estrutura inicial</span></section>');
 }
 
 function render(){
@@ -38,6 +43,7 @@ function render(){
  const deniedGp=["history","users"].includes(page);
  if((page==="admin"||page.startsWith("admin_"))&&!isGun())page="overview";
  if(!pageViews[page]||(isSupervisor()&&deniedSupervisor)||(isGp()&&deniedGp)||(!isGun()&&!isGp()&&["products","orders"].includes(page)))page="overview";
+ $("#app-shell").classList.toggle("admin-mode",page==="admin"||page.startsWith("admin_"));
  $("#page-title").textContent=pageTitles[page]||(visibleNav.find(x=>x[0]===page)?.[1]||"Visão geral");
  document.querySelectorAll(".header-shortcut").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
  $("#today-label").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
