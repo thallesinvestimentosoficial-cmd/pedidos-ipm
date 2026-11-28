@@ -648,3 +648,14 @@ input,select,textarea{max-width:100%}
  .sidebar-bottom.sidebar-logout{padding:12px 0 calc(10px + env(safe-area-inset-bottom))!important}
  .sidebar-logout .logout-btn{min-height:46px!important;font-size:12px!important}
 }
+
+/* Tela de login alinhada à identidade grafite e ciano */
+.login-screen{background:radial-gradient(ellipse at 12% 12%,#40566a 0%,#26394b 42%,#172331 100%)!important}
+.login-card{border:1px solid #e1e8ed;background:#fff}
+.login-card .eyebrow{color:#4d8990!important}
+.login-brand{background:linear-gradient(145deg,#40586b,#55c7c5)!important;box-shadow:0 9px 24px #243b4d30!important;color:#fff}
+.login-card>input:focus,.login-card input:focus{border-color:#55c7c5!important;box-shadow:0 0 0 3px #55c7c51f!important;outline:none}
+.login-submit{background:linear-gradient(135deg,#40586b,#2e7580)!important;box-shadow:0 7px 18px #315e6b30!important;color:#fff!important}
+.login-submit:hover{background:linear-gradient(135deg,#34495b,#286c75)!important}
+.login-card a,.login-card .login-link{color:#347f86!important}
+.login-card .remember-row input{accent-color:#438f95}
