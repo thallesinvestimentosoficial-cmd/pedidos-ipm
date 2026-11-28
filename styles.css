@@ -847,3 +847,21 @@ input,select,textarea{max-width:100%}
 .admin-topbar h1{font-size:23px;margin:5px 0 0;color:#17243a}.admin-topbar .eyebrow{font-size:10px;color:#7d899b;letter-spacing:1.2px;font-weight:800}.admin-content{max-width:1440px;margin:0 auto;padding:32px}
 .admin-return-mobile{display:none;background:#17243a;color:#fff;border:0;margin:0}
 @media(max-width:760px){.admin-workspace{display:block}.admin-sidebar{display:none}.admin-topbar{min-height:82px;padding:17px 18px}.admin-topbar h1{font-size:19px}.admin-return-mobile{display:block;font-size:12px;padding:10px}.admin-content{padding:20px 16px}.app-shell.admin-mode .content{padding:0}}
+
+/* Controle de gastos da Gestão Administrativa */
+.admin-brand-mark{background:#dce7f0!important;color:#17243a!important}
+.expense-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-bottom:18px}
+.expense-summary article{background:#fff;border:1px solid #e5eaf1;border-radius:13px;padding:17px;display:grid;gap:8px}
+.expense-summary small{font-size:11px;color:#77859a}.expense-summary b{font-size:21px;color:#17243a;font-variant-numeric:tabular-nums}
+.expense-form-card,.expense-list-card,.expense-totals-card{padding:22px;margin-bottom:17px}
+.expense-heading h2,.expense-list-heading h2,.expense-totals-card h2{font-size:17px;margin:5px 0}.expense-heading p,.expense-list-heading p{font-size:12px;color:#7a8799;margin:5px 0 0}
+.expense-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.expense-form label{display:grid;gap:7px;font-size:11px;font-weight:750;color:#526176}
+.expense-form input,.expense-form select{width:100%;min-width:0;height:42px;border:1px solid #dce3ec;border-radius:9px;background:#fff;padding:0 11px;color:#26364a;font:inherit;font-weight:500}
+.expense-form input:focus,.expense-form select:focus{outline:2px solid #c9d9e7;border-color:#829bb1}
+.expense-form-actions{display:flex;align-items:end}.expense-form-actions button{height:42px}
+.expense-list-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.expense-table-wrap{width:100%;overflow:auto}.expense-table{width:100%;border-collapse:collapse;min-width:850px}.expense-table th,.expense-table td{padding:12px 10px;border-bottom:1px solid #edf0f4;text-align:left;font-size:11px}.expense-table th{font-size:10px;color:#78869a;text-transform:uppercase;letter-spacing:.4px}.expense-money{font-weight:800;white-space:nowrap}.expense-status{display:inline-flex;padding:5px 8px;border-radius:20px;font-size:10px;font-weight:800}.expense-status.paid{background:#e8f7ef;color:#168453}.expense-status.pending{background:#fff4df;color:#a66b08}.expense-action{border:0;background:#eef3f7;color:#344b61;border-radius:7px;padding:7px 9px;font-size:10px;font-weight:750;cursor:pointer;white-space:nowrap}.expense-action.delete{background:#fff0f0;color:#b42332}.expense-empty{text-align:center!important;color:#8793a3;padding:25px!important}
+.expense-total-row{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid #edf0f4;font-size:12px}.expense-total-row strong{font-variant-numeric:tabular-nums}.expense-total-row.grand{border:0;border-top:2px solid #dce3ec;margin-top:8px;padding-top:16px;font-weight:850;color:#17243a}
+@media(max-width:850px){.expense-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.expense-summary{grid-template-columns:1fr;gap:8px}.expense-summary article{padding:13px}.expense-summary b{font-size:18px}.expense-form{grid-template-columns:1fr}.expense-form-card,.expense-list-card,.expense-totals-card{padding:16px}.expense-list-heading{align-items:flex-start;flex-direction:column}.expense-form-actions button{width:100%}}
