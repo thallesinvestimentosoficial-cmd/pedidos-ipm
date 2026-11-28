@@ -387,3 +387,35 @@ tbody tr:hover{background:#fafbfd}
 .product-edit-row{border-radius:13px}
 @media(max-width:800px){.product-create-form{grid-template-columns:repeat(2,minmax(0,1fr))}.product-create-form button{grid-column:1/-1}.product-filter-card{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.product-create-card{padding:15px;margin:12px 0 18px;border-radius:15px}.product-create-heading{margin-bottom:13px}.product-create-form{grid-template-columns:1fr;gap:11px}.product-create-form button{grid-column:auto;width:100%;height:44px}.product-create-form input,.product-create-form select{height:44px;font-size:16px}.product-filter-card{grid-template-columns:1fr;padding:12px;gap:11px}.product-filter-card .input{height:44px;font-size:16px}.product-list-heading{gap:8px}.product-list-heading h3{font-size:15px}.product-list-heading p{max-width:250px;line-height:1.4}.product-edit-row{grid-template-columns:repeat(2,minmax(0,1fr));padding:11px;gap:9px}.product-edit-row .product-main{grid-column:1/-1}.product-edit-row .btn{grid-column:1/-1;width:100%}}
+
+.overview-analytics{margin:14px 0;padding:19px 20px;border:1px solid #e5eaf1;border-radius:17px;min-width:0}
+.overview-section-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.overview-section-heading h3{margin:0;font-size:16px;color:#14243b}
+.overview-section-heading p{margin:5px 0 0;color:#7b8798;font-size:11px;line-height:1.5}
+.overview-chart-legend{display:flex;gap:17px;flex-wrap:wrap;margin:15px 0 3px;font-size:10px;color:#65738a}
+.overview-chart-legend span{display:flex;align-items:center;gap:6px}
+.overview-chart-legend i{display:inline-block;width:17px;height:3px;border-radius:3px}
+.legend-stock{background:#d7192d}.legend-projection{background:#e3a900}
+.overview-chart-scroll{width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.overview-line-chart{display:block;width:100%;min-width:760px;height:auto}
+.overview-status-row{display:flex;gap:13px;flex-wrap:wrap;padding-top:12px;border-top:1px solid #edf0f5;font-size:10px}
+.status-risk{color:#c51c31}.status-above{color:#b27a00}.status-ok{color:#38826a}
+.overview-excess-total{color:#c51c31;font-size:19px;white-space:nowrap}
+.overview-excess-total small{display:block;color:#8792a3;font-size:9px;font-weight:500;text-align:right}
+.overview-pie-layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;align-items:center;margin-top:12px}
+.overview-pie-chart{width:180px;height:180px;max-width:100%}
+.overview-pie-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 15px}
+.overview-pie-legend{display:flex;align-items:center;gap:7px;min-width:0;font-size:10px;color:#5d6a7e}
+.overview-pie-legend i{width:9px;height:9px;border-radius:3px;flex:0 0 9px}
+.overview-pie-legend span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.overview-pie-legend b{font-variant-numeric:tabular-nums;color:#172943}
+.overview-empty{padding:18px 10px;color:#7b8798;font-size:12px;text-align:center}
+.overview-risk-list{display:grid;gap:0;margin-top:10px}
+.overview-risk-item{display:grid;grid-template-columns:8px minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid #edf0f5;font-size:11px}
+.overview-risk-item:last-child{border-bottom:0}
+.overview-risk-item strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#26364d}
+.overview-risk-item>span:nth-of-type(2){color:#738197;font-variant-numeric:tabular-nums}
+.overview-risk-item b{font-size:9px;color:#c51c31;background:#fff0f1;padding:5px 7px;border-radius:7px}
+.risk-dot{width:7px;height:7px;border-radius:50%;background:#d7192d}
+@media(max-width:650px){.overview-analytics{padding:14px 12px;margin:11px 0;border-radius:14px}.overview-section-heading h3{font-size:14px}.overview-pie-layout{grid-template-columns:1fr;justify-items:center;gap:12px}.overview-pie-list{width:100%;grid-template-columns:1fr 1fr}.overview-risk-item{grid-template-columns:7px minmax(0,1fr) auto;gap:7px}.overview-risk-item b{grid-column:2/-1;justify-self:start}.overview-excess-total{font-size:16px}.overview-line-chart{min-width:850px}}
+@media(max-width:380px){.overview-pie-list{grid-template-columns:1fr}.overview-status-row{gap:8px;font-size:9px}.overview-risk-item{font-size:10px}}
