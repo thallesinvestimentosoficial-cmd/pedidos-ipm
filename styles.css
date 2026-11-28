@@ -951,3 +951,17 @@ input,select,textarea{max-width:100%}
 .inter-day.inter-weekend{background:#f3eadb}.inter-day.inter-holiday{background:#fff0ad;border-color:#f0d66d}.inter-day.inter-preholiday{background:#f8dada;border-color:#e9aaaa}
 .inter-day.inter-weekend .inter-day-head b{color:#735b3d}.inter-day.inter-holiday .inter-day-head b{color:#765900}.inter-day.inter-preholiday .inter-day-head b{color:#9f2525}
 .inter-legend-colors{display:inline-flex;align-items:center;gap:6px;margin-left:12px;flex-wrap:wrap}.inter-legend-colors i{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid #d4d9e1}.inter-key-weekend{background:#f3eadb}.inter-key-holiday{background:#fff0ad}.inter-key-preholiday{background:#f8dada}
+
+/* Agenda de intermitentes: calendário compacto */
+.inter-weekdays b{padding:6px 2px;font-size:9px}
+.inter-day{min-height:88px;padding:5px 4px}
+.inter-day-head{margin-bottom:4px;gap:2px}
+.inter-day-head b{font-size:11px}
+.inter-day-head small{font-size:8px}
+.inter-day label{gap:2px;margin:3px 0;font-size:8px;line-height:1.1}
+.inter-day input,.inter-day select{height:23px;min-height:23px;font-size:10px;padding:0 3px;border-radius:5px}
+.inter-day-total{font-size:10px;margin-top:4px}
+.inter-legend{font-size:10px;margin:8px 2px}
+.inter-legend-colors{gap:4px;margin-left:7px;font-size:9px}
+.inter-legend-colors i{width:10px;height:10px}
+@media(max-width:700px){.inter-day{min-height:76px;padding:4px 2px}.inter-day-head{display:grid;justify-content:center;text-align:center;gap:1px}.inter-day-head small{font-size:7px}.inter-day label{font-size:7px;margin:2px 0}.inter-day input,.inter-day select{height:21px;min-height:21px;font-size:9px;padding:0 1px}.inter-day-total{font-size:9px;margin-top:3px}.inter-weekdays b{font-size:8px;padding:6px 1px}}
