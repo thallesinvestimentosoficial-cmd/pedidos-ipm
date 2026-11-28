@@ -747,3 +747,38 @@ input,select,textarea{max-width:100%}
 .password-reset-error{color:#b42332;font-size:12px;margin:0;min-height:16px}
 .password-reset-note{display:block;text-align:center;color:#8793a4;font-size:11px;margin-top:16px}
 @media(max-width:520px){.password-reset-card{padding:22px}}
+
+/* Análise de estoque: tabela compacta e responsiva */
+.analysis-legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 12px;padding:0 2px;color:var(--muted,#65748b);font-size:11px}
+.analysis-legend>span,.analysis-status{display:inline-flex;align-items:center;gap:6px}
+.analysis-dot{display:inline-block;flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:#9aa6b2;box-shadow:0 0 0 3px rgba(154,166,178,.13)}
+.analysis-dot.healthy{background:#16a36a;box-shadow:0 0 0 3px rgba(22,163,106,.13)}
+.analysis-dot.warning{background:#e5a000;box-shadow:0 0 0 3px rgba(229,160,0,.15)}
+.analysis-dot.danger{background:#dc3545;box-shadow:0 0 0 3px rgba(220,53,69,.13)}
+.analysis-dot.pending{background:#8291a5;box-shadow:0 0 0 3px rgba(130,145,165,.13)}
+.analysis-table-wrap{width:100%;overflow-x:auto}
+.analysis-table{width:100%;table-layout:auto;border-collapse:separate;border-spacing:0}
+.analysis-table th,.analysis-table td{padding:9px 10px;font-size:12px;white-space:nowrap}
+.analysis-table th:first-child,.analysis-table td:first-child{white-space:normal;min-width:110px}
+.analysis-table .analysis-product strong{font-size:12px;line-height:1.25}
+.analysis-status{font-size:11px;font-weight:750}
+@media(max-width:620px){
+ .analysis-legend{gap:10px;font-size:10px;margin-bottom:9px}
+ .analysis-table-wrap{overflow:visible}
+ .analysis-table,.analysis-table tbody{display:block;width:100%}
+ .analysis-table thead{display:none}
+ .analysis-table tbody{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:8px}
+ .analysis-table tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px 7px;padding:10px;background:var(--card,#fff);border:1px solid var(--border,#e4eaf1);border-radius:11px;min-width:0}
+ .analysis-table td{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:3px;padding:0;border:0;min-width:0;white-space:normal;font-size:12px;overflow-wrap:anywhere}
+ .analysis-table td::before{content:attr(data-label);font-size:9px;line-height:1.1;color:var(--muted,#758399);font-weight:700;text-transform:uppercase;letter-spacing:.2px}
+ .analysis-table td.analysis-product{grid-column:1/-1;padding-bottom:6px;border-bottom:1px solid var(--border,#e4eaf1);margin-bottom:1px}
+ .analysis-table td.analysis-product::before{content:"PRODUTO"}
+ .analysis-table td.analysis-product strong{font-size:13px}
+ .analysis-table td[data-label="Saldo"] b{font-size:12px}
+ .analysis-table td[data-label="Status"]{grid-column:1/-1;flex-direction:row;align-items:center;padding-top:4px}
+ .analysis-table td[data-label="Status"]::before{content:"STATUS:"}
+ .analysis-status{font-size:10px}
+}
+@media(min-width:621px) and (max-width:900px){
+ .analysis-table th,.analysis-table td{padding:8px 6px;font-size:11px}
+}
