@@ -242,8 +242,8 @@ function otherOrders(){
 }
 function analysis(){
  const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/\\'/g,"&#39;");
- const c=cycles[cycle],list=products.filter(p=>c[2].includes(p.category));
- const tabs=Object.entries(cycles).map(([id,x])=>'<button class="category-tab '+(id===cycle?"active":"")+'" data-cycle="'+id+'">'+x[0]+'</button>').join("");
+ const categoryOrder=new Map(categories.map((item,index)=>[item[0],index]));
+ const list=products.slice().sort((a,b)=>(categoryOrder.get(a.category)??99)-(categoryOrder.get(b.category)??99)||a.name.localeCompare(b.name,"pt-BR"));
  const rows=list.map(p=>{
   const st=stock(p),current=n(st.stock),incoming=n(st.incoming),projected=need(p),delta=current+incoming-projected;
   let status="healthy";
@@ -253,9 +253,10 @@ function analysis(){
    if(variance<=-3||variance>=20)status="danger";
    else if(variance<=-1||variance>10)status="warning";
   }
-  return '<tr class="analysis-row analysis-'+status+'"><td class="analysis-product" data-label="Produto"><strong>'+safe(p.name)+'</strong></td><td data-label="Estoque">'+fmt(current)+'</td><td data-label="A receber">'+fmt(incoming)+'</td><td data-label="Projetado (11 dias)">'+fmt(projected)+'</td><td data-label="Saldo"><b class="analysis-balance '+status+'">'+fmt(delta)+'</b></td></tr>';
+  return '<tr class="analysis-row analysis-'+status+'"><td class="analysis-product" data-label="Produto"><span class="analysis-product-name"><i class="analysis-dot '+status+'"></i><strong>'+safe(p.name)+'</strong></span></td><td data-label="Estoque">'+fmt(current)+'</td><td data-label="A receber">'+fmt(incoming)+'</td><td data-label="Projetado (11 dias)">'+fmt(projected)+'</td><td data-label="Saldo"><b class="analysis-balance '+status+'">'+fmt(delta)+'</b></td></tr>';
  }).join("");
- return '<div class="page-intro"><div><h2>Análise de estoque</h2><p>Projeção de venda dos próximos 11 dias. Saldo = estoque + a receber − projetado.</p></div></div><div class="section-tabs">'+tabs+'</div><div class="table-wrap analysis-table-wrap"><table class="analysis-table"><thead><tr><th>Produto</th><th>Estoque</th><th>A receber</th><th>Projetado (11 dias)</th><th>Saldo</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+ const legend='<div class="analysis-legend"><span><i class="analysis-dot healthy"></i> Saudável</span><span><i class="analysis-dot warning"></i> Atenção</span><span><i class="analysis-dot danger"></i> Crítico</span><span><i class="analysis-dot pending"></i> Pendente</span></div>';
+ return '<div class="page-intro"><div><h2>Análise de estoque</h2><p>Todos os produtos cadastrados. Projetado = necessidade dos próximos 11 dias. Saldo = estoque + a receber − projetado.</p></div></div>'+legend+'<div class="table-wrap analysis-table-wrap"><table class="analysis-table"><thead><tr><th>Produto</th><th>Estoque</th><th>A receber</th><th>Projetado (11 dias)</th><th>Saldo</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
 }
 function orders(){let c=cycles[cycle],list=products.filter(p=>c[2].includes(p.category));return '<div class="page-intro"><div><h2>Pedidos</h2><p>Escolha o ciclo e confira as quantidades sugeridas.</p></div></div><div class="section-tabs">'+Object.entries(cycles).map(([id,x])=>'<button class="category-tab '+(id===cycle?"active":"")+'" data-cycle="'+id+'">'+x[0]+'</button>').join("")+'</div><div class="table-wrap"><table><thead><tr><th>Produto</th><th>MTC</th><th>Necessidade</th><th>Estoque</th><th>A receber</th><th>Sugerido</th></tr></thead><tbody>'+list.map(p=>'<tr><td>'+p.name+'</td><td><button class="mtc-link" data-mtc="'+p.id+'">'+(p.mtc==null?"Definir MTC":fmt(p.mtc)+" ✎")+'</button></td><td>'+fmt(need(p))+'</td><td>'+fmt(stock(p).stock)+'</td><td>'+fmt(stock(p).incoming)+'</td><td><b>'+(p.mtc==null?"—":fmt(qty(p)))+'</b></td></tr>').join("")+'</tbody></table></div><div class="card" style="margin-top:14px"><b>'+c[0]+' · '+c[1]+'</b> <button class="btn primary" id="save-order">Registrar pedido</button></div>'}
 function history(){return '<div class="page-intro"><div><h2>Histórico</h2><p>Pedidos e alterações registrados neste dispositivo.</p></div></div>'+(data.orders.length?data.orders.slice().reverse().map(o=>'<section class="card" style="margin-bottom:9px"><b>'+o.category+'</b><p>'+new Date(o.date).toLocaleString("pt-BR")+' · '+o.items+' produtos</p></section>').join(""):'<div class="card empty">Nenhum pedido registrado.</div>')+data.audit.slice(0,30).map(a=>'<section class="audit-row"><b>'+a.action+'</b><small>'+a.detail+' · '+new Date(a.date).toLocaleString("pt-BR")+'</small></section>').join("")}
