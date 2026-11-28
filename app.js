@@ -115,8 +115,21 @@ function adminShell(content){
  if(isPorter())return '<section class="porter-workspace"><header class="porter-workspace-head"><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></header><div class="admin-content">'+content+'</div></section>';
  return '<div class="admin-workspace"><aside class="admin-sidebar"><div class="admin-brand"><div><b>Gestão Administrativa</b><small>Planejamento e controle</small></div></div><button class="admin-return" data-page="overview">‹ Voltar ao Pedido IPM</button><div class="admin-nav-label">MENU ADMINISTRATIVO</div><button class="admin-side-link '+(page==="admin_overview"?"active":"") +'" data-page="admin_overview"><span class="admin-icon">'+navIcon("home")+'</span>Visão geral</button><button class="admin-side-link '+(page==="admin_projections"?"active":"")+'" data-page="admin_projections"><span class="admin-icon">'+navIcon("layers")+'</span>Projeções</button><button class="admin-side-link '+(page==="admin_agua_luz"?"active":"")+'" data-page="admin_agua_luz"><span class="admin-icon">'+navIcon("water")+'</span>Controle de Água e Luz</button><button class="admin-side-link ${page==="admin_gastos"?"active":""}" data-page="admin_gastos"><span class="admin-icon">'+navIcon("wallet")+'</span>Gastos</button><div class="admin-side-bottom">Ambiente administrativo</div></aside><section class="admin-main"><header class="admin-topbar"><button class="admin-menu-toggle" type="button" aria-label="Abrir menu administrativo" aria-expanded="false" data-admin-menu-toggle><span></span><span></span><span></span></button><div class="admin-topbar-title"><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></div><button class="admin-return-mobile" data-page="overview">‹ Pedido IPM</button></header><div class="admin-menu-backdrop" data-admin-menu-close></div><div class="admin-content">'+content+'</div></section></div>';
 }
+function projectionIcon(id){
+ const paths={
+  uniform:'<path d="m8 4 4 2 4-2 5 3-2 4-3-1v10H8V10l-3 1-2-4 5-3Z"/><path d="m9 5 3 4 3-4"/>',
+  utensils:'<path d="M7 3v7M4 3v4a3 3 0 0 0 6 0V3M7 10v11M16 3v18M16 3c3 2 4 5 4 8h-4"/>',
+  intermitentes:'<circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0M8 14l4 3 4-3"/>',
+  mercado_livre:'<path d="M4 8h16l-1 13H5L4 8Z"/><path d="M8 8a4 4 0 0 1 8 0M8 14c1.5-2 6.5-2 8 0M9 16l3-2 3 2"/>',
+  manutencao:'<path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-4 3-3Z"/><path d="m15 15 5 5"/>',
+  projecao_agua_luz:'<path d="M12 3S6 9 6 14a6 6 0 0 0 12 0c0-5-6-11-6-11Z"/><path d="m14 11 5-5m-2 0h2v2"/>',
+  consumo:'<path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 6-7"/><path d="M16 6h4v4"/>'
+ };
+ const path=paths[id]||'<path d="m4 12 5 5L20 6"/>';
+ return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+path+'</g></svg>';
+}
 function adminPanel(){
- const cards=projectionModules.map(([id,title,subtitle])=>'<button class="admin-module-card" data-admin-module="'+id+'"><span class="admin-module-icon">'+"↗"+'</span><span class="admin-module-copy"><b>'+title+'</b><small>'+subtitle+'</small></span><span class="admin-module-arrow">›</span></button>').join("");
+ const cards=projectionModules.map(([id,title,subtitle])=>'<button class="admin-module-card" data-admin-module="'+id+'"><span class="admin-module-icon">'+projectionIcon(id)+'</span><span class="admin-module-copy"><b>'+title+'</b><small>'+subtitle+'</small></span><span class="admin-module-arrow">›</span></button>').join("");
  return adminShell('<div class="page-intro admin-page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>Projeções</h2><p>Escolha uma projeção para consultar e acompanhar os controles administrativos da unidade.</p></div></div><div class="admin-module-grid">'+cards+'</div>');
 }
 
