@@ -54,7 +54,7 @@ function adminShell(content){
  return '<div class="admin-workspace"><aside class="admin-sidebar"><div class="admin-brand"><div><b>Gestão Administrativa</b><small>Planejamento e controle</small></div></div><button class="admin-return" data-page="overview">‹ Voltar ao Pedido IPM</button><div class="admin-nav-label">MENU ADMINISTRATIVO</div><button class="admin-side-link '+(page==="admin_projections"?"active":"")+'" data-page="admin_projections"><span>▦</span>Projeções</button><div class="admin-side-bottom">Ambiente administrativo</div></aside><section class="admin-main"><header class="admin-topbar"><div><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></div><button class="admin-return-mobile" data-page="overview">‹ Pedido IPM</button></header><div class="admin-content">'+content+'</div></section></div>';
 }
 function adminPanel(){
- const cards=projectionModules.map(([id,title,subtitle])=>'<button class="admin-module-card" data-admin-module="'+id+'"><span class="admin-module-icon">'+(id==="gastos"?"R$":"↗")+'</span><span class="admin-module-copy"><b>'+title+'</b><small>'+subtitle+'</small></span><span class="admin-module-arrow">›</span></button>').join("");
+ const cards=projectionModules.map(([id,title,subtitle])=>'<button class="admin-module-card" data-admin-module="'+id+'"><span class="admin-module-icon">'+"↗"+'</span><span class="admin-module-copy"><b>'+title+'</b><small>'+subtitle+'</small></span><span class="admin-module-arrow">›</span></button>').join("");
  return adminShell('<div class="page-intro admin-page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>Projeções</h2><p>Escolha uma projeção para consultar e acompanhar os controles administrativos da unidade.</p></div></div><div class="admin-module-grid">'+cards+'</div>');
 }
 function adminModulePage(){
@@ -78,7 +78,7 @@ function render(){
  document.querySelectorAll(".header-shortcut").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
  $("#today-label").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
- $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
+ $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
  $("#content").innerHTML=pageViews[page]();
  wire();wireAdmin();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
