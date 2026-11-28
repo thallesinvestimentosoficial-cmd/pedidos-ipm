@@ -1430,3 +1430,12 @@ body{background:#e9eef2}
  .admin-overview-hero{padding:22px;gap:14px}
  .admin-reference-month{flex-basis:195px}
 }
+
+
+/* Seletor de mês — Gastos do restaurante */
+.page-intro:has(.expense-month-picker){display:flex;align-items:center;justify-content:space-between;gap:22px}
+.expense-month-picker{position:relative;display:flex;flex-direction:column;gap:9px;flex:0 0 250px;min-width:220px;padding:15px 17px 16px 48px;border:1px solid #d6e5ee;border-radius:16px;background:linear-gradient(145deg,#fff 0%,#f2f8fc 100%);box-shadow:0 8px 24px #203b5510,inset 0 1px 0 #fff;color:#52677b;font-size:10px;font-weight:850;letter-spacing:.75px;text-transform:uppercase}
+.expense-month-picker:before{content:"";position:absolute;left:15px;top:19px;width:23px;height:23px;border-radius:8px;background:#e1f3fb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23178bb8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M16 3v4M8 3v4M3 10h18'/%3E%3C/svg%3E") center/15px no-repeat}
+.expense-month-picker input{width:100%;height:38px;padding:0 10px;border:1px solid #d8e5ed;border-radius:9px;background:#fff;color:#20384c;font:700 13px inherit;letter-spacing:0;text-transform:none;box-shadow:inset 0 1px 2px #18364b08;cursor:pointer}
+.expense-month-picker input:focus{outline:3px solid #d7f0fa;border-color:#62b8d9}
+@media(max-width:650px){.page-intro:has(.expense-month-picker){align-items:stretch;flex-direction:column;gap:14px}.expense-month-picker{flex:initial;width:100%;min-width:0;padding:13px 14px 14px 47px}.expense-month-picker:before{top:17px}}
