@@ -42,7 +42,7 @@ function settingsPage(){
  '<div class="settings-grid">'+
  ((admin||gp)?'<button class="card settings-link" data-page="products"><span><b>Produtos</b><small>Editar produtos, MTC, embalagens e categorias</small></span><span>›</span></button>':'')+
  '<button class="card settings-link" data-page="orders"><span><b>Pedidos</b><small>Consultar e editar ciclos e pedidos</small></span><span>›</span></button>'+
- '<button class="card settings-link" data-page="history"><span><b>Histórico</b><small>Consultar pedidos e registros de alterações</small></span><span>›</span></button>'+
+ (admin?'<button class="card settings-link" data-page="history"><span><b>Histórico</b><small>Consultar pedidos e registros de alterações</small></span><span>›</span></button>':'')+
  (admin?'<button class="card settings-link" data-page="users"><span><b>Gerenciar usuários</b><small>Criar, editar, ativar ou excluir usuários</small></span><span>›</span></button>':'')+
  '</div>';
 }
