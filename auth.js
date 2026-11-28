@@ -4,7 +4,7 @@
   const STORAGE_KEY = "pedidos-ipm-session";
   const $ = (s) => document.querySelector(s);
   let session = null;
-  const roleNames = { admin: "Administrador", manager: "Gerente", viewer: "Visualizador" };
+  const roleNames = { admin: "GUN", gun: "GUN", manager: "Gerente de Plantão", gp: "Gerente de Plantão", viewer: "Supervisor", supervisor_diaria: "Supervisor Diária", supervisor_quiosque: "Supervisor Quiosque", treinador: "Treinador" };
   function initials(name) {
     return String(name || "IP").trim().split(/\s+/).slice(0,2).map(x => x[0] || "").join("").toUpperCase();
   }
