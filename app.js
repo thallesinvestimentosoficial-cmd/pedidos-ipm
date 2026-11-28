@@ -103,6 +103,7 @@ function wireAdmin(){
 
 function adminShell(content){
  const heading=page==="admin_projections"?"Projeções":page==="admin_agua_luz"?"Controle de Água e Luz":(projectionModules.find(x=>"admin_"+x[0]===page)?.[1]||"Gestão Administrativa");
+ if(isPorter())return '<section class="porter-workspace"><header class="porter-workspace-head"><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></header><div class="admin-content">'+content+'</div></section>';
  return '<div class="admin-workspace"><aside class="admin-sidebar"><div class="admin-brand"><div><b>Gestão Administrativa</b><small>Planejamento e controle</small></div></div><button class="admin-return" data-page="overview">‹ Voltar ao Pedido IPM</button><div class="admin-nav-label">MENU ADMINISTRATIVO</div><button class="admin-side-link '+(page==="admin_projections"?"active":"")+'" data-page="admin_projections"><span>▦</span>Projeções</button><button class="admin-side-link '+(page==="admin_agua_luz"?"active":"")+'" data-page="admin_agua_luz"><span>◷</span>Controle de Água e Luz</button><div class="admin-side-bottom">Ambiente administrativo</div></aside><section class="admin-main"><header class="admin-topbar"><div><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></div><button class="admin-return-mobile" data-page="overview">‹ Pedido IPM</button></header><div class="admin-content">'+content+'</div></section></div>';
 }
 function adminPanel(){
@@ -268,12 +269,12 @@ function adminModulePage(){
 
 function render(){
  const role=window.IPM_AUTH?.profile?.role||"viewer";
- const visibleNav=isGun()?nav:isGp()?nav.filter(x=>["overview","inputs","count","other_orders","analysis","settings","profile"].includes(x[0])):nav.filter(x=>["overview","count","other_orders","analysis","profile"].includes(x[0]));
+ const visibleNav=isPorter()?[["profile","Perfil","profile"]]:isGun()?nav:isGp()?nav.filter(x=>["overview","inputs","count","other_orders","analysis","settings","profile"].includes(x[0])):nav.filter(x=>["overview","count","other_orders","analysis","profile"].includes(x[0]));
  const pageTitles={admin_projections:"Projeções",admin_gastos:"Lançamentos de Despesas",products:"Produtos",orders:"Pedidos",history:"Histórico",users:"Gerenciar usuários",profile:"Perfil",settings:"Configurações",other_orders:"Coca-Cola"};
  const pageViews={admin_projections:adminPanel,admin_uniform:adminModulePage,admin_utensils:adminModulePage,admin_intermitentes:adminModulePage,admin_mercado_livre:adminModulePage,admin_agua_luz:adminModulePage,admin_manutencao:adminModulePage,admin_gastos:adminModulePage,overview,products:productsPage,inputs,count:countPage,other_orders:otherOrders,analysis,orders,history,settings:settingsPage,profile:profilePage,users:usersSettingsPage};
  const deniedSupervisor=["inputs","settings","products","orders","history","users"].includes(page);
  const deniedGp=["history","users"].includes(page);
- if(isPorter()&&page!=="admin_agua_luz")page="admin_agua_luz";
+ if(isPorter()&&!["admin_agua_luz","profile"].includes(page))page="admin_agua_luz";
  if((page==="admin_projections"||page.startsWith("admin_"))&&!isGun()&&!isPorter()&&!(isGp()&&page==="admin_agua_luz"))page="overview";
  if(!pageViews[page]||(isSupervisor()&&deniedSupervisor)||(isGp()&&deniedGp)||(!isGun()&&!isGp()&&["products","orders"].includes(page)))page="overview";
  $("#app-shell").classList.toggle("admin-mode",page==="admin_projections"||page.startsWith("admin_"));
@@ -281,7 +282,7 @@ function render(){
  document.querySelectorAll(".header-shortcut").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
  $("#today-label").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
- $("#side-nav").innerHTML=isPorter()?"":links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
+ $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
  $("#content").innerHTML=pageViews[page]();
  wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireWaterLight();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
@@ -302,13 +303,13 @@ function settingsPage(){
 function profilePage(){
  const p=window.IPM_AUTH?.profile||{},role=p.role||"viewer";
  const names={admin:"GUN",gun:"GUN",manager:"Gerente de Plantão",gp:"Gerente de Plantão",viewer:"Supervisor",supervisor_diaria:"Supervisor Diária",supervisor_quiosque:"Supervisor Quiosque",treinador:"Treinador",porteiro:"Porteiro"};
- const permissions=isGun()?["Visão geral","Inputs","Pedidos 1.0","Coca-Cola","Análise","Configurações","Produtos","Pedidos","Histórico","Gerenciar usuários","Perfil"]:isGp()?["Visão geral","Inputs","Pedidos 1.0","Coca-Cola","Análise","Configurações","Produtos","Pedidos","Perfil"]:["Visão geral","Pedidos 1.0 (somente visualizar)","Coca-Cola (somente visualizar)","Análise (somente visualizar)","Perfil"];
+ const permissions=isPorter()?[]:isGun()?["Visão geral","Inputs","Pedidos 1.0","Coca-Cola","Análise","Configurações","Produtos","Pedidos","Histórico","Gerenciar usuários","Perfil"]:isGp()?["Visão geral","Inputs","Pedidos 1.0","Coca-Cola","Análise","Configurações","Produtos","Pedidos","Perfil"]:["Visão geral","Pedidos 1.0 (somente visualizar)","Coca-Cola (somente visualizar)","Análise (somente visualizar)","Perfil"];
  const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
  const avatar=p.avatar_url?'<img src="'+p.avatar_url+'" alt="Foto de perfil">':esc((p.display_name||p.username||"IP").trim().split(/\\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase());
- return '<div class="page-intro"><div><h2>Meu perfil</h2><p>Seus dados, segurança e permissões de acesso.</p></div></div>'+
- '<section class="card profile-card"><div class="profile-identity"><div class="profile-avatar">'+avatar+'</div><div><h3>'+esc(p.display_name||p.username||"Usuário")+'</h3><p>@'+esc(p.username||"")+' · '+(names[role]||"Usuário")+'</p><label class="btn secondary profile-upload">Alterar foto<input id="profile-photo" type="file" accept="image/png,image/jpeg,image/webp" hidden></label></div></div></section>'+
+ return '<div class="page-intro"><div><h2>Meu perfil</h2><p>'+(isPorter()?"Altere sua senha de acesso.":"Seus dados, segurança e permissões de acesso.")+'</p></div></div>'+
+ (isPorter()?"":'<section class="card profile-card"><div class="profile-identity"><div class="profile-avatar">'+avatar+'</div><div><h3>'+esc(p.display_name||p.username||"Usuário")+'</h3><p>@'+esc(p.username||"")+' · '+(names[role]||"Usuário")+'</p><label class="btn secondary profile-upload">Alterar foto<input id="profile-photo" type="file" accept="image/png,image/jpeg,image/webp" hidden></label></div></div></section>')+
  '<section class="card profile-card"><h3>Segurança da conta</h3><p class="profile-help">Informe a senha atual para confirmar a alteração.</p><form id="profile-password-form" class="profile-form"><label>Senha atual<input name="current_password" type="password" autocomplete="current-password" required></label><label>Nova senha<input name="new_password" type="password" minlength="8" autocomplete="new-password" required></label><label>Confirmar nova senha<input name="confirm_password" type="password" minlength="8" autocomplete="new-password" required></label><button class="btn primary" type="submit">Alterar senha</button></form></section>'+
- '<section class="card profile-card"><div class="profile-role"><div><h3>Cargo e permissões</h3><p>As permissões são definidas pelo GUN e não podem ser alteradas pelo próprio usuário.</p></div><span class="pill blue">'+(names[role]||"Usuário")+'</span></div><div class="permission-list">'+permissions.map(label=>'<div class="permission-row"><span class="permission-check">✓</span><span>'+label+'</span></div>').join("")+'</div></section>';
+ (isPorter()?"":'<section class="card profile-card"><div class="profile-role"><div><h3>Cargo e permissões</h3><p>As permissões são definidas pelo GUN e não podem ser alteradas pelo próprio usuário.</p></div><span class="pill blue">'+(names[role]||"Usuário")+'</span></div><div class="permission-list">'+permissions.map(label=>'<div class="permission-row"><span class="permission-check">✓</span><span>'+label+'</span></div>').join("")+'</div></section>');
 }
 async function updateOwnProfile(values){
  const send=async token=>fetch("https://pthjfsjqkhzwqibvywxv.supabase.co/rest/v1/profiles?user_id=eq."+authUserId(),{method:"PATCH",headers:{apikey:"sb_publishable_7NzwxzFq7-KI0W1wsfPxRA_6oX5bFUg",Authorization:"Bearer "+token,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({...values,updated_at:new Date().toISOString()})});
