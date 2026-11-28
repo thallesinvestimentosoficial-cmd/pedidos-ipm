@@ -9,6 +9,7 @@
     return String(name || "IP").trim().split(/\s+/).slice(0,2).map(x => x[0] || "").join("").toUpperCase();
   }
   function showLogin(message = "") {
+    document.getElementById("forced-password-reset")?.remove();
     $("#login-screen").hidden = false;
     $("#app-shell").hidden = true;
     $("#login-error").textContent = message;
@@ -46,8 +47,54 @@
     if (topRole) topRole.textContent = displayRole;
     document.dispatchEvent(new CustomEvent("ipm:authenticated"));
   }
+  function continueAfterLogin(profile) {
+    if (profile.force_password_reset) return showForcedPasswordReset(profile);
+    continueAfterLogin(profile);
+  }
+  function showForcedPasswordReset(profile) {
+    $("#login-screen").hidden = true;
+    $("#app-shell").hidden = true;
+    document.getElementById("forced-password-reset")?.remove();
+    const screen = document.createElement("section");
+    screen.id = "forced-password-reset";
+    screen.className = "password-reset-screen";
+    screen.innerHTML = '<div class="password-reset-card"><div class="password-reset-symbol">🔐</div><span class="password-reset-eyebrow">SEGURANÇA DA CONTA</span><h1>Crie uma nova senha</h1><p>O GUN solicitou a redefinição da sua senha. Para continuar, cadastre uma nova senha agora.</p><div class="password-reset-user"></div><form id="forced-password-reset-form"><label>Nova senha<input name="new_password" type="password" minlength="8" maxlength="128" autocomplete="new-password" required placeholder="Mínimo de 8 caracteres"></label><label>Confirme a nova senha<input name="confirm_password" type="password" minlength="8" maxlength="128" autocomplete="new-password" required placeholder="Digite novamente a senha"></label><p id="forced-password-reset-error" class="password-reset-error" role="alert"></p><button class="btn primary" type="submit">Salvar nova senha e continuar</button></form><small class="password-reset-note">A área do aplicativo ficará bloqueada até concluir esta etapa.</small></div>';
+    document.body.appendChild(screen);
+    screen.querySelector(".password-reset-user").textContent = profile.display_name || profile.username || "Usuário";
+    screen.querySelector("#forced-password-reset-form").addEventListener("submit", async event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const values = new FormData(form);
+      const password = String(values.get("new_password") || "");
+      const confirmPassword = String(values.get("confirm_password") || "");
+      const button = form.querySelector("button");
+      const errorBox = screen.querySelector("#forced-password-reset-error");
+      errorBox.textContent = "";
+      if (password.length < 8) { errorBox.textContent = "A nova senha deve ter pelo menos 8 caracteres."; return; }
+      if (password !== confirmPassword) { errorBox.textContent = "As senhas não conferem."; return; }
+      button.disabled = true;
+      button.textContent = "Salvando senha...";
+      try {
+        const response = await fetch(SUPABASE_URL + "/functions/v1/user-admin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY, Authorization: "Bearer " + session.access_token },
+          body: JSON.stringify({ action: "complete_password_reset", new_password: password })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Não foi possível alterar a senha.");
+        profile.force_password_reset = false;
+        screen.remove();
+        showApp(profile);
+      } catch (error) {
+        errorBox.textContent = error.message || "Não foi possível salvar a nova senha. Tente novamente.";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Salvar nova senha e continuar";
+      }
+    });
+  }
   async function loadProfile(accessToken) {
-    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url&limit=1", {
+    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url,force_password_reset&limit=1", {
       headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + accessToken }
     });
     if (!r.ok) throw new Error("Não foi possível validar o perfil.");
