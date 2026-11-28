@@ -118,8 +118,8 @@ function loadUtensilCatalog(){
  return utensilCatalogPromise;
 }
 function utensilCatalog(){return data.adminUtensilsCatalog||[]}
-function utensilTotal(d){return utensilCatalog().reduce((sum,p)=>sum+n(d.quantities?.[p.id])*n(p.unitPrice),0)+utensilSuppliers.reduce((sum,s)=>sum+n(d.freight?.[s]),0)}
-function utensilSupplierTotal(d,s){return utensilCatalog().filter(p=>p.supplier===s).reduce((sum,p)=>sum+n(d.quantities?.[p.id])*n(p.unitPrice),0)+n(d.freight?.[s])}
+function utensilTotal(d){return utensilCatalog().reduce((sum,p)=>sum+n(d.quantities?.[p.id])*n(p.unitPrice),0)}
+function utensilSupplierTotal(d,s){return utensilCatalog().filter(p=>p.supplier===s).reduce((sum,p)=>sum+n(d.quantities?.[p.id])*n(p.unitPrice),0)}
 function utensilNewDraft(p){const cat=utensilCatalog();return p?{...p,quantities:{...(p.quantities||{})},freight:{...(p.freight||{})}}:{id:"utensil-"+Date.now(),month:new Date().getMonth()+1,year:new Date().getFullYear(),quantities:Object.fromEntries(cat.map(x=>[x.id,0])),freight:Object.fromEntries(utensilSuppliers.map(x=>[x,0]))}}
 function utensilPage(){
  if(!data.adminUtensilsCatalog){loadUtensilCatalog().then(()=>{if(page==="admin_utensils")render()});return adminShell('<section class="card utensil-empty"><h3>Preparando catálogo de utensílios...</h3><p>Carregando os produtos e valores da planilha original.</p></section>')}
