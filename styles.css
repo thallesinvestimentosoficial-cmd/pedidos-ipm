@@ -1012,3 +1012,28 @@ input,select,textarea{max-width:100%}
 .wl-highlights strong{font-size:17px;color:#17243a}
 .wl-highlights span{font-size:11px;color:#637187}
 @media(max-width:600px){.wl-analysis{padding:13px}.wl-highlights{grid-template-columns:1fr}}
+
+
+/* Gastos por linha: cartões organizados com mini gráfico lateral */
+.expense-line-grid{grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.expense-line-card{display:grid;grid-template-columns:minmax(0,1fr) 64px;align-items:center;gap:16px;padding:15px 16px;min-height:142px}
+.expense-line-main{min-width:0}
+.expense-line-top{gap:9px;margin-bottom:13px}
+.expense-line-top>b{min-width:0}
+.expense-mini-chart{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;padding:8px 5px;background:#f7f9fc;border:1px solid #edf0f4;border-radius:10px}
+.expense-mini-bars{height:66px;width:100%;display:flex;align-items:flex-end;justify-content:center;gap:8px;border-bottom:1px solid #dce3ec;padding:0 7px}
+.expense-mini-bar{display:block;width:13px;min-height:3px;border-radius:4px 4px 0 0}
+.expense-mini-bar.budget{background:#aab6c5}
+.expense-mini-bar.actual{background:#d92732}
+.expense-mini-labels{width:100%;display:flex;justify-content:space-around;gap:3px}
+.expense-mini-labels small{font-size:8px;color:#77869a;font-weight:750}
+.expense-line-values{gap:8px}
+.expense-line-values strong{font-size:11px}
+@media(max-width:520px){
+ .expense-line-grid{grid-template-columns:1fr;gap:10px}
+ .expense-line-card{grid-template-columns:minmax(0,1fr) 58px;gap:12px;padding:13px;min-height:132px}
+ .expense-mini-bars{height:58px}
+ .expense-line-values{gap:4px}
+ .expense-line-values strong{font-size:10px}
+}
+@media print{.expense-line-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}.expense-line-card{grid-template-columns:minmax(0,1fr) 56px;padding:9px;min-height:0}}
