@@ -992,3 +992,23 @@ input,select,textarea{max-width:100%}
 .wl-report>span:last-child{font-size:10px;color:#7b8798}
 .wl-note{font-size:10px;color:#8490a0;margin:12px 2px}
 @media(max-width:600px){.wl-entry{padding:13px}.wl-entry-head{align-items:stretch;flex-direction:column}.wl-entry-head input{width:100%}.wl-fields{grid-template-columns:1fr;gap:9px}.wl-form-actions .btn{width:100%}.wl-reports{grid-template-columns:1fr}.wl-report{padding:14px}.wl-choice button{padding:12px}}
+
+/* Menu administrativo: controles separados das projeções */
+.admin-side-link{display:flex;align-items:center;gap:10px;width:100%;text-align:left}
+.admin-side-link.active{background:#fff1f1;color:#c9232d;font-weight:850}
+.wl-analysis{padding:18px;margin-top:13px}
+.wl-analysis h3{font-size:17px;margin:5px 0}
+.wl-analysis p{font-size:11px;color:#8190a2;margin:4px 0}
+.wl-chart-wrap{margin:12px 0 4px;overflow:hidden}
+.wl-chart{display:block;width:100%;height:auto;max-height:250px}
+.wl-chart-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:10px;color:#8190a2}
+.wl-chart-legend span{display:flex;align-items:center;gap:6px}
+.wl-chart-legend i{display:inline-block;width:16px;height:3px;background:#d92732;border-radius:4px}
+.wl-chart-legend span+span i{background:#e0a12b}
+.wl-chart-empty{padding:22px;text-align:center;background:#f5f7fa;border-radius:10px}
+.wl-highlights{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.wl-highlights article{display:grid;gap:5px;background:#f6f8fb;border-radius:10px;padding:13px}
+.wl-highlights small{font-size:10px;color:#8190a2}
+.wl-highlights strong{font-size:17px;color:#17243a}
+.wl-highlights span{font-size:11px;color:#637187}
+@media(max-width:600px){.wl-analysis{padding:13px}.wl-highlights{grid-template-columns:1fr}}
