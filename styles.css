@@ -1549,3 +1549,22 @@ body{background:#e9eef2}
 .overview-coca-summary{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid #edf0f5;font-size:11px;color:#66748a}
 .overview-coca-summary b{color:#172943;font-size:15px;margin-right:4px}
 .legend-excess{display:inline-block;width:15px;height:3px;background:#e3a329;border-radius:3px}
+
+/* Coca-Cola: indicadores compactos por produto */
+.overview-coca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.overview-coca-item{display:flex;align-items:center;gap:10px;min-width:0;padding:9px 10px;border:1px solid #e8edf4;border-radius:12px;background:#fbfcfe}
+.overview-coca-donut{position:relative;flex:0 0 48px;width:48px;height:48px;display:grid;place-items:center}
+.overview-coca-donut svg{position:absolute;inset:0;width:48px;height:48px}
+.coca-donut-track,.coca-donut-value{fill:none;stroke-width:5}
+.coca-donut-track{stroke:#e8edf4}
+.coca-donut-value{stroke:#22b8a7;stroke-linecap:round}
+.overview-coca-donut b{font-size:10px;color:#253750;font-variant-numeric:tabular-nums}
+.overview-coca-item-info{display:grid;gap:3px;min-width:0}
+.overview-coca-item-info>strong{font-size:11px;color:#26364d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.overview-coca-item-info>span{font-size:9px;color:#718096;white-space:nowrap}
+.overview-coca-item-info>span b{color:#33445c}
+.overview-coca-item-info>small{font-size:9px;font-weight:700}
+.overview-coca-item-info .is-over{color:#b77912}
+.overview-coca-item-info .is-short{color:#c13b4a}
+.overview-coca-item-info .is-balanced{color:#27836c}
+@media(max-width:650px){.overview-coca-grid{grid-template-columns:1fr}.overview-coca-item{padding:8px 10px}}
