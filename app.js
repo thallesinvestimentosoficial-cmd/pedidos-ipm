@@ -7,7 +7,8 @@ let cloudReady=false,cloudSaving=Promise.resolve(),cloudUpdatedAt=null;
 const authToken=()=>window.IPM_AUTH?.session?.access_token||"";
 const authUserId=()=>{try{return JSON.parse(atob(authToken().split(".")[1].replace(/-/g,"+").replace(/_/g,"/"))).sub||null}catch{return null}};
 async function cloudRequest(path,options={}){const token=authToken();if(!token)throw new Error("Sessão não autenticada");const r=await fetch("https://pthjfsjqkhzwqibvywxv.supabase.co/rest/v1/"+path,{...options,headers:{apikey:"sb_publishable_7NzwxzFq7-KI0W1wsfPxRA_6oX5bFUg",Authorization:"Bearer "+token,"Content-Type":"application/json",...(options.headers||{})}});if(!r.ok){const msg=await r.text();throw new Error("Falha na sincronização ("+r.status+"): "+msg.slice(0,180))}return r.status===204?null:r.json().catch(()=>null)}
-async function writeCloudState(){const uid=authUserId();if(!uid||!cloudReady)return;const payload={data,products};await cloudRequest("app_state?on_conflict=id",{method:"POST",headers:{Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({id:"restaurante-ipm",payload,updated_by:uid,updated_at:new Date().toISOString()})})}
+async function writeCloudState(){const uid=authUserId();if(!uid||!cloudReady)return;const stamp=new Date().toISOString(),payload={data,products};await cloudRequest("app_state?on_conflict=id",{method:"POST",headers:{Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({id:"restaurante-ipm",payload,updated_by:uid,updated_at:stamp})});cloudUpdatedAt=stamp}
+async function pullCloudState(){if(!cloudReady||countDirtyCategories.size||document.activeElement?.matches("input,textarea,select"))return;try{const rows=await cloudRequest("app_state?select=payload,updated_at&id=eq.restaurante-ipm");if(!rows?.length||!rows[0].payload||rows[0].updated_at===cloudUpdatedAt)return;const remote=rows[0].payload;data={...{gc:{},counts:{},orders:[],audit:[],countSaved:{}},...(remote.data||{})};data.audit??=[];data.orders??=[];data.gc??={};data.counts??={};data.countSaved??={};const base=await fetch("./products.json",{cache:"no-store"}).then(r=>r.json());products=mergeProducts(base,remote.products);cloudUpdatedAt=rows[0].updated_at;localStorage.setItem("pedidos-ipm",JSON.stringify(data));localStorage.setItem("pedidos-ipm-products",JSON.stringify(products));render()}catch(e){console.warn("Atualização remota adiada:",e)}}
 const save=()=>{localStorage.setItem("pedidos-ipm",JSON.stringify(data));if(products.length)localStorage.setItem("pedidos-ipm-products",JSON.stringify(products));if(cloudReady){cloudSaving=cloudSaving.then(writeCloudState).catch(e=>{console.error("Pedido IPM cloud sync:",e);toast("Salvo neste aparelho. Falha ao sincronizar com a nuvem.")})}};
 const n=v=>Number(v||0),fmt=v=>n(v).toLocaleString("pt-BR",{maximumFractionDigits:2});
 const dateKey=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");
@@ -124,6 +125,9 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&menuOpen)closeMenu(
 window.addEventListener("beforeunload",e=>{if(page==="count"&&countDirtyCategories.size){e.preventDefault();e.returnValue="Você tem alterações na contagem que ainda não foram salvas."}});
 window.addEventListener("resize",()=>{if(window.innerWidth>700&&menuOpen)closeMenu()});
 document.addEventListener("ipm:authenticated",startApp);
+window.addEventListener("focus",pullCloudState);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)pullCloudState()});
+setInterval(pullCloudState,20000);
 if(window.IPM_AUTH?.session?.access_token) startApp();
 if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js");
 let deferred;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;$("#install-btn").hidden=false});$("#install-btn").onclick=async()=>{if(deferred){deferred.prompt();deferred=null}};
