@@ -1204,3 +1204,73 @@ input,select,textarea{max-width:100%}
  .admin-topbar h1{font-size:16px}
  .admin-content{padding-left:10px;padding-right:10px}
 }
+
+
+/* Visão geral · cartões mais organizados e identidade grafite/ciano */
+:root{
+ --overview-ink:#263545;
+ --overview-muted:#687989;
+ --overview-surface:#ffffff;
+ --overview-canvas:#e9eef2;
+ --overview-border:#dce4e9;
+ --overview-cyan:#55c7c5;
+}
+body{background:#e9eef2}
+.app-shell{background:#e9eef2}
+.main-area{background:#e9eef2}
+.content{background:#e9eef2}
+.overview-welcome{
+ position:relative;display:flex;align-items:center;min-height:174px;
+ margin:18px 0 16px;padding:27px 30px;overflow:hidden;
+ border:1px solid #d9e4e9;border-radius:20px;
+ background:linear-gradient(115deg,#fff 0%,#f5f8fa 62%,#e7f4f4 100%);
+ box-shadow:0 10px 28px #2635450b;
+}
+.overview-welcome:before{
+ content:"";position:absolute;inset:0 auto 0 0;width:5px;
+ background:linear-gradient(180deg,#55c7c5,#7799a9);
+}
+.overview-welcome:after{
+ content:"";position:absolute;width:210px;height:210px;right:-65px;top:-95px;
+ border:28px solid #55c7c51c;border-radius:50%;pointer-events:none;
+}
+.overview-welcome-copy{position:relative;z-index:1;max-width:680px}
+.overview-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:9px;color:#168f98;font-size:10px;font-weight:900;letter-spacing:1.6px}
+.overview-welcome h2{margin:0 0 7px;color:#263545;font-size:27px;line-height:1.15;font-weight:850;letter-spacing:-.7px}
+.overview-welcome p{max-width:540px;margin:0 0 15px;color:#687989;font-size:13px;line-height:1.55}
+.overview-welcome .pill{display:inline-flex;padding:7px 11px;border:1px solid #d7e9eb;border-radius:999px;background:#eaf6f6;color:#287f87;font-size:10px;font-weight:850;letter-spacing:.35px}
+.overview-analytics{
+ margin:15px 0;padding:22px 23px;border:1px solid var(--overview-border);
+ border-radius:17px;background:var(--overview-surface);
+ box-shadow:0 6px 22px #2635450a;
+}
+.overview-section-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:17px}
+.overview-section-heading h3{margin:0;color:var(--overview-ink);font-size:17px;font-weight:800;letter-spacing:-.3px}
+.overview-section-heading p{margin:5px 0 0;color:var(--overview-muted);font-size:11px;line-height:1.5}
+.overview-section-heading .pill{flex:0 0 auto;background:#edf5f7;color:#397b83;border:1px solid #dcebed}
+.overview-chart-legend{display:flex;flex-wrap:wrap;gap:15px;margin:0 0 12px;color:#718191;font-size:10px}
+.overview-chart-legend i{border-radius:4px}
+.overview-chart-scroll,.overview-category-chart-scroll{padding:10px 8px 3px;border:1px solid #edf1f4;border-radius:12px;background:#fbfcfd}
+.overview-status-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.overview-status-row span{padding:8px 11px;border:1px solid #e5ebef;border-radius:9px;background:#f7f9fa;font-size:10px;font-weight:750}
+.overview-pie-layout{gap:22px;padding:12px 8px}
+.overview-pie-list{gap:8px}
+.overview-pie-legend{padding:9px 11px;border:1px solid #e9eef1;border-radius:9px;background:#fbfcfd}
+.overview-category-card{min-width:0}
+.overview-risk-item{padding:12px 13px;border:1px solid #e7edf0;border-radius:10px;background:#fbfcfd}
+.overview-empty{padding:18px;border:1px dashed #d5e0e6;border-radius:11px;background:#f8fafb;color:#718191}
+@media(max-width:700px){
+ .overview-welcome{min-height:0;margin:12px 0;padding:22px 19px;border-radius:15px}
+ .overview-welcome h2{font-size:23px}
+ .overview-welcome p{font-size:12px}
+ .overview-analytics{padding:16px 13px;margin:11px 0;border-radius:14px}
+ .overview-section-heading{flex-direction:column;gap:8px}
+ .overview-section-heading .pill{align-self:flex-start}
+ .overview-status-row{display:grid;grid-template-columns:1fr;gap:6px}
+ .overview-pie-layout{gap:12px}
+}
+@media(max-width:390px){
+ .overview-welcome{padding:19px 15px}
+ .overview-welcome h2{font-size:21px}
+ .overview-analytics{padding:14px 10px}
+}
