@@ -1338,3 +1338,10 @@ body{background:#e9eef2}
  .admin-return-mobile{margin-left:auto!important}
  .admin-menu-open .admin-menu-toggle{background:#ccebf1!important;border-color:#69c4d1!important}
 }
+
+/* Ícones modernos da navegação administrativa */
+.admin-side-link .admin-icon{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border:1px solid #d4e5ed;border-radius:10px;background:#f8fcfe;color:#62869a;transition:background .18s,color .18s,border-color .18s,transform .18s}
+.admin-side-link .admin-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.admin-side-link.active .admin-icon{color:#087f98;background:#d9f4f7;border-color:#9edce5}
+.admin-side-link:hover .admin-icon{transform:translateY(-1px);border-color:#9edce5}
+@media(max-width:760px){.admin-side-link .admin-icon{width:32px;height:32px;flex-basis:32px}.admin-side-link .admin-icon svg{width:18px;height:18px}}
