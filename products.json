@@ -3,181 +3,211 @@
     "id": "congelados-2",
     "category": "congelados",
     "name": "BACON",
-    "mtc": 12.72
+    "mtc": 12.72,
+    "packageSize": 504
   },
   {
     "id": "congelados-3",
     "category": "congelados",
     "name": "CARNE MCNUGGETS",
-    "mtc": 935.7
+    "mtc": 935.7,
+    "packageSize": 846
   },
   {
     "id": "congelados-4",
     "category": "congelados",
     "name": "CARNE QUARTERÃO",
-    "mtc": 677.97
+    "mtc": 677.97,
+    "packageSize": 120
   },
   {
     "id": "congelados-5",
     "category": "congelados",
     "name": "CARNE REGULAR",
-    "mtc": 1025.26
+    "mtc": 1025.26,
+    "packageSize": 384
   },
   {
     "id": "congelados-6",
     "category": "congelados",
     "name": "CARNE MCCHICKEN",
-    "mtc": 126.53
+    "mtc": 126.53,
+    "packageSize": 144
   },
   {
     "id": "congelados-7",
     "category": "congelados",
     "name": "CARNE DE JR",
-    "mtc": 89.99
+    "mtc": 89.99,
+    "packageSize": 224
   },
   {
     "id": "congelados-8",
     "category": "congelados",
     "name": "CARNE CRISPY",
-    "mtc": 0.43
+    "mtc": 0.43,
+    "packageSize": 84
   },
   {
     "id": "congelados-9",
     "category": "congelados",
     "name": "NACHO",
-    "mtc": 3.62
+    "mtc": 3.62,
+    "packageSize": 96
   },
   {
     "id": "congelados-10",
     "category": "congelados",
     "name": "PÃO DE QUEIJO",
-    "mtc": 4.71
+    "mtc": 4.71,
+    "packageSize": 200
   },
   {
     "id": "congelados-11",
     "category": "congelados",
     "name": "TORTA DE BANANA",
-    "mtc": 17.39
+    "mtc": 17.39,
+    "packageSize": 70
   },
   {
     "id": "congelados-12",
     "category": "congelados",
     "name": "TORTA DE MAÇÃ",
-    "mtc": 18.14
+    "mtc": 18.14,
+    "packageSize": 60
   },
   {
     "id": "congelados-13",
     "category": "congelados",
     "name": "POLPETONE QUEIJO",
-    "mtc": 2.45
+    "mtc": 2.45,
+    "packageSize": 72
   },
   {
     "id": "resfriados-2",
     "category": "resfriados",
     "name": "TIRAS DE ALFACE AMERICANA",
-    "mtc": 20.61
+    "mtc": 20.61,
+    "packageSize": 12
   },
   {
     "id": "resfriados-3",
     "category": "resfriados",
     "name": "QUEIJO FATIADO",
-    "mtc": 866.51
+    "mtc": 866.51,
+    "packageSize": 1280
   },
   {
     "id": "resfriados-4",
     "category": "resfriados",
     "name": "QUEIJO EMMENTAL",
-    "mtc": 254.71
+    "mtc": 254.71,
+    "packageSize": 1280
   },
   {
     "id": "resfriados-5",
     "category": "resfriados",
     "name": "CEBOLA PICADA",
-    "mtc": 1.52
+    "mtc": 1.52,
+    "packageSize": 8
   },
   {
     "id": "resfriados-6",
     "category": "resfriados",
     "name": "TOMATE 10KG",
-    "mtc": 52.71
+    "mtc": 52.71,
+    "packageSize": 50
   },
   {
     "id": "resfriados-7",
     "category": "resfriados",
     "name": "AGUA GARRAFA",
-    "mtc": 17.49
+    "mtc": 17.49,
+    "packageSize": 12
   },
   {
     "id": "resfriados-8",
     "category": "resfriados",
     "name": "AGUA COPO",
-    "mtc": 6.29
+    "mtc": 6.29,
+    "packageSize": 48
   },
   {
     "id": "resfriados-9",
     "category": "resfriados",
     "name": "GOTA",
-    "mtc": 0.82
+    "mtc": 0.82,
+    "packageSize": 5
   },
   {
     "id": "resfriados-10",
     "category": "resfriados",
     "name": "MOLHO CHEDDAR BISTU",
-    "mtc": 8.4
+    "mtc": 8.4,
+    "packageSize": 4
   },
   {
     "id": "resfriados-11",
     "category": "resfriados",
     "name": "MOLHO CHEDDAR BISNAGA",
-    "mtc": 1.87
+    "mtc": 1.87,
+    "packageSize": 4
   },
   {
     "id": "resfriados-12",
     "category": "resfriados",
     "name": "CASCÃO MCD",
-    "mtc": 97.23
+    "mtc": 97.23,
+    "packageSize": 240
   },
   {
     "id": "resfriados-13",
     "category": "resfriados",
     "name": "CASQUINHA VALLY",
-    "mtc": 235.39
+    "mtc": 235.39,
+    "packageSize": 648
   },
   {
     "id": "resfriados-14",
     "category": "resfriados",
     "name": "PETIT SUISSE",
-    "mtc": 100.05
+    "mtc": 100.05,
+    "packageSize": 144
   },
   {
     "id": "resfriados-15",
     "category": "resfriados",
     "name": "SUCO UVA TETRAPACK",
-    "mtc": 30.07
+    "mtc": 30.07,
+    "packageSize": 27
   },
   {
     "id": "resfriados-16",
     "category": "resfriados",
     "name": "MCFRUIT UVA",
-    "mtc": 3.36
+    "mtc": 3.36,
+    "packageSize": 19.2
   },
   {
     "id": "resfriados-17",
     "category": "resfriados",
     "name": "CONC LARANJA REFRIGERADO",
-    "mtc": 2.81
+    "mtc": 2.81,
+    "packageSize": 19.2
   },
   {
     "id": "resfriados-18",
     "category": "resfriados",
     "name": "BEB LACTEA BAU/2UND",
-    "mtc": 94.68
+    "mtc": 94.68,
+    "packageSize": 25
   },
   {
     "id": "resfriados-19",
     "category": "resfriados",
     "name": "BEBIDA LACTEA CHOCOLATE",
-    "mtc": 8.96
+    "mtc": 8.96,
+    "packageSize": 20
   },
   {
     "id": "resfriados-20",
@@ -201,25 +231,29 @@
     "id": "resfriados-23",
     "category": "resfriados",
     "name": "MANTEIGA",
-    "mtc": 0.05
+    "mtc": 0.05,
+    "packageSize": 6
   },
   {
     "id": "resfriados-24",
     "category": "resfriados",
     "name": "OVO",
-    "mtc": 6.76
+    "mtc": 6.76,
+    "packageSize": 60
   },
   {
     "id": "resfriados-25",
     "category": "resfriados",
     "name": "MMS CHOCO AO LEITE",
-    "mtc": 11.28
+    "mtc": 11.28,
+    "packageSize": 216
   },
   {
     "id": "resfriados-26",
     "category": "resfriados",
     "name": "BACON RESFRIADO",
-    "mtc": 12.91
+    "mtc": 12.91,
+    "packageSize": 15
   },
   {
     "id": "resfriados-27",
@@ -237,7 +271,8 @@
     "id": "estoque-4",
     "category": "estoque",
     "name": "TAMPA CBB 550 ML",
-    "mtc": 85.61
+    "mtc": 85.61,
+    "packageSize": 900
   },
   {
     "id": "estoque-5",
@@ -249,103 +284,120 @@
     "id": "estoque-6",
     "category": "estoque",
     "name": "COPO FLURRY",
-    "mtc": 89.79
+    "mtc": 89.79,
+    "packageSize": 1000
   },
   {
     "id": "estoque-7",
     "category": "estoque",
     "name": "COPO TOP SUNDAE",
-    "mtc": 70.12
+    "mtc": 70.12,
+    "packageSize": 2000
   },
   {
     "id": "estoque-8",
     "category": "estoque",
     "name": "COPO SUNDAE",
-    "mtc": 142.65
+    "mtc": 142.65,
+    "packageSize": 1000
   },
   {
     "id": "estoque-9",
     "category": "estoque",
     "name": "COPO SHAKE 440 ML",
-    "mtc": 100.4
+    "mtc": 100.4,
+    "packageSize": 900
   },
   {
     "id": "estoque-10",
     "category": "estoque",
     "name": "COPO REFRI 12 oz P",
-    "mtc": 45.7
+    "mtc": 45.7,
+    "packageSize": 2000
   },
   {
     "id": "estoque-11",
     "category": "estoque",
     "name": "COPO REFRI 16oz M",
-    "mtc": 831.37
+    "mtc": 831.37,
+    "packageSize": 900
   },
   {
     "id": "estoque-12",
     "category": "estoque",
     "name": "COPO REFRI 21 oz G",
-    "mtc": 7.97
+    "mtc": 7.97,
+    "packageSize": 600
   },
   {
     "id": "estoque-16",
     "category": "estoque",
     "name": "COPO CORTESIA",
-    "mtc": 150
+    "mtc": 150,
+    "packageSize": 3000
   },
   {
     "id": "estoque-17",
     "category": "estoque",
     "name": "COPO CAFÉ 100 ML",
-    "mtc": 7.95
+    "mtc": 7.95,
+    "packageSize": 2000
   },
   {
     "id": "estoque-18",
     "category": "estoque",
     "name": "COPO DE CAFÉ 200ML",
-    "mtc": 8.33
+    "mtc": 8.33,
+    "packageSize": 900
   },
   {
     "id": "estoque-19",
     "category": "estoque",
     "name": "COPO DE CAFÉ 300ML",
-    "mtc": 2.65
+    "mtc": 2.65,
+    "packageSize": 800
   },
   {
     "id": "estoque-20",
     "category": "estoque",
     "name": "TAMPA DE CAFÉ 100ML",
-    "mtc": 7.95
+    "mtc": 7.95,
+    "packageSize": 1000
   },
   {
     "id": "estoque-21",
     "category": "estoque",
     "name": "TAMPA DE CAFÉ 200ML",
-    "mtc": 8.33
+    "mtc": 8.33,
+    "packageSize": 1000
   },
   {
     "id": "estoque-22",
     "category": "estoque",
     "name": "TAMPA DE CAFÉ 300ML",
-    "mtc": 2.65
+    "mtc": 2.65,
+    "packageSize": 1000
   },
   {
     "id": "estoque-24",
     "category": "estoque",
     "name": "EMB. BIG MAC",
-    "mtc": 368.52
+    "mtc": 368.52,
+    "packageSize": 600
   },
   {
     "id": "estoque-25",
     "category": "estoque",
     "name": "EMB. QUARTERÃO",
-    "mtc": 131.16
+    "mtc": 131.16,
+    "packageSize": 600
   },
   {
     "id": "estoque-26",
     "category": "estoque",
     "name": "D/ QUARTEIRAO",
-    "mtc": 13.39
+    "mtc": 13.39,
+    "packageSize": 600
   },
   {
     "id": "estoque-27",
@@ -363,7 +415,8 @@
     "id": "estoque-29",
     "category": "estoque",
     "name": "EMB. SIGNATURE BALCÃO",
-    "mtc": 45.53
+    "mtc": 45.53,
+    "packageSize": 600
   },
   {
     "id": "estoque-30",
@@ -375,19 +428,22 @@
     "id": "estoque-31",
     "category": "estoque",
     "name": "EMB. BATATA PREMIUM",
-    "mtc": 278.56
+    "mtc": 278.56,
+    "packageSize": 600
   },
   {
     "id": "estoque-32",
     "category": "estoque",
     "name": "EMB. NUGGETS 10",
-    "mtc": 20.73
+    "mtc": 20.73,
+    "packageSize": 400
   },
   {
     "id": "estoque-33",
     "category": "estoque",
     "name": "emba de tasty",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-34",
@@ -399,67 +455,78 @@
     "id": "estoque-35",
     "category": "estoque",
     "name": "COB. CARAMELO /COCO",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-36",
     "category": "estoque",
     "name": "FAROFA DEFUMADA",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-37",
     "category": "estoque",
     "name": "FAROFA DE COCO",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-38",
     "category": "estoque",
     "name": "MOLHO JAMON",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-39",
     "category": "estoque",
     "name": "MOLHO CHIMUCHURRY",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-40",
     "category": "estoque",
     "name": "MOLHO TOMATE",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-41",
     "category": "estoque",
     "name": "MOLHO VERDE",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-42",
     "category": "estoque",
     "name": "MOLHO CHURRASCO",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-43",
     "category": "estoque",
     "name": "MOLHO VINAGRETE",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-44",
     "category": "estoque",
     "name": "MOLHO JALAPENO",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "estoque-45",
     "category": "estoque",
     "name": "MOSTARDA PRETA",
-    "mtc": 3.17
+    "mtc": 3.17,
+    "packageSize": 400
   },
   {
     "id": "smart-3",
@@ -471,7 +538,8 @@
     "id": "smart-4",
     "category": "smart",
     "name": "MC FRITES",
-    "mtc": 197
+    "mtc": 197,
+    "packageSize": 18
   },
   {
     "id": "hortifruti-3",
@@ -483,19 +551,22 @@
     "id": "hortifruti-4",
     "category": "hortifruti",
     "name": "TIRAS DE ALFACE",
-    "mtc": 197
+    "mtc": 197,
+    "packageSize": 12
   },
   {
     "id": "hortifruti-5",
     "category": "hortifruti",
     "name": "TOMATE",
-    "mtc": 197
+    "mtc": 197,
+    "packageSize": 52
   },
   {
     "id": "hortifruti-6",
     "category": "hortifruti",
     "name": "CEBOLA",
-    "mtc": 197
+    "mtc": 197,
+    "packageSize": 5
   },
   {
     "id": "hortifruti-7",
@@ -531,13 +602,15 @@
     "id": "coca_cola-7",
     "category": "coca_cola",
     "name": "agua copo",
-    "mtc": 1
+    "mtc": 1,
+    "packageSize": 48
   },
   {
     "id": "coca_cola-8",
     "category": "coca_cola",
     "name": "agua garrafa",
-    "mtc": 6
+    "mtc": 6,
+    "packageSize": 12
   },
   {
     "id": "coca_cola-9",
