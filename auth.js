@@ -49,7 +49,7 @@
   }
   function continueAfterLogin(profile) {
     if (profile.force_password_reset) return showForcedPasswordReset(profile);
-    continueAfterLogin(profile);
+    showApp(profile);
   }
   function showForcedPasswordReset(profile) {
     $("#login-screen").hidden = true;
@@ -94,7 +94,7 @@
     });
   }
   async function loadProfile(accessToken) {
-    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url,force_password_reset&limit=1", {
+    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url,force_password_reset&user_id=eq.'+encodeURIComponent(session?.user?.id||'')+'&limit=1", {
       headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + accessToken }
     });
     if (!r.ok) throw new Error("Não foi possível validar o perfil.");
@@ -114,7 +114,7 @@
     const profile = await loadProfile(session.access_token);
     if (remember) localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
     else localStorage.removeItem(STORAGE_KEY);
-    showApp(profile);
+    continueAfterLogin(profile);
   }
   async function restore() {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -124,7 +124,7 @@
       if (!session.access_token) throw new Error("Sessão expirada. Entre novamente.");
       if (!session.expires_at || session.expires_at * 1000 < Date.now() + 60000) await refreshSession();
       const profile = await loadProfile(session.access_token);
-      showApp(profile);
+      continueAfterLogin(profile);
     } catch (e) {
       localStorage.removeItem(STORAGE_KEY);
       showLogin(e.message || "Entre novamente.");
