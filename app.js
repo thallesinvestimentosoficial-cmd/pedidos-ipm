@@ -194,12 +194,32 @@ function wireIntermitentes(){
  document.querySelectorAll("[data-inter-print]").forEach(b=>b.onclick=()=>{const p=data.adminIntermitenteProjections.find(x=>x.id===b.dataset.interPrint);if(!p)return;const w=window.open("","_blank");if(!w)return toast("Permita pop-ups para imprimir.");w.document.write(interReport(p));w.document.close()});
  document.querySelectorAll("[data-inter-delete]").forEach(b=>b.onclick=()=>{const p=data.adminIntermitenteProjections.find(x=>x.id===b.dataset.interDelete);if(!p||!confirm("Excluir esta projeção de intermitentes?"))return;data.adminIntermitenteProjections=data.adminIntermitenteProjections.filter(x=>x.id!==p.id);audit("Projeção de intermitentes excluída",intermitenteMonths[p.month-1]+"/"+p.year);save();render()});
 }
+
+let mercadoLivreDraft=null,mercadoLivreFormOpen=false;
+function mercadoLivrePage(){
+ data.adminMercadoLivreItems??=[];
+ const rows=data.adminMercadoLivreItems.slice().sort((a,b)=>(b.createdAt||"").localeCompare(a.createdAt||""));
+ const form=mercadoLivreFormOpen&&mercadoLivreDraft;
+ const editor=form?'<section class="card uniform-editor"><div class="uniform-editor-heading"><div><span class="eyebrow">MERCADO LIVRE</span><h2>Incluir item</h2><p>Informe os dados do produto que será comprado.</p></div><button class="btn secondary" type="button" data-ml-cancel>Cancelar</button></div><form id="ml-form"><div class="uniform-fields"><label class="uniform-description">Nome do produto<input name="name" maxlength="180" required value="'+escAdmin(mercadoLivreDraft.name)+'" placeholder="Nome do produto"></label><label class="uniform-description">Link do produto<input name="url" type="url" required value="'+escAdmin(mercadoLivreDraft.url)+'" placeholder="https://www.mercadolivre.com.br/..."></label><label>Valor do produto (R$)<input name="price" type="number" min="0.01" step="0.01" required value="'+(n(mercadoLivreDraft.price)||"")+'" placeholder="0,00"></label><label>Quantidade de produtos<input name="quantity" type="number" min="1" step="1" required value="'+(n(mercadoLivreDraft.quantity)||1)+'" placeholder="1"></label></div><div class="uniform-form-actions"><button class="btn primary" type="submit">Salvar item</button></div></form></section>':'<div class="uniform-toolbar"><div><span class="eyebrow">PLANEJAMENTO DE COMPRAS</span><h2>Itens do Mercado Livre</h2><p>Cadastre nome, link, valor e quantidade de cada produto.</p></div><button class="btn primary" type="button" data-ml-new>＋ Incluir item</button></div>';
+ const list=rows.length?'<div class="uniform-projection-grid">'+rows.map(x=>'<article class="uniform-projection-card"><div class="uniform-card-top"><b>'+escAdmin(x.name)+'</b><span class="uniform-card-count">'+fmt(x.quantity)+' un.</span></div><strong>'+brl(n(x.price)*n(x.quantity))+'</strong><small>'+brl(x.price)+' por produto</small><p><a href="'+escAdmin(x.url)+'" target="_blank" rel="noopener noreferrer">Abrir produto no Mercado Livre ↗</a></p><div class="uniform-card-actions"><button type="button" data-ml-edit="'+escAdmin(x.id)+'">Editar</button><button type="button" class="danger" data-ml-delete="'+escAdmin(x.id)+'">Excluir</button></div></article>').join("")+'</div>':'<section class="card uniform-empty"><div class="uniform-empty-icon">🛒</div><h3>Nenhum item cadastrado</h3><p>Clique em “Incluir item” para adicionar um produto do Mercado Livre.</p></section>';
+ const total=rows.reduce((sum,x)=>sum+n(x.price)*n(x.quantity),0),qty=rows.reduce((sum,x)=>sum+n(x.quantity),0);
+ return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>Projeção de Mercado Livre</h2><p>Controle simples dos produtos planejados para compra.</p></div></div>'+editor+(form?'':'<div class="uniform-total-panel"><span>'+rows.length+' produtos cadastrados · '+fmt(qty)+' unidades</span><strong>'+brl(total)+'</strong></div>')+list);
+}
+function wireMercadoLivre(){
+ $("[data-ml-new]")?.addEventListener("click",()=>{mercadoLivreDraft={name:"",url:"",price:0,quantity:1};mercadoLivreFormOpen=true;render()});
+ $("[data-ml-cancel]")?.addEventListener("click",()=>{mercadoLivreDraft=null;mercadoLivreFormOpen=false;render()});
+ $("#ml-form")?.addEventListener("submit",e=>{e.preventDefault();if(!isGun())return;const f=new FormData(e.currentTarget),name=String(f.get("name")||"").trim(),url=String(f.get("url")||"").trim(),price=Number(f.get("price")),quantity=Math.floor(Number(f.get("quantity")));if(!name||!/^https?:\\/\\//i.test(url)||!Number.isFinite(price)||price<=0||!Number.isInteger(quantity)||quantity<1)return toast("Confira os dados do produto.");data.adminMercadoLivreItems??=[];const item={id:mercadoLivreDraft.id||"ml-"+Date.now()+"-"+Math.random().toString(36).slice(2,7),name,url,price,quantity,createdAt:mercadoLivreDraft.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};const exists=data.adminMercadoLivreItems.some(x=>x.id===item.id);if(exists)data.adminMercadoLivreItems=data.adminMercadoLivreItems.map(x=>x.id===item.id?item:x);else data.adminMercadoLivreItems.push(item);audit("Item da projeção Mercado Livre salvo",name+" · "+quantity+" unidades · "+brl(price*quantity));save();mercadoLivreDraft=null;mercadoLivreFormOpen=false;toast("Item salvo.");render()});
+ document.querySelectorAll("[data-ml-edit]").forEach(b=>b.onclick=()=>{const x=(data.adminMercadoLivreItems||[]).find(y=>y.id===b.dataset.mlEdit);if(x){mercadoLivreDraft={...x};mercadoLivreFormOpen=true;render()}});
+ document.querySelectorAll("[data-ml-delete]").forEach(b=>b.onclick=()=>{const x=(data.adminMercadoLivreItems||[]).find(y=>y.id===b.dataset.mlDelete);if(!x||!confirm("Excluir o produto "+x.name+"?"))return;data.adminMercadoLivreItems=data.adminMercadoLivreItems.filter(y=>y.id!==x.id);audit("Item da projeção Mercado Livre excluído",x.name);save();render()});
+}
+
 function adminModulePage(){
  const item=projectionModules.find(x=>x[0]===page.slice(6));
  if(page==="admin_gastos")return expensesPage();
  if(page==="admin_uniform")return uniformPage();
  if(page==="admin_utensils")return utensilPage();
  if(page==="admin_intermitentes")return intermitentesPage();
+ if(page==="admin_mercado_livre")return mercadoLivrePage();
  if(!item)return adminPanel();
  return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>'+item[1]+'</h2><p>Área independente de planejamento e acompanhamento.</p></div></div><section class="card admin-module-placeholder"><div class="admin-placeholder-icon">↗</div><h3>'+item[1]+'</h3><p>Esta área está criada no painel administrativo. Aqui serão desenvolvidos os cadastros, projeções, cálculos e relatórios específicos deste controle.</p><span class="pill blue">Estrutura inicial</span></section>');
 }
@@ -220,7 +240,7 @@ function render(){
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
  $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
  $("#content").innerHTML=pageViews[page]();
- wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireProfile();wireUsers();
+ wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
  if(topProfile)topProfile.onclick=()=>{page="profile";render()};
  updateCountExportState();applyPermissions();
