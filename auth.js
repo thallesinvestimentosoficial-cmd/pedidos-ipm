@@ -94,7 +94,8 @@
     });
   }
   async function loadProfile(accessToken) {
-    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url,force_password_reset&user_id=eq.'+encodeURIComponent(session?.user?.id||'')+'&limit=1", {
+    const userId = encodeURIComponent(session?.user?.id || "");
+    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url,force_password_reset&user_id=eq." + userId + "&limit=1", {
       headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + accessToken }
     });
     if (!r.ok) throw new Error("Não foi possível validar o perfil.");
