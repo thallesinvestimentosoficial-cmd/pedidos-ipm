@@ -602,15 +602,13 @@
     "id": "coca_cola-7",
     "category": "coca_cola",
     "name": "agua copo",
-    "mtc": 1,
-    "packageSize": 48
+    "mtc": 1
   },
   {
     "id": "coca_cola-8",
     "category": "coca_cola",
     "name": "agua garrafa",
-    "mtc": 6,
-    "packageSize": 12
+    "mtc": 6
   },
   {
     "id": "coca_cola-9",
