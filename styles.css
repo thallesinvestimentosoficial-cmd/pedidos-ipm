@@ -207,3 +207,20 @@ tbody tr:hover{background:#fafbfd}
 .count-export-actions>span{font-size:12px;color:#657186;font-weight:600}
 .count-export-actions>div{display:flex;gap:8px;flex-wrap:wrap}
 @media(max-width:600px){.count-export-actions{align-items:stretch}.count-export-actions>div{display:grid;grid-template-columns:1fr; width:100%}.count-export-actions .btn{width:100%;justify-content:center}}
+
+
+/* Seletor compacto e moderno dos ciclos de pães */
+.bread-cycle-picker{margin:10px 0 16px;padding:12px 13px;border:1px solid #e5eaf1;border-radius:13px;background:linear-gradient(135deg,#fff 0%,#f8faff 100%);box-shadow:0 4px 14px #15243b08}
+.bread-cycle-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:9px}
+.bread-cycle-heading strong{font-size:12px;color:#20314a;font-weight:850}
+.bread-cycle-heading small{font-size:10px;color:#8290a4}
+.bread-cycle-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bread-cycle-option{display:flex;align-items:center;gap:9px;min-width:0;padding:9px 11px;border:1px solid #e1e7ef;border-radius:10px;background:#fff;color:#293a53;text-align:left;cursor:pointer}
+.bread-cycle-option:hover{border-color:#c5cfdd;background:#fbfcff}
+.bread-cycle-option.active{border-color:#d92732;background:#fff7f7;box-shadow:0 0 0 2px #d9273210}
+.bread-cycle-day{display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;border-radius:9px;background:#f0f3f8;color:#52627a;font-size:10px;font-weight:900;letter-spacing:.3px}
+.bread-cycle-option.active .bread-cycle-day{background:#ffe4e7;color:#bd2637}
+.bread-cycle-option b{display:block;font-size:11px;font-weight:850}
+.bread-cycle-option small{display:block;margin-top:3px;color:#78869b;font-size:9px}
+.bread-cycle-hint{padding:12px 14px;border:1px dashed #d7dee8;border-radius:11px;background:#fafbfd;color:#7b8798;font-size:11px;text-align:center}
+@media(max-width:600px){.bread-cycle-picker{padding:10px;margin:9px 0 13px}.bread-cycle-heading{display:block}.bread-cycle-heading small{display:block;margin-top:3px}.bread-cycle-options{gap:6px}.bread-cycle-option{padding:8px 7px;gap:6px}.bread-cycle-day{width:28px;height:28px;flex-basis:28px;font-size:9px}.bread-cycle-option b{font-size:10px}.bread-cycle-option small{font-size:8px}}
