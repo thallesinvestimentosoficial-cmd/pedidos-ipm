@@ -365,3 +365,25 @@ tbody tr:hover{background:#fafbfd}
 @media(max-width:900px){.overview-welcome{grid-template-columns:minmax(190px,.8fr) minmax(230px,1.2fr);padding:15px 17px;min-height:160px}.overview-welcome-copy h2{font-size:20px}}
 @media(max-width:700px){.main-area{width:100%;margin-left:0;min-width:0}.overview-welcome{grid-template-columns:1fr;gap:2px;padding:14px 15px;margin-bottom:12px;min-height:0;border-radius:15px}.overview-welcome-copy h2{font-size:18px}.overview-welcome-copy p{font-size:11px;margin:5px 0 8px}.overview-truck-art{max-height:130px;overflow:hidden}.overview-truck-art svg{max-width:390px;max-height:128px;width:100%}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat-card{min-width:0;padding:12px}.stat-value{font-size:23px}.pagebar{min-width:0}.top-profile{max-width:48vw}.top-profile strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100px}}
 @media(max-width:380px){.overview-welcome{padding:12px}.overview-welcome-copy h2{font-size:16px}.overview-truck-art{max-height:105px}.overview-truck-art svg{max-height:105px}.stats{gap:7px}.stat-card{padding:10px}.stat-top{font-size:10px}.stat-value{font-size:20px}.top-profile{max-width:43vw}.top-profile strong{max-width:72px}}
+
+.product-create-card{padding:20px 22px;margin:14px 0 22px;border:1px solid #e4eaf2;border-radius:18px;background:linear-gradient(145deg,#fff,#f8faff);box-shadow:0 8px 24px #17243b0a}
+.product-create-heading{display:flex;align-items:center;gap:12px;margin-bottom:17px}
+.product-section-icon{width:38px;height:38px;display:grid;place-items:center;flex:0 0 38px;border-radius:12px;background:#fff0f1;color:#d7192d;font-size:25px;font-weight:700}
+.product-create-heading h3{font-size:16px;margin:0;color:#142238}
+.product-create-heading p{font-size:11px;color:#7b8798;margin:4px 0 0}
+.product-create-form{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end}
+.product-create-form label{min-width:0;gap:7px;color:#53627a;font-size:11px;font-weight:750}
+.product-create-form input,.product-create-form select{width:100%;min-width:0;height:43px;border:1px solid #dce4ee;border-radius:11px;padding:0 12px;background:#fff;color:#172943;font:inherit;font-size:12px;outline:none;transition:border-color .18s,box-shadow .18s}
+.product-create-form input:focus,.product-create-form select:focus,.product-filter-card input:focus,.product-filter-card select:focus{border-color:#d7192d;box-shadow:0 0 0 3px #d7192d15}
+.product-create-form button{height:43px;min-width:0;white-space:nowrap;border-radius:11px;font-size:12px}
+.product-list-heading{margin:24px 0 12px;align-items:center}
+.product-list-heading h3{font-size:17px;margin:0;color:#142238}
+.product-list-heading p{font-size:11px;color:#7b8798;margin:4px 0 0}
+.product-list-heading>.pill{white-space:nowrap}
+.product-filter-card{display:grid;grid-template-columns:minmax(190px,.75fr) minmax(240px,1.25fr);gap:14px;padding:15px 17px;margin:0 0 13px;border:1px solid #e4eaf2;border-radius:15px;background:#fff;box-shadow:0 4px 15px #17243b08}
+.product-filter-card label{display:flex;flex-direction:column;gap:6px;min-width:0}
+.product-filter-card label>span{font-size:10px;font-weight:800;color:#53627a}
+.product-filter-card .input{margin:0;height:42px;border:1px solid #dce4ee;border-radius:10px;background:#f9fbfe;font-size:12px}
+.product-edit-row{border-radius:13px}
+@media(max-width:800px){.product-create-form{grid-template-columns:repeat(2,minmax(0,1fr))}.product-create-form button{grid-column:1/-1}.product-filter-card{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.product-create-card{padding:15px;margin:12px 0 18px;border-radius:15px}.product-create-heading{margin-bottom:13px}.product-create-form{grid-template-columns:1fr;gap:11px}.product-create-form button{grid-column:auto;width:100%;height:44px}.product-create-form input,.product-create-form select{height:44px;font-size:16px}.product-filter-card{grid-template-columns:1fr;padding:12px;gap:11px}.product-filter-card .input{height:44px;font-size:16px}.product-list-heading{gap:8px}.product-list-heading h3{font-size:15px}.product-list-heading p{max-width:250px;line-height:1.4}.product-edit-row{grid-template-columns:repeat(2,minmax(0,1fr));padding:11px;gap:9px}.product-edit-row .product-main{grid-column:1/-1}.product-edit-row .btn{grid-column:1/-1;width:100%}}
