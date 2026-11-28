@@ -1071,3 +1071,38 @@ input,select,textarea{max-width:100%}
  .overview-expense-balance strong{font-size:10px}
  .overview-expense-status span{font-size:8px}
 }
+
+/* Identidade visual unificada · Gestão Administrativa */
+.app-shell.admin-mode{background:#f5f7fb;color:#172033}
+.admin-workspace{background:#f5f7fb;color:#172033;grid-template-columns:250px minmax(0,1fr)}
+.admin-sidebar{background:linear-gradient(180deg,#111b2c,#1b2b43);padding:25px 17px;gap:7px}
+.admin-brand{padding:4px 8px 22px;margin-bottom:10px;border-bottom:1px solid #ffffff1b}
+.admin-brand-mark{background:linear-gradient(135deg,#f0444d,#b91f2b)!important;color:#fff!important;border-radius:13px;box-shadow:0 8px 20px #d9273240}
+.admin-brand b{font-size:14px;letter-spacing:-.2px}.admin-brand small{color:#aab6c8;font-size:11px}
+.admin-return,.admin-return-mobile{border:1px solid #ffffff25;background:#ffffff0b;color:#e8edf5;border-radius:9px;transition:background .18s,border-color .18s}
+.admin-return:hover,.admin-return-mobile:hover{background:#ffffff18;border-color:#ffffff45}
+.admin-nav-label{color:#aab6c8;font-size:10px;letter-spacing:1px;padding:13px 10px 5px}
+.admin-side-link{min-height:42px;padding:11px 12px;border-radius:9px;color:#c3ccda;font-size:12px;font-weight:650;transition:background .18s,color .18s,box-shadow .18s}
+.admin-side-link span{width:19px;font-size:15px}
+.admin-side-link.active{background:linear-gradient(90deg,#d92732,#b51f2a);color:#fff;box-shadow:0 7px 16px #d9273230}
+.admin-side-link:not(.active):hover{background:#ffffff12;color:#fff}
+.admin-side-bottom{color:#aab6c8;border-top:1px solid #ffffff1b;margin-top:auto;padding:18px 8px 4px}
+.admin-main{background:#f5f7fb}
+.admin-topbar{min-height:82px;background:#fff;border-bottom:1px solid #e8edf3;padding:0 32px}
+.admin-topbar h1{font-size:20px;font-weight:800;letter-spacing:-.45px;color:#172033;margin:4px 0}
+.admin-topbar .eyebrow,.admin-content .eyebrow{color:#8792a3;font-size:10px;font-weight:800;letter-spacing:1px}
+.admin-content{max-width:1450px;padding:28px 32px 65px}
+.admin-content .card,.admin-content article.card{border:1px solid #e8edf3;border-radius:14px;box-shadow:0 3px 12px #17203308;background:#fff}
+.admin-content h2,.admin-content h3{color:#172033;letter-spacing:-.25px}
+.admin-content p{line-height:1.55}
+.admin-content input:not([type=checkbox]):not([type=radio]),.admin-content select,.admin-content textarea{border-color:#e1e6ee;border-radius:8px}
+.admin-content input:focus,.admin-content select:focus,.admin-content textarea:focus{outline:2px solid #d9273220;border-color:#d92732}
+.admin-content .btn.primary,.admin-content button.primary{background:linear-gradient(135deg,#e3333d,#bd202b);color:#fff;box-shadow:0 5px 12px #d927322c}
+.admin-content .btn:not(.primary){border:1px solid #e1e6ee;background:#fff;color:#34445a}
+.admin-content .btn:not(.primary):hover{background:#f5f7fb}
+.admin-content .table-wrap{border-color:#e8edf3;border-radius:12px}
+.admin-content th{background:#f7f9fc;color:#7b8798}
+.admin-content td{border-top-color:#edf0f4}
+.admin-content .page-intro h2{font-size:20px;font-weight:800}
+.admin-content .page-intro p{font-size:11px;color:#7b8798}
+@media(max-width:760px){.admin-workspace{display:block}.admin-topbar{min-height:76px;padding:14px 18px}.admin-topbar h1{font-size:18px}.admin-content{padding:20px 16px 42px}.admin-return-mobile{background:#17263b;color:#fff;border:0}}
