@@ -621,5 +621,54 @@
     "category": "coca_cola",
     "name": "Guarana",
     "mtc": 2
+  },
+  {
+    "id": "paes-1",
+    "category": "paes",
+    "name": "BIG MAC",
+    "mtc": 358.44,
+    "packageSize": 30
+  },
+  {
+    "id": "paes-2",
+    "category": "paes",
+    "name": "REGULAR",
+    "mtc": 210.31,
+    "packageSize": 60
+  },
+  {
+    "id": "paes-3",
+    "category": "paes",
+    "name": "QUARTEIRÃO",
+    "mtc": 326.59,
+    "packageSize": 60
+  },
+  {
+    "id": "paes-4",
+    "category": "paes",
+    "name": "CHEDDAR",
+    "mtc": 162.94,
+    "packageSize": 60
+  },
+  {
+    "id": "paes-5",
+    "category": "paes",
+    "name": "TASTY",
+    "mtc": 132.13,
+    "packageSize": 48
+  },
+  {
+    "id": "paes-6",
+    "category": "paes",
+    "name": "B.BATATA",
+    "mtc": 54.66,
+    "packageSize": 210
+  },
+  {
+    "id": "paes-7",
+    "category": "paes",
+    "name": "CLUB",
+    "mtc": 67.17,
+    "packageSize": 192
   }
 ]
