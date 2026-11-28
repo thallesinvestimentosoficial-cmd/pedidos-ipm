@@ -1485,3 +1485,30 @@ body{background:#e9eef2}
 .admin-night .admin-side-link:hover{background:#30485d;color:#fff}
 .admin-night .admin-side-link.active{background:linear-gradient(100deg,#31566d,#29465b);color:#fff;box-shadow:inset 3px 0 #65c9ed}
 .admin-night .admin-side-bottom{color:#829bb0;border-top:1px solid #3b5064}
+
+
+/* Ajuste fino de contraste e legibilidade no modo noite */
+.admin-night .admin-content :is(h1,h2,h3,h4,h5,h6,p,small,label,strong,b,li,dt,dd,th,td,figcaption,legend,caption){color:#e2ebf3!important}
+.admin-night .admin-content :is(.eyebrow,.muted,.description,.subtitle,.helper-text,.field-hint,.form-hint,.empty-state p){color:#a9bdcd!important}
+.admin-night .admin-content :is(a:not(.btn),.link,.text-link){color:#78c9e8!important}
+.admin-night .admin-content :is(input,select,textarea){color:#edf5fb!important;background-color:#111c28!important;border-color:#40576a!important}
+.admin-night .admin-content :is(input,textarea)::placeholder{color:#91a5b7!important;opacity:1}
+.admin-night .admin-content :is(input,select,textarea):focus{border-color:#63bfe0!important;outline-color:#63bfe055!important}
+.admin-night .admin-content :is(.card,.panel,.subcard,.table-wrap,.empty-state,.summary-box,.info-box,.form-section,.uniform-row-total,.uniform-total-panel,.expense-analysis-result,.expense-line-card,.expense-projection-card){border-color:#354b5e!important}
+.admin-night .admin-content :is(.table-wrap,table){background:#182532!important}
+.admin-night .admin-content table tbody tr:nth-child(odd){background:#1b2a38!important}
+.admin-night .admin-content table tbody tr:nth-child(even){background:#202f3e!important}
+.admin-night .admin-content table :is(th,td){color:#e2ebf3!important;border-color:#354b5e!important}
+.admin-night .admin-content :is(.btn.secondary,.btn.outline,button.secondary,.uniform-card-actions button,.uniform-remove){background:#293d4f!important;border-color:#486176!important;color:#e5eff7!important}
+.admin-night .admin-content :is(.btn.primary,button.primary){color:#fff!important}
+.admin-night .admin-content :is(.pill,.badge,.status,.expense-line-state,.expense-status){color:#eaf3fa}
+.admin-night .admin-content :is(.expense-status.paid,.expense-line-state.normal,.status.success,.badge.success){background:#174535!important;color:#a5edc7!important;border-color:#28684d!important}
+.admin-night .admin-content :is(.expense-status.pending,.expense-line-state.warning,.status.warning,.badge.warning){background:#49391f!important;color:#ffdc94!important;border-color:#72572b!important}
+.admin-night .admin-content :is(.expense-line-state.danger,.status.danger,.badge.danger,.danger){color:#ffc0c5!important}
+.admin-night .admin-content :is(.expense-line-state.neutral,.status.neutral,.badge.neutral){background:#304253!important;color:#d4e0ea!important;border-color:#496174!important}
+.admin-night .admin-content :is(.expense-line-values small,.expense-line-foot,.expense-line-foot small,.admin-module-card small){color:#a9bdcd!important}
+.admin-night .admin-content svg{color:inherit}
+.admin-night .admin-content :is(.uniform-empty,.overview-empty){background:#202f3d!important;color:#d8e4ed!important;border-color:#536a7c!important}
+.admin-night .admin-content :is(.uniform-empty-icon,.admin-module-icon){color:#79d2ef!important}
+.admin-night .admin-content :is(button:disabled,input:disabled,select:disabled,textarea:disabled){opacity:.62}
+.admin-night .admin-content ::selection{background:#28627a;color:#fff}
