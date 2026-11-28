@@ -1472,3 +1472,16 @@ body{background:#e9eef2}
 .admin-night .expense-status.paid{background:#173d32;color:#8de0b7}
 .admin-night .expense-status.pending{background:#49391f;color:#f4ce83}
 @media(max-width:760px){.admin-theme-toggle{margin-left:auto;min-height:38px;padding:0 10px}.admin-theme-label{display:none}.admin-topbar{gap:9px}}
+
+
+/* Menu lateral no modo noite: contraste próprio em relação ao conteúdo */
+.admin-night .admin-sidebar{background:linear-gradient(180deg,#202f40 0%,#192737 100%);border-right:1px solid #354b60;box-shadow:inset -1px 0 0 #ffffff08}
+.admin-night .admin-brand{border-bottom-color:#40566b}
+.admin-night .admin-brand b{color:#f0f6fb}
+.admin-night .admin-brand small{color:#9fb4c7}
+.admin-night .admin-return{background:#2b4053;border-color:#49647b;color:#dceaf5}
+.admin-night .admin-nav-label{color:#83a0b7}
+.admin-night .admin-side-link{color:#bdcddd}
+.admin-night .admin-side-link:hover{background:#30485d;color:#fff}
+.admin-night .admin-side-link.active{background:linear-gradient(100deg,#31566d,#29465b);color:#fff;box-shadow:inset 3px 0 #65c9ed}
+.admin-night .admin-side-bottom{color:#829bb0;border-top:1px solid #3b5064}
