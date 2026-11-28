@@ -241,24 +241,21 @@ function otherOrders(){
  '</div><div class="count-actions"><button class="btn secondary" id="clear-count" type="button">Limpar campos</button><button class="btn primary" id="save-count" type="button">Salvar contagem</button></div>';
 }
 function analysis(){
- const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/\'/g,"&#39;");
+ const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/\\'/g,"&#39;");
  const c=cycles[cycle],list=products.filter(p=>c[2].includes(p.category));
  const tabs=Object.entries(cycles).map(([id,x])=>'<button class="category-tab '+(id===cycle?"active":"")+'" data-cycle="'+id+'">'+x[0]+'</button>').join("");
  const rows=list.map(p=>{
-  const st=stock(p),current=n(st.stock),incoming=n(st.incoming),projected=need(p),total=current+incoming,delta=total-projected;
-  let status="healthy",label="Saudável",detail="Dentro da faixa saudável";
-  if(p.mtc==null||!n(p.mtc)){status="pending";label="MTC pendente";detail="Defina o MTC do produto";}
-  else if(!gcTotal()){status="pending";label="Sem GC";detail="Informe o GC para calcular a projeção";}
+  const st=stock(p),current=n(st.stock),incoming=n(st.incoming),projected=need(p),delta=current+incoming-projected;
+  let status="healthy";
+  if(p.mtc==null||!n(p.mtc)||!gcTotal())status="pending";
   else if(projected>0){
-   const variance=(total-projected)/projected*100;
-   if(variance<=-3){status="danger";label="Abaixo";detail=Math.abs(variance).toFixed(1).replace(".",",")+"% abaixo da projeção";}
-   else if(variance<=-1){status="warning";label="Atenção";detail=Math.abs(variance).toFixed(1).replace(".",",")+"% abaixo da projeção";}
-   else if(variance>=20){status="danger";label="Excesso";detail=variance.toFixed(1).replace(".",",")+"% acima da projeção";}
-   else if(variance>10){status="warning";label="Atenção";detail=variance.toFixed(1).replace(".",",")+"% acima da projeção";}
+   const variance=(current+incoming-projected)/projected*100;
+   if(variance<=-3||variance>=20)status="danger";
+   else if(variance<=-1||variance>10)status="warning";
   }
-  return '<tr class="analysis-row analysis-'+status+'"><td class="analysis-product" data-label="Produto"><strong>'+safe(p.name)+'</strong></td><td data-label="MTC">'+(p.mtc==null?"—":fmt(p.mtc))+'</td><td data-label="Necessidade">'+fmt(projected)+'</td><td data-label="Estoque">'+fmt(current)+'</td><td data-label="A receber">'+fmt(incoming)+'</td><td data-label="Projetado">'+fmt(projected)+'</td><td data-label="Saldo"><b class="analysis-balance '+status+'" title="'+detail+'">'+fmt(delta)+'</b></td><td data-label="Status"><span class="analysis-status '+status+'" title="'+detail+'">'+label+'</span></td></tr>';
+  return '<tr class="analysis-row analysis-'+status+'"><td class="analysis-product" data-label="Produto"><strong>'+safe(p.name)+'</strong></td><td data-label="Estoque">'+fmt(current)+'</td><td data-label="A receber">'+fmt(incoming)+'</td><td data-label="Projetado (11 dias)">'+fmt(projected)+'</td><td data-label="Saldo"><b class="analysis-balance '+status+'">'+fmt(delta)+'</b></td></tr>';
  }).join("");
- return '<div class="page-intro"><div><h2>Análise de estoque</h2><p>Mesma necessidade dos pedidos. Saldo = estoque + receber − projetado.</p></div></div><div class="section-tabs">'+tabs+'</div><div class="analysis-legend"><span class="healthy">Saudável</span><span class="warning">Atenção</span><span class="danger">Crítico</span></div><div class="table-wrap analysis-table-wrap"><table class="analysis-table"><thead><tr><th>Produto</th><th>MTC</th><th>Necessidade</th><th>Estoque</th><th>A receber</th><th>Projetado</th><th>Saldo</th><th>Status</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+ return '<div class="page-intro"><div><h2>Análise de estoque</h2><p>Projeção de venda dos próximos 11 dias. Saldo = estoque + a receber − projetado.</p></div></div><div class="section-tabs">'+tabs+'</div><div class="table-wrap analysis-table-wrap"><table class="analysis-table"><thead><tr><th>Produto</th><th>Estoque</th><th>A receber</th><th>Projetado (11 dias)</th><th>Saldo</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
 }
 function orders(){let c=cycles[cycle],list=products.filter(p=>c[2].includes(p.category));return '<div class="page-intro"><div><h2>Pedidos</h2><p>Escolha o ciclo e confira as quantidades sugeridas.</p></div></div><div class="section-tabs">'+Object.entries(cycles).map(([id,x])=>'<button class="category-tab '+(id===cycle?"active":"")+'" data-cycle="'+id+'">'+x[0]+'</button>').join("")+'</div><div class="table-wrap"><table><thead><tr><th>Produto</th><th>MTC</th><th>Necessidade</th><th>Estoque</th><th>A receber</th><th>Sugerido</th></tr></thead><tbody>'+list.map(p=>'<tr><td>'+p.name+'</td><td><button class="mtc-link" data-mtc="'+p.id+'">'+(p.mtc==null?"Definir MTC":fmt(p.mtc)+" ✎")+'</button></td><td>'+fmt(need(p))+'</td><td>'+fmt(stock(p).stock)+'</td><td>'+fmt(stock(p).incoming)+'</td><td><b>'+(p.mtc==null?"—":fmt(qty(p)))+'</b></td></tr>').join("")+'</tbody></table></div><div class="card" style="margin-top:14px"><b>'+c[0]+' · '+c[1]+'</b> <button class="btn primary" id="save-order">Registrar pedido</button></div>'}
 function history(){return '<div class="page-intro"><div><h2>Histórico</h2><p>Pedidos e alterações registrados neste dispositivo.</p></div></div>'+(data.orders.length?data.orders.slice().reverse().map(o=>'<section class="card" style="margin-bottom:9px"><b>'+o.category+'</b><p>'+new Date(o.date).toLocaleString("pt-BR")+' · '+o.items+' produtos</p></section>').join(""):'<div class="card empty">Nenhum pedido registrado.</div>')+data.audit.slice(0,30).map(a=>'<section class="audit-row"><b>'+a.action+'</b><small>'+a.detail+' · '+new Date(a.date).toLocaleString("pt-BR")+'</small></section>').join("")}
