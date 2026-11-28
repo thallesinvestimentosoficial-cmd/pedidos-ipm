@@ -1320,3 +1320,21 @@ body{background:#e9eef2}
  .admin-menu-open .admin-menu-backdrop{opacity:1;visibility:visible}
  body.admin-menu-lock{overflow:hidden}
 }
+
+
+/* Correção prioritária: hambúrguer sempre visível e fixo no topo em celulares */
+@media(max-width:760px){
+ .admin-topbar{padding-left:66px!important;min-height:66px!important}
+ .admin-menu-toggle{
+  display:flex!important;position:fixed!important;top:calc(10px + env(safe-area-inset-top))!important;left:12px!important;
+  z-index:1105!important;width:44px!important;height:44px!important;min-width:44px!important;
+  padding:10px!important;border:1px solid #b9d3df!important;border-radius:12px!important;
+  background:#e4f1f7!important;box-shadow:0 3px 12px #1b34451f!important;
+  align-items:center!important;justify-content:center!important;gap:5px!important;
+  opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+ }
+ .admin-menu-toggle span{width:21px!important;height:2.5px!important;background:#344d5e!important;border-radius:4px!important;display:block!important}
+ .admin-topbar-title{padding-left:0!important}
+ .admin-return-mobile{margin-left:auto!important}
+ .admin-menu-open .admin-menu-toggle{background:#ccebf1!important;border-color:#69c4d1!important}
+}
