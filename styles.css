@@ -1568,3 +1568,13 @@ body{background:#e9eef2}
 .overview-coca-item-info .is-short{color:#c13b4a}
 .overview-coca-item-info .is-balanced{color:#27836c}
 @media(max-width:650px){.overview-coca-grid{grid-template-columns:1fr}.overview-coca-item{padding:8px 10px}}
+
+/* Stock Vision 3D */
+.stock-vision-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 4px;padding:10px 12px;border:1px solid #263c58;border-radius:10px;background:linear-gradient(110deg,#101d31,#182c47);color:#8de9f2;font-size:10px;font-weight:900;letter-spacing:1.5px}
+.stock-vision-heading small{color:#9aabc3;font-size:9px;font-weight:500;letter-spacing:0;text-align:right}
+.stock-vision-stage{overflow:hidden;border:1px solid #263c58;border-radius:13px;background:radial-gradient(ellipse at 50% 0%,#203b5d 0%,#111e31 58%,#0c1727 100%);box-shadow:inset 0 1px 24px #4ab8d51a}
+.stock-vision-scroll{overflow-x:auto;overscroll-behavior-x:contain}
+.stock-vision-chart{display:block;width:100%;min-width:760px;height:auto;max-height:360px}
+.stock-vision-chart .vision-product{outline:none}
+.stock-vision-chart .vision-product:focus polygon,.stock-vision-chart .vision-product:focus rect{filter:brightness(1.35)}
+@media(max-width:600px){.stock-vision-heading{align-items:flex-start;flex-direction:column}.stock-vision-heading small{text-align:left}.stock-vision-chart{min-width:900px}}
