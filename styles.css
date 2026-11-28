@@ -1543,3 +1543,9 @@ body{background:#e9eef2}
 .coca-cycle-period small{margin-left:auto;color:#71879a;font-size:10px}
 .coca-cycle-hint{padding:18px;border:1px dashed #cbd8e4;border-radius:12px;text-align:center;color:#718196;font-size:12px;background:#f8fafc}
 @media(max-width:600px){.coca-cycle-picker{padding:13px}.coca-cycle-options{grid-template-columns:1fr;gap:9px}.coca-cycle-option{padding:12px}.coca-cycle-period{align-items:flex-start;flex-direction:column;gap:5px}.coca-cycle-period small{margin-left:0}}
+
+.overview-coca-chart-scroll{width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.overview-coca-chart{display:block;width:100%;min-width:720px;height:auto}
+.overview-coca-summary{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid #edf0f5;font-size:11px;color:#66748a}
+.overview-coca-summary b{color:#172943;font-size:15px;margin-right:4px}
+.legend-excess{display:inline-block;width:15px;height:3px;background:#e3a329;border-radius:3px}
