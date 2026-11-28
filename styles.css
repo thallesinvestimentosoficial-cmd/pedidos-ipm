@@ -314,3 +314,38 @@ tbody tr:hover{background:#fafbfd}
  .top-profile{min-width:0;padding:6px 8px;gap:7px}.top-profile .user-avatar{width:34px;height:34px;font-size:11px}.top-profile strong{font-size:10px}.top-profile small{font-size:9px}
  .menu-toggle{display:flex;background:#ffffff15;border-color:#ffffff40}.menu-toggle span{background:#fff}
 }
+
+/* Cabeçalhos compactos e ilustração refinada */
+.brand-hero{padding:10px 10px 13px}
+.brand-illustration{height:150px}
+.brand-illustration svg{max-width:330px}
+.topbar-ribbon{min-height:42px;height:42px;padding:4px 24px;justify-content:flex-end;background:linear-gradient(100deg,#d7192d 0%,#bd1025 72%,#071a2e 72%,#071a2e 100%);border-bottom:3px solid #f6c900}
+.topbar-ribbon .topbar-left{margin-right:auto}
+.header-context{font-size:14px;font-weight:850;letter-spacing:.15px;padding:2px 14px;border-left:0;color:#fff}
+.topbar-ribbon .today{font-size:10px;white-space:nowrap}
+.top-actions{gap:8px}
+.notification-mark{display:none}
+.pagebar{min-height:66px;height:66px;padding:8px 26px;gap:12px}
+.pagebar-title{gap:9px}
+.pagebar-symbol{font-size:24px}
+.pagebar-title h1{font-size:19px;letter-spacing:-.4px}
+.pagebar-title p{font-size:10px;margin-top:2px}
+.top-profile{min-width:190px;padding:5px 10px;gap:8px}
+.top-profile .user-avatar{width:35px;height:35px;font-size:12px}
+.top-profile strong{font-size:11px}
+.top-profile small{font-size:9px;margin-top:1px}
+@media(max-width:700px){
+ .brand-illustration{height:135px}
+ .topbar-ribbon{height:38px;min-height:38px;padding:3px 12px}
+ .header-context{font-size:12px}
+ .topbar-ribbon .today{display:none}
+ .pagebar{height:58px;min-height:58px;padding:6px 12px}
+ .pagebar-symbol{font-size:20px}
+ .pagebar-title{gap:6px}
+ .pagebar-title h1{font-size:16px}
+ .pagebar-title p{font-size:9px}
+ .top-profile{min-width:0;padding:4px 7px;gap:6px}
+ .top-profile .user-avatar{width:29px;height:29px;font-size:10px}
+ .top-profile strong{font-size:9px}
+ .top-profile small{font-size:8px}
+}
