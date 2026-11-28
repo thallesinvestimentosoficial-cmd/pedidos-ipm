@@ -797,7 +797,7 @@ input,select,textarea{max-width:100%}
 .analysis-balance.danger,.analysis-status.danger,.analysis-legend .danger{color:#d12f40!important}
 .analysis-balance.pending,.analysis-status.pending{color:#8291a5!important}
 .analysis-status{display:inline-flex!important;align-items:center!important;font-weight:750!important}
-.analysis-product-name,.analysis-product-name .analysis-dot{display:none!important}
+.analysis-product-name{display:inline-flex!important;align-items:center!important;gap:9px!important;min-width:0}.analysis-product-name .analysis-dot{display:inline-block!important;visibility:visible!important;opacity:1!important}
 
 .analysis-table th,.analysis-table td{white-space:nowrap}
 .analysis-table td.analysis-product{white-space:normal}
