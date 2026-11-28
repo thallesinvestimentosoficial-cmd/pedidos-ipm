@@ -1,0 +1,1532 @@
+[
+  {
+    "id": "ut-7",
+    "description": "BOB TERMICA RELOGIO D/ PONTO",
+    "code": "11022043",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 27.08,
+    "quantity": 0
+  },
+  {
+    "id": "ut-8",
+    "description": "ELASTICO AMARELO N.18 PT/500GR",
+    "code": "9153055",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 15.02,
+    "quantity": 0
+  },
+  {
+    "id": "ut-9",
+    "description": "ETIQUETA TERMICA VENCIMENTO",
+    "code": "11034823",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 98.82,
+    "quantity": 0
+  },
+  {
+    "id": "ut-10",
+    "description": "BRANCA 3M MCD",
+    "code": "11021225",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 4.82,
+    "quantity": 0
+  },
+  {
+    "id": "ut-11",
+    "description": "VERDE 3M MC DON",
+    "code": "11021217",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 4.33,
+    "quantity": 0
+  },
+  {
+    "id": "ut-12",
+    "description": "FRASCO P/BORRIFACOR",
+    "code": "11021268",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 3.64,
+    "quantity": 0
+  },
+  {
+    "id": "ut-13",
+    "description": "GARRA PLASTICA C/CABO P/MOP UMIDO AZUL",
+    "code": "11020520",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 72.88,
+    "quantity": 0
+  },
+  {
+    "id": "ut-14",
+    "description": "GARRA PLASTICA C/CABO P/MOP UMIDO VERDE",
+    "code": "11020555",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 66.77,
+    "quantity": 0
+  },
+  {
+    "id": "ut-15",
+    "description": "GARRA PLASTICA P/MOP UMIDO AZUL",
+    "code": "11020580",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 20.48,
+    "quantity": 0
+  },
+  {
+    "id": "ut-16",
+    "description": "REFIL MOP VERDE",
+    "code": "11419342",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 16.95,
+    "quantity": 0
+  },
+  {
+    "id": "ut-17",
+    "description": "REFIL MOP BRANCO",
+    "code": "11419326",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 15.44,
+    "quantity": 0
+  },
+  {
+    "id": "ut-18",
+    "description": "SACO LIXO 040L PRETO",
+    "code": "11074035",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 24.91,
+    "quantity": 0
+  },
+  {
+    "id": "ut-19",
+    "description": "SACO LIXO 060L PRETO",
+    "code": "11221100",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 38.08,
+    "quantity": 0
+  },
+  {
+    "id": "ut-20",
+    "description": "SACO LIXO 105L PRETO",
+    "code": "11278803",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 42.97,
+    "quantity": 0
+  },
+  {
+    "id": "ut-21",
+    "description": "SACO LIXO 200L PRETO",
+    "code": "11074060",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 79.63,
+    "quantity": 0
+  },
+  {
+    "id": "ut-22",
+    "description": "SACO LIXO 040L VERDE 55X57X0,005 C/100",
+    "code": "11054140",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 29.11,
+    "quantity": 0
+  },
+  {
+    "id": "ut-23",
+    "description": "SACO LIXO 060L VERDE 70X70X0,005 C/100",
+    "code": "11054158",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 41.89,
+    "quantity": 0
+  },
+  {
+    "id": "ut-24",
+    "description": "SACO LIXO 100L VERDE 90X90X0,005 C/100",
+    "code": "11054166",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 61.6,
+    "quantity": 0
+  },
+  {
+    "id": "ut-25",
+    "description": "SACO LIXO 200L VERDE 92X130X0,005 C/100",
+    "code": "11054174",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 102.01,
+    "quantity": 0
+  },
+  {
+    "id": "ut-26",
+    "description": "TOUCA CAPILAR DE REDE DESC PTO C/100",
+    "code": "11617438",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 46.21,
+    "quantity": 0
+  },
+  {
+    "id": "ut-27",
+    "description": "PAPEL CHAMEX A4 75G 210X297 OF 500FL",
+    "code": "11575727",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 25.88,
+    "quantity": 0
+  },
+  {
+    "id": "ut-28",
+    "description": "DISPENSER PAPEL HIG ROLAO BC VELOX COMODATO",
+    "code": "11552549",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 34.81,
+    "quantity": 0
+  },
+  {
+    "id": "ut-29",
+    "description": "GATILHO PULVERIZADOR KIT SPRAY C/6",
+    "code": "11089067",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 22.93,
+    "quantity": 0
+  },
+  {
+    "id": "ut-30",
+    "description": "SUPORTE ARAMADO P/BORRIFADOR WIRE BASKET",
+    "code": "11021276",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 55.04,
+    "quantity": 0
+  },
+  {
+    "id": "ut-31",
+    "description": "PA C/CABO POP PLASTICA AZUL",
+    "code": "11022329",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 59.58,
+    "quantity": 0
+  },
+  {
+    "id": "ut-32",
+    "description": "SUPORTE LT LIMPA TUDO PROFISSIONAL AZUL",
+    "code": "10622160",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 24.25,
+    "quantity": 0
+  },
+  {
+    "id": "ut-33",
+    "description": "JOGO DE PRISMAS VERM MCD DO NR. 0/9",
+    "code": "11022531",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 248.81,
+    "quantity": 0
+  },
+  {
+    "id": "ut-34",
+    "description": "PRISMA VERM MCD NR. 0",
+    "code": "",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 22.3,
+    "quantity": 0
+  },
+  {
+    "id": "ut-35",
+    "description": "KIT DERRAME 1 OCULOS + 4 KIT IND. MCD",
+    "code": "11639156",
+    "supplier": "GIMBA",
+    "vendor": "GIMBA",
+    "unitPrice": 47,
+    "quantity": 0
+  },
+  {
+    "id": "ut-45",
+    "description": "SABONETE LIQUIDO BB5L (SALÃO)",
+    "code": "92960-179",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 52.91,
+    "quantity": 0
+  },
+  {
+    "id": "ut-46",
+    "description": "SAB LIQUIDO ANTISSEPT (ROSA)",
+    "code": "00355-619",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 64.4,
+    "quantity": 0
+  },
+  {
+    "id": "ut-47",
+    "description": "KAY QSR DET CONCENT SP (AZUL)",
+    "code": "00303-303",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 133.46,
+    "quantity": 0
+  },
+  {
+    "id": "ut-48",
+    "description": "FIBERUNIQUE (PANOS)",
+    "code": "92960-163",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 257.18,
+    "quantity": 0
+  },
+  {
+    "id": "ut-49",
+    "description": "LIMP GRILL BB 5L / 1 / 6,41KG",
+    "code": "00300-101",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 115.37,
+    "quantity": 0
+  },
+  {
+    "id": "ut-50",
+    "description": "KAY QSR LIMPADOR FRITADE",
+    "code": "00308-058",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 88.09,
+    "quantity": 0
+  },
+  {
+    "id": "ut-51",
+    "description": "OC CHLORINE SANITIZER GALAO 5L",
+    "code": "00304-165",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 114.96,
+    "quantity": 0
+  },
+  {
+    "id": "ut-52",
+    "description": "KAY QSR DESENGORDURANTE",
+    "code": "00215-204",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 64.92,
+    "quantity": 0
+  },
+  {
+    "id": "ut-53",
+    "description": "KAY COFFEE POT / 2 / 2,4KG",
+    "code": "06961-118",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 91.41,
+    "quantity": 0
+  },
+  {
+    "id": "ut-54",
+    "description": "KAY QSR SANITIZANTE CX (CLORO)",
+    "code": "00304-434",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 73.53,
+    "quantity": 0
+  },
+  {
+    "id": "ut-55",
+    "description": "KAY QSR LIMPADOR PISOS",
+    "code": "03014-058",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 122.67,
+    "quantity": 0
+  },
+  {
+    "id": "ut-56",
+    "description": "KAY QSR VIDRO E MULTIUSO",
+    "code": "07639-093",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 172.47,
+    "quantity": 0
+  },
+  {
+    "id": "ut-57",
+    "description": "GEL HIGIENIZADOR 5 L",
+    "code": "92960-178",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 77.3,
+    "quantity": 0
+  },
+  {
+    "id": "ut-58",
+    "description": "PAPEL TOALHA INTERFOLHADO",
+    "code": "03380-023",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 83.63,
+    "quantity": 0
+  },
+  {
+    "id": "ut-59",
+    "description": "ENVELOPE TRANSPARENTE 1000 UN",
+    "code": "05303-022",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 117.31,
+    "quantity": 0
+  },
+  {
+    "id": "ut-60",
+    "description": "QSR SUPER DESENGORD CX 2X5L",
+    "code": "00215-235",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 190.42,
+    "quantity": 0
+  },
+  {
+    "id": "ut-61",
+    "description": "BANDEJA BALCAO",
+    "code": "00427-001",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 261.73,
+    "quantity": 0
+  },
+  {
+    "id": "ut-62",
+    "description": "ESPONJA PARA LIMP DE CHAPA",
+    "code": "03574-030",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 58.22,
+    "quantity": 0
+  },
+  {
+    "id": "ut-63",
+    "description": "ECOSHINE P. ACO INOX CX 4X1L",
+    "code": "14698-003",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 201.28,
+    "quantity": 0
+  },
+  {
+    "id": "ut-64",
+    "description": "PB - 04 BALDES DE 1 KG.",
+    "code": "00306-007",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 103.88,
+    "quantity": 0
+  },
+  {
+    "id": "ut-65",
+    "description": "FERRAMENTA AZUL DE LIMP CHAPA",
+    "code": "03575-033",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 142.23,
+    "quantity": 0
+  },
+  {
+    "id": "ut-66",
+    "description": "BOBINA TERMICA (CAIXA)",
+    "code": "99901-010",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 252.75,
+    "quantity": 0
+  },
+  {
+    "id": "ut-67",
+    "description": "PAPEL HIGIENICO GRANDE",
+    "code": "00585-118",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 65.16,
+    "quantity": 0
+  },
+  {
+    "id": "ut-68",
+    "description": "TEFLON CHAPA GARLAND 3P MW",
+    "code": "92661-000",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 586.95,
+    "quantity": 0
+  },
+  {
+    "id": "ut-69",
+    "description": "KIT FILTRACAO GORDURA IMPT",
+    "code": "04351-015",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 347.37,
+    "quantity": 0
+  },
+  {
+    "id": "ut-70",
+    "description": "XY 12",
+    "code": "00304-440",
+    "supplier": "MBBFT",
+    "vendor": "MBBFT",
+    "unitPrice": 268.72,
+    "quantity": 0
+  },
+  {
+    "id": "ut-78",
+    "description": "SUPORTE ACR/ QUADUPLO PARA CELULAR",
+    "code": "-",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-79",
+    "description": "PRATO RASO PORCELANA - MYBREAK",
+    "code": "GP782",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 17.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-80",
+    "description": "SUPORTE DE TOMATE",
+    "code": "GP365",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 74.45,
+    "quantity": 0
+  },
+  {
+    "id": "ut-81",
+    "description": "KIT DE CLIP BRANCO E VERMELHO UHC",
+    "code": "GP506",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 42,
+    "quantity": 0
+  },
+  {
+    "id": "ut-82",
+    "description": "SUPORTE ACR/ QUADUPLO PARA CELULAR",
+    "code": "",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-83",
+    "description": "Guia de Bebidas",
+    "code": "GP851",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 29,
+    "quantity": 0
+  },
+  {
+    "id": "ut-84",
+    "description": "Guia Sobremesas",
+    "code": "GP852",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 49,
+    "quantity": 0
+  },
+  {
+    "id": "ut-85",
+    "description": "Guia Delivery",
+    "code": "GP854",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 58,
+    "quantity": 0
+  },
+  {
+    "id": "ut-86",
+    "description": "Guia Drive Thru",
+    "code": "GP853",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 98,
+    "quantity": 0
+  },
+  {
+    "id": "ut-87",
+    "description": "Relógio Tempo de Vida Máquina de Suco",
+    "code": "GP858",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 44,
+    "quantity": 0
+  },
+  {
+    "id": "ut-88",
+    "description": "Relógio Tempo de Vida Máquina Combo",
+    "code": "GP857",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-89",
+    "description": "GUIA CARNES VERMELHAS",
+    "code": "GP805",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35,
+    "quantity": 0
+  },
+  {
+    "id": "ut-90",
+    "description": "GUIA MCFRITAS",
+    "code": "GP806",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35,
+    "quantity": 0
+  },
+  {
+    "id": "ut-91",
+    "description": "GUIA PRODUTOS FRITOS",
+    "code": "GP807",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35,
+    "quantity": 0
+  },
+  {
+    "id": "ut-92",
+    "description": "KIT CLIPS UHC AZUL PACOTE COM 10",
+    "code": "GP255",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35,
+    "quantity": 0
+  },
+  {
+    "id": "ut-93",
+    "description": "RELOGIO TEMPO DE VIDA TOMATE",
+    "code": "GP813",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 44,
+    "quantity": 0
+  },
+  {
+    "id": "ut-94",
+    "description": "CARD LOPE NOVO - C/ CORDAO",
+    "code": "GP711",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 17.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-95",
+    "description": "Relógio Tempo de Vida Máquina de leite",
+    "code": "GP855",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 38,
+    "quantity": 0
+  },
+  {
+    "id": "ut-96",
+    "description": "Relógio Tempo de Vida Complementos",
+    "code": "GP856",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 49,
+    "quantity": 0
+  },
+  {
+    "id": "ut-97",
+    "description": "ACRÍLICO PONTO DIÁRIO",
+    "code": "GP015",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 50,
+    "quantity": 0
+  },
+  {
+    "id": "ut-98",
+    "description": "DISPLAY CENTRAL LEITOR NOVOCOD",
+    "code": "GP763",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 26,
+    "quantity": 0
+  },
+  {
+    "id": "ut-99",
+    "description": "ADESIVO DE MESA MCDELIVERY (VERMELHO/AMARELO) 120X60",
+    "code": "GP517",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 164,
+    "quantity": 0
+  },
+  {
+    "id": "ut-100",
+    "description": "ESPATULA PARA FURAR GEMA(PÃO DURO PEQ.)",
+    "code": "GPOV16",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 6.79,
+    "quantity": 0
+  },
+  {
+    "id": "ut-101",
+    "description": "ESPATULA PARA SANGRIA",
+    "code": "GP675",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 48.6,
+    "quantity": 0
+  },
+  {
+    "id": "ut-102",
+    "description": "PEGADOR DE PÃO DE QUEIJO",
+    "code": "PQ21",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 15.1,
+    "quantity": 0
+  },
+  {
+    "id": "ut-103",
+    "description": "KIT COM 28 BUILDINGS",
+    "code": "GP804",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 61.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-104",
+    "description": "RELOGIO TEMPO DE VIDA CARNES VERMELHAS 10:1 E CEBOLEIRO",
+    "code": "GP809",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 47,
+    "quantity": 0
+  },
+  {
+    "id": "ut-105",
+    "description": "CORDÃO PARA CRACHÁ - LOGO MC",
+    "code": "GP659",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 6.9,
+    "quantity": 0
+  },
+  {
+    "id": "ut-106",
+    "description": "SUPORTE PARA TABLET IFOOD",
+    "code": "GP503",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 185,
+    "quantity": 0
+  },
+  {
+    "id": "ut-107",
+    "description": "DISPLAY CASQUINHA E AGUA - AMARELO",
+    "code": "GP513",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 17.4,
+    "quantity": 0
+  },
+  {
+    "id": "ut-108",
+    "description": "RESINADO CASQUINHA ALTURA PADRAO",
+    "code": "GP620",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 6.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-109",
+    "description": "TAMPA P/ DISPENSADOR DE CONFEITO",
+    "code": "GP619",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 28.6,
+    "quantity": 0
+  },
+  {
+    "id": "ut-110",
+    "description": "ETIQUETA RES. TORRE AGUA GASEIFICADA",
+    "code": "GP774",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.58,
+    "quantity": 0
+  },
+  {
+    "id": "ut-111",
+    "description": "ETIQUETAS RESINADAS - BAMP BAR ENTREGA",
+    "code": "GP530",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 12.41,
+    "quantity": 0
+  },
+  {
+    "id": "ut-112",
+    "description": "ETIQUETA RESINADA DO TIMER DA CHAPA",
+    "code": "GP334",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 8.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-113",
+    "description": "KIT 14 ETIQUETAS RESINADAS P/ FRITADEIRA E CHAPAS - 3X3CM",
+    "code": "GP324",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 17.55,
+    "quantity": 0
+  },
+  {
+    "id": "ut-114",
+    "description": "KIT C/10 ETIQUETAS RESINADA CAFÉ MANHÃ E MC CAFÉ DIA TODO",
+    "code": "MC195",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 10.4,
+    "quantity": 0
+  },
+  {
+    "id": "ut-115",
+    "description": "KIT ETIQUETA RESINADA CEBOLEIRO",
+    "code": "GP817",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 9.9,
+    "quantity": 0
+  },
+  {
+    "id": "ut-116",
+    "description": "ETIQUETA RESINADA LIXEIRA SSMA - RECICLAVEL 28X23CM",
+    "code": "GP739",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 89,
+    "quantity": 0
+  },
+  {
+    "id": "ut-117",
+    "description": "KIT C/ 5 UNID. DE CORDINHA SILICONE P/ HEADSETS",
+    "code": "GP340",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 21.3,
+    "quantity": 0
+  },
+  {
+    "id": "ut-118",
+    "description": "BECKER 600ML COM ALÇA",
+    "code": "GP685",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35.41,
+    "quantity": 0
+  },
+  {
+    "id": "ut-119",
+    "description": "DISPLAY EM ACRÍLICO - MCCAFÉ",
+    "code": "GP438",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 5.6,
+    "quantity": 0
+  },
+  {
+    "id": "ut-120",
+    "description": "CONCHA EM INOX/MY BRACK",
+    "code": "MB140",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 30.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-121",
+    "description": "PROCESSADOR DE BACON (MODELO NOVO)",
+    "code": "GP564",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 483.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-122",
+    "description": "KIT CLIPS (2 BRANCOS/ 2 VERMELHOS / 2 AMARELOS / 2 VERDES / 2 LILÁS)",
+    "code": "GP508",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35.9,
+    "quantity": 0
+  },
+  {
+    "id": "ut-123",
+    "description": "KIT CLIPS (5 BRANCOS / 5 AMARELOS)",
+    "code": "GP512",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 35.9,
+    "quantity": 0
+  },
+  {
+    "id": "ut-124",
+    "description": "TOPPING GRANDE ICE CUBE",
+    "code": "GP416",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 151.33,
+    "quantity": 0
+  },
+  {
+    "id": "ut-125",
+    "description": "TOPPING PEQUENO ICE CUBE",
+    "code": "GP417",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 108,
+    "quantity": 0
+  },
+  {
+    "id": "ut-126",
+    "description": "PRATO RASO PORCELANA - MYBREAK",
+    "code": "GP782",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 17.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-127",
+    "description": "FACA DE INOX - MYBREAK",
+    "code": "GP783",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 3.7,
+    "quantity": 0
+  },
+  {
+    "id": "ut-128",
+    "description": "GARFO DE INOX - MYBREAK",
+    "code": "GP784",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 2.8,
+    "quantity": 0
+  },
+  {
+    "id": "ut-129",
+    "description": "COPO ACRILICO - MYBREAK",
+    "code": "GP787",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 3.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-130",
+    "description": "CONTROLE DE TEMPO DE VIDA DO BREAK",
+    "code": "",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 37,
+    "quantity": 0
+  },
+  {
+    "id": "ut-131",
+    "description": "PLACA CARDÁPIO MY BREAK",
+    "code": "GP656",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 37,
+    "quantity": 0
+  },
+  {
+    "id": "ut-132",
+    "description": "SUPORTE EM ACRÍLICO PARA CANETÃO",
+    "code": "GP165",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 15.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-133",
+    "description": "SUPORTE PARA FOLHA A4",
+    "code": "GP115",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 25,
+    "quantity": 0
+  },
+  {
+    "id": "ut-134",
+    "description": "Taboa de corte",
+    "code": "MC131",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 86.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-135",
+    "description": "CAPA ASSENTO CADEIRAO",
+    "code": "GP794",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 208.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-136",
+    "description": "CUBA ACRILICA P/ MÁQUINA COMBO",
+    "code": "GP94CW",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 45.81,
+    "quantity": 0
+  },
+  {
+    "id": "ut-137",
+    "description": "DRENO P/ CUBA DE TOMATE",
+    "code": "GP444",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 36.46,
+    "quantity": 0
+  },
+  {
+    "id": "ut-138",
+    "description": "TAMPA PARA CUBA 1/9 COM ALÇA",
+    "code": "GP90CWCN",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 31.9,
+    "quantity": 0
+  },
+  {
+    "id": "ut-139",
+    "description": "ADESIVO P/PRANCHETA GUIA DE POSICIONAMENTO",
+    "code": "GP430",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 9.9,
+    "quantity": 0
+  },
+  {
+    "id": "ut-140",
+    "description": "RELOGIO TEMPO DE VIDA MOLHOS LADO 1 COM BASE",
+    "code": "GP811",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 71,
+    "quantity": 0
+  },
+  {
+    "id": "ut-141",
+    "description": "RELOGIO TEMPO DE VIDA MOLHOS LADO 2 COM BASE",
+    "code": "GP812",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 71,
+    "quantity": 0
+  },
+  {
+    "id": "ut-142",
+    "description": "RELOGIO TEMPO DE VIDA CONDIMENTOS COM BASE",
+    "code": "GP814",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 78,
+    "quantity": 0
+  },
+  {
+    "id": "ut-143",
+    "description": "CUBA ACRÍLICA C/ TAMPA",
+    "code": "MC085",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 99.4,
+    "quantity": 0
+  },
+  {
+    "id": "ut-144",
+    "description": "CONCHA INOX DE 1OZ",
+    "code": "MC040",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 31.02,
+    "quantity": 0
+  },
+  {
+    "id": "ut-145",
+    "description": "RESINADO SIGLA QUADRO EXCELENCIA",
+    "code": "GP781",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 7,
+    "quantity": 0
+  },
+  {
+    "id": "ut-146",
+    "description": "RESINADO TORRE REFRI COCA-COLA - 4X2CM",
+    "code": "GP314",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-147",
+    "description": "RESINADO TORRE REFRI COCA-COLA SEM AÇUCAR - 4X2CM",
+    "code": "GP315",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-148",
+    "description": "RESINADO TORRE REFRI FANTA - 4X2CM",
+    "code": "GP316",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-149",
+    "description": "RESINADO TORRE REFRI SPRIT SEM AÇUCAR - 4X2CM",
+    "code": "GP317",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-150",
+    "description": "RESINADO TORRE REFRI FANTA GUARANA - 4X2CM",
+    "code": "GP318",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-151",
+    "description": "RESINADO TORRE AGUA GASEIFICADA - 4X2CM",
+    "code": "GP774",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 1.65,
+    "quantity": 0
+  },
+  {
+    "id": "ut-154",
+    "description": "CONCHA INOX DE 1/2 OZ",
+    "code": "MB140",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 30.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-155",
+    "description": "Taboa de corte",
+    "code": "MC131",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 86.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-156",
+    "description": "Cortador Grill",
+    "code": "GP210",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 93.2,
+    "quantity": 0
+  },
+  {
+    "id": "ut-157",
+    "description": "COPO OVERRUN",
+    "code": "GP409",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 16.13,
+    "quantity": 0
+  },
+  {
+    "id": "ut-158",
+    "description": "Pump dosador",
+    "code": "",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 0,
+    "quantity": 0
+  },
+  {
+    "id": "ut-159",
+    "description": "SUPORTE ACRILICO PARA BUILDINGS",
+    "code": "GP803",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 77.7,
+    "quantity": 0
+  },
+  {
+    "id": "ut-160",
+    "description": "layout delivery",
+    "code": "",
+    "supplier": "GLASS POINT",
+    "vendor": "GLASS POINT",
+    "unitPrice": 0,
+    "quantity": 0
+  },
+  {
+    "id": "ut-165",
+    "description": "PASTILHAS LIMPEZA 3 FASES (POTE 25 UN) - JURA",
+    "code": "25045",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 280.71,
+    "quantity": 0
+  },
+  {
+    "id": "ut-166",
+    "description": "FLOCOS LIMPEZA LEITE 180G - JURA",
+    "code": "24211",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 172.34,
+    "quantity": 0
+  },
+  {
+    "id": "ut-167",
+    "description": "GARRAFA CILINDRICA 20OZ NGSD",
+    "code": "27807765",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 222.8,
+    "quantity": 0
+  },
+  {
+    "id": "ut-168",
+    "description": "DISP MOLHO PLASTICO 3 FUROS",
+    "code": "GB21X32201",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 174.59,
+    "quantity": 0
+  },
+  {
+    "id": "ut-169",
+    "description": "DISP MOLHO AVL AZUL CLARO (UN)",
+    "code": "GB21X13506",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 120.04,
+    "quantity": 0
+  },
+  {
+    "id": "ut-170",
+    "description": "BANDEJA UHC FRANGO",
+    "code": "ZZA39677",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 255.31,
+    "quantity": 0
+  },
+  {
+    "id": "ut-171",
+    "description": "BANDEJA UHC OPTIC - CARNE",
+    "code": "ZZA3A643",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 322.43,
+    "quantity": 0
+  },
+  {
+    "id": "ut-172",
+    "description": "SUPORTE PARA KETCHUP/ MOSTARDA ( MFY)",
+    "code": "HKN417AN",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 1187.74,
+    "quantity": 0
+  },
+  {
+    "id": "ut-173",
+    "description": "TABLETE DE DESCALSIFICAÇAO",
+    "code": "JU70751",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 360.8,
+    "quantity": 0
+  },
+  {
+    "id": "ut-174",
+    "description": "DISPENSADOR DE MOLHO FIFO",
+    "code": "FIFOCB20",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 61.52,
+    "quantity": 0
+  },
+  {
+    "id": "ut-175",
+    "description": "LAMINA SILICONE RODINHO LIMPEZA CHAPA GRILL",
+    "code": "27025979",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 36.48,
+    "quantity": 0
+  },
+  {
+    "id": "ut-176",
+    "description": "DISPENSADOR DE KETCHUP PARA BALCÃO",
+    "code": "7000",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 2741.93,
+    "quantity": 0
+  },
+  {
+    "id": "ut-177",
+    "description": "FILTRO DE PAPEL PARA MÁQ. DE CAFÉ CWTF CX 1000",
+    "code": "201570001",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 315.38,
+    "quantity": 0
+  },
+  {
+    "id": "ut-178",
+    "description": "PÁ DE BATATA MÃO DUPLA (PLASTICO)",
+    "code": "252DH",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 173.91,
+    "quantity": 0
+  },
+  {
+    "id": "ut-179",
+    "description": "KIT PISTAO DISPENSADOR DE KETCHUP MOD 406",
+    "code": "406INTS",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 429.4,
+    "quantity": 0
+  },
+  {
+    "id": "ut-180",
+    "description": "PEGADOR PLASTICO AZUL 9 PONTA LISA",
+    "code": "TGG9MD787",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 18.25,
+    "quantity": 0
+  },
+  {
+    "id": "ut-181",
+    "description": "CESTA DE BATATAS",
+    "code": "MCD211",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 216.67,
+    "quantity": 0
+  },
+  {
+    "id": "ut-182",
+    "description": "DIFUSOR PARA PISTOLA DE MOLHO (PCT 10 UN)",
+    "code": "13641",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 149.92,
+    "quantity": 0
+  },
+  {
+    "id": "ut-183",
+    "description": "CUBA P/ MOLHOS NUGGETS MFY ( UNIDADE )",
+    "code": "HKNW127UND",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 27.69,
+    "quantity": 0
+  },
+  {
+    "id": "ut-184",
+    "description": "GAXETA P/ DISPENSADOR DE CASCÃO MOD FRANKE",
+    "code": "27800229",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 46.27,
+    "quantity": 0
+  },
+  {
+    "id": "ut-185",
+    "description": "GAXETA PARA DISPENSADOR DE CASQUINHA",
+    "code": "27800352",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 46.27,
+    "quantity": 0
+  },
+  {
+    "id": "ut-186",
+    "description": "GRADE DE PROTEÇÃO LUMINARIA HATCO DL-500",
+    "code": "41126800",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 111.56,
+    "quantity": 0
+  },
+  {
+    "id": "ut-187",
+    "description": "PÁ PLASTICA UHC BEGE PARA NUGGETS (MFY)",
+    "code": "15061108",
+    "supplier": "COLD MIX",
+    "vendor": "COLD MIX",
+    "unitPrice": 36.66,
+    "quantity": 0
+  },
+  {
+    "id": "ut-195",
+    "description": "LAMPADAS INFRAVERMELHAS",
+    "code": "17731",
+    "supplier": "OUTROS",
+    "vendor": "OUTROS",
+    "unitPrice": 0,
+    "quantity": 0
+  },
+  {
+    "id": "ut-196",
+    "description": "AVENTAL IMPERMAVEL PARA AREA DE LAVAGEM",
+    "code": "EP024",
+    "supplier": "OUTROS",
+    "vendor": "NORTEL",
+    "unitPrice": 8.97,
+    "quantity": 0
+  },
+  {
+    "id": "ut-197",
+    "description": "CAPA PARA CHUVA AMARELA (EMBORRACHADA)- M",
+    "code": "EP017",
+    "supplier": "OUTROS",
+    "vendor": "NORTEL",
+    "unitPrice": 14.64,
+    "quantity": 0
+  },
+  {
+    "id": "ut-198",
+    "description": "LUVA PARA ALTA TEMPERATURA G",
+    "code": "F115KNKCS16NT",
+    "supplier": "OUTROS",
+    "vendor": "UNILUVAS",
+    "unitPrice": 107.5,
+    "quantity": 0
+  },
+  {
+    "id": "ut-199",
+    "description": "ESCADA BANQUETA DE ALUMINIO COM 3 DEGRAUS",
+    "code": "https://www.mercadolivre.com.br/escada-banqueta-de-aluminio-com-3-degraus-botafogo-lar-lazer/p/MLB36709169?pdp_filters=item_id%3AMLB4721201190&matt_tool=38524122#origin=share&sid=share&wid=MLB4721201190&action=copy",
+    "supplier": "OUTROS",
+    "vendor": "MERCADO LIVRE",
+    "unitPrice": 126.86,
+    "quantity": 0
+  },
+  {
+    "id": "ut-200",
+    "description": "BANDEIRA DO BRASIL 1,35X1,93M",
+    "code": "MCDBR135",
+    "supplier": "OUTROS",
+    "vendor": "BANDEMAR",
+    "unitPrice": 280,
+    "quantity": 0
+  },
+  {
+    "id": "ut-201",
+    "description": "BANDEIRA MC DONALDS 1,35X1,93M",
+    "code": "MCD135",
+    "supplier": "OUTROS",
+    "vendor": "BANDEMAR",
+    "unitPrice": 325,
+    "quantity": 0
+  },
+  {
+    "id": "ut-202",
+    "description": "PETROGEL AZUL",
+    "code": "47518CS",
+    "supplier": "OUTROS",
+    "vendor": "TOP TAYLOR",
+    "unitPrice": 80,
+    "quantity": 0
+  },
+  {
+    "id": "ut-203",
+    "description": "SUPORTE PARA VASSOURAS MODELO VIG",
+    "code": "MD002829",
+    "supplier": "OUTROS",
+    "vendor": "ACOS MACOM",
+    "unitPrice": 369.36,
+    "quantity": 0
+  },
+  {
+    "id": "ut-204",
+    "description": "PETROGEL VERMELHO",
+    "code": "48232",
+    "supplier": "OUTROS",
+    "vendor": "TOP TAYLOR",
+    "unitPrice": 89.78,
+    "quantity": 0
+  },
+  {
+    "id": "ut-205",
+    "description": "SUPORTE PARA BLOQUEADOR DE DISJUNTORES",
+    "code": "K116",
+    "supplier": "OUTROS",
+    "vendor": "VISUALPLAN",
+    "unitPrice": 45,
+    "quantity": 0
+  }
+]
