@@ -261,7 +261,7 @@ function adminModulePage(){
  if(page==="admin_utensils")return utensilPage();
  if(page==="admin_intermitentes")return intermitentesPage();
  if(page==="admin_mercado_livre")return mercadoLivrePage();
- if(page==="admin_agua_luz")return waterLightPage();
+ if(page==="admin_agua_luz"&&(isGun()||isGp()||isPorter()))return waterLightPage();
  if(!item)return adminPanel();
  return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>'+item[1]+'</h2><p>Área independente de planejamento e acompanhamento.</p></div></div><section class="card admin-module-placeholder"><div class="admin-placeholder-icon">↗</div><h3>'+item[1]+'</h3><p>Esta área está criada no painel administrativo. Aqui serão desenvolvidos os cadastros, projeções, cálculos e relatórios específicos deste controle.</p><span class="pill blue">Estrutura inicial</span></section>');
 }
@@ -273,14 +273,15 @@ function render(){
  const pageViews={admin_projections:adminPanel,admin_uniform:adminModulePage,admin_utensils:adminModulePage,admin_intermitentes:adminModulePage,admin_mercado_livre:adminModulePage,admin_agua_luz:adminModulePage,admin_manutencao:adminModulePage,admin_gastos:adminModulePage,overview,products:productsPage,inputs,count:countPage,other_orders:otherOrders,analysis,orders,history,settings:settingsPage,profile:profilePage,users:usersSettingsPage};
  const deniedSupervisor=["inputs","settings","products","orders","history","users"].includes(page);
  const deniedGp=["history","users"].includes(page);
- if((page==="admin_projections"||page.startsWith("admin_"))&&!isGun())page="overview";
+ if(isPorter()&&page!=="admin_agua_luz")page="admin_agua_luz";
+ if((page==="admin_projections"||page.startsWith("admin_"))&&!isGun()&&!isPorter()&&!(isGp()&&page==="admin_agua_luz"))page="overview";
  if(!pageViews[page]||(isSupervisor()&&deniedSupervisor)||(isGp()&&deniedGp)||(!isGun()&&!isGp()&&["products","orders"].includes(page)))page="overview";
  $("#app-shell").classList.toggle("admin-mode",page==="admin_projections"||page.startsWith("admin_"));
  $("#page-title").textContent=pageTitles[page]||(visibleNav.find(x=>x[0]===page)?.[1]||"Visão geral");
  document.querySelectorAll(".header-shortcut").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
  $("#today-label").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
- $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
+ $("#side-nav").innerHTML=isPorter()?"":links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
  $("#content").innerHTML=pageViews[page]();
  wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireWaterLight();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
@@ -300,7 +301,7 @@ function settingsPage(){
 
 function profilePage(){
  const p=window.IPM_AUTH?.profile||{},role=p.role||"viewer";
- const names={admin:"GUN",gun:"GUN",manager:"Gerente de Plantão",gp:"Gerente de Plantão",viewer:"Supervisor",supervisor_diaria:"Supervisor Diária",supervisor_quiosque:"Supervisor Quiosque",treinador:"Treinador"};
+ const names={admin:"GUN",gun:"GUN",manager:"Gerente de Plantão",gp:"Gerente de Plantão",viewer:"Supervisor",supervisor_diaria:"Supervisor Diária",supervisor_quiosque:"Supervisor Quiosque",treinador:"Treinador",porteiro:"Porteiro"};
  const permissions=isGun()?["Visão geral","Inputs","Pedidos 1.0","Coca-Cola","Análise","Configurações","Produtos","Pedidos","Histórico","Gerenciar usuários","Perfil"]:isGp()?["Visão geral","Inputs","Pedidos 1.0","Coca-Cola","Análise","Configurações","Produtos","Pedidos","Perfil"]:["Visão geral","Pedidos 1.0 (somente visualizar)","Coca-Cola (somente visualizar)","Análise (somente visualizar)","Perfil"];
  const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
  const avatar=p.avatar_url?'<img src="'+p.avatar_url+'" alt="Foto de perfil">':esc((p.display_name||p.username||"IP").trim().split(/\\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase());
@@ -321,11 +322,12 @@ function wireProfile(){
  $("#profile-password-form")?.addEventListener("submit",async e=>{e.preventDefault();const form=e.currentTarget,f=new FormData(form),current=String(f.get("current_password")),next=String(f.get("new_password")),confirm=String(f.get("confirm_password")),btn=form.querySelector("button");if(next.length<8)return toast("A nova senha precisa ter pelo menos 8 caracteres.");if(next!==confirm)return toast("A confirmação da nova senha não confere.");btn.disabled=true;try{const login=await fetch("https://pthjfsjqkhzwqibvywxv.supabase.co/functions/v1/username-login",{method:"POST",headers:{"Content-Type":"application/json",apikey:"sb_publishable_7NzwxzFq7-KI0W1wsfPxRA_6oX5bFUg"},body:JSON.stringify({username:window.IPM_AUTH.profile.username,password:current})});const result=await login.json().catch(()=>({}));if(!login.ok||!result.session?.access_token)throw new Error("A senha atual está incorreta.");const changed=await fetch("https://pthjfsjqkhzwqibvywxv.supabase.co/auth/v1/user",{method:"PUT",headers:{apikey:"sb_publishable_7NzwxzFq7-KI0W1wsfPxRA_6oX5bFUg",Authorization:"Bearer "+result.session.access_token,"Content-Type":"application/json"},body:JSON.stringify({password:next})});if(!changed.ok)throw new Error("O serviço não aceitou a alteração da senha.");form.reset();toast("Senha alterada com sucesso.")}catch(err){toast(err.message)}finally{btn.disabled=false}});
 }
 
-const USER_ROLE_OPTIONS=[["gun","GUN"],["gp","Gerente de Plantão"],["supervisor_diaria","Supervisor Diária"],["supervisor_quiosque","Supervisor Quiosque"],["treinador","Treinador"]];
+const USER_ROLE_OPTIONS=[["gun","GUN"],["gp","Gerente de Plantão"],["supervisor_diaria","Supervisor Diária"],["supervisor_quiosque","Supervisor Quiosque"],["treinador","Treinador"],["porteiro","Porteiro"]];
 const USER_ROLE_NAMES={admin:"GUN",gun:"GUN",manager:"Gerente de Plantão",gp:"Gerente de Plantão",viewer:"Supervisor",supervisor_diaria:"Supervisor Diária",supervisor_quiosque:"Supervisor Quiosque",treinador:"Treinador"};
 const isGun=()=>["admin","gun"].includes(window.IPM_AUTH?.profile?.role);
 const isGp=()=>["manager","gp"].includes(window.IPM_AUTH?.profile?.role);
 const isSupervisor=()=>["viewer","supervisor_diaria","supervisor_quiosque","treinador"].includes(window.IPM_AUTH?.profile?.role);
+const isPorter=()=>window.IPM_AUTH?.profile?.role==="porteiro";
 async function userAdmin(action,payload={}){
  const token=window.IPM_AUTH?.session?.access_token;
  if(!token)throw new Error("Sessão expirada. Entre novamente.");
