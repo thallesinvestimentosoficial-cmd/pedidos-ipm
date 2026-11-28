@@ -1521,3 +1521,25 @@ body{background:#e9eef2}
 .wl-highlights{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:700px){.wl-analysis-head{align-items:stretch;flex-direction:column}.wl-report-actions{display:grid;grid-template-columns:1fr 1fr}.wl-report-actions .btn{width:100%;padding:10px 8px;font-size:11px}}
 @media(max-width:430px){.wl-report-actions{grid-template-columns:1fr}.wl-highlights{grid-template-columns:1fr}}
+
+
+/* Ciclos de pedido Coca-Cola: sete dias e seis dias */
+.coca-cycle-picker{margin:14px 0 12px;padding:17px;border:1px solid #e1e8f0;border-radius:15px;background:linear-gradient(135deg,#fff 0%,#f6f9fc 100%)}
+.coca-cycle-heading h3{margin:5px 0;font-size:17px;color:#203246}
+.coca-cycle-heading p{margin:0;color:#7b899a;font-size:11px}
+.coca-cycle-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.coca-cycle-option{display:flex;align-items:center;gap:12px;min-width:0;padding:15px;border:1px solid #dce5ee;border-radius:12px;background:#fff;text-align:left;cursor:pointer;transition:.18s}
+.coca-cycle-option:hover{border-color:#75b9d0;transform:translateY(-1px)}
+.coca-cycle-option.active{border-color:#138eae;background:#edf9fc;box-shadow:0 0 0 2px #138eae18}
+.coca-cycle-day{display:grid;place-items:center;flex:0 0 43px;height:43px;border-radius:11px;background:#172d43;color:#fff;font-size:12px;font-weight:900}
+.coca-cycle-option.active .coca-cycle-day{background:#087f9e}
+.coca-cycle-copy{display:grid;gap:4px;min-width:0}
+.coca-cycle-copy b{font-size:13px;color:#23364a}
+.coca-cycle-copy small{font-size:10px;color:#718196}
+.coca-cycle-arrow{margin-left:auto;color:#138eae;font-size:24px}
+.coca-cycle-period{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0 15px;padding:12px 15px;border-radius:11px;background:#edf5f9}
+.coca-cycle-period>span{font-size:9px;letter-spacing:.8px;font-weight:900;color:#668197}
+.coca-cycle-period strong{font-size:13px;color:#17364c}
+.coca-cycle-period small{margin-left:auto;color:#71879a;font-size:10px}
+.coca-cycle-hint{padding:18px;border:1px dashed #cbd8e4;border-radius:12px;text-align:center;color:#718196;font-size:12px;background:#f8fafc}
+@media(max-width:600px){.coca-cycle-picker{padding:13px}.coca-cycle-options{grid-template-columns:1fr;gap:9px}.coca-cycle-option{padding:12px}.coca-cycle-period{align-items:flex-start;flex-direction:column;gap:5px}.coca-cycle-period small{margin-left:0}}
