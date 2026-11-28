@@ -798,3 +798,13 @@ input,select,textarea{max-width:100%}
 .analysis-balance.pending,.analysis-status.pending{color:#8291a5!important}
 .analysis-status{display:inline-flex!important;align-items:center!important;font-weight:750!important}
 .analysis-product-name,.analysis-product-name .analysis-dot{display:none!important}
+
+.analysis-table th,.analysis-table td{white-space:nowrap}
+.analysis-table td.analysis-product{white-space:normal}
+@media(max-width:620px){
+ .analysis-table tbody{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+ .analysis-table tr{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .analysis-table td[data-label="Produto"]{grid-column:1/-1}
+ .analysis-table td[data-label="Necessidade"],.analysis-table td[data-label="Projetado"]{font-weight:750}
+ .analysis-table td[data-label="Status"]{grid-column:1/-1}
+}
