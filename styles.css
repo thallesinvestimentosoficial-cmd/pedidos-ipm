@@ -1345,3 +1345,88 @@ body{background:#e9eef2}
 .admin-side-link.active .admin-icon{color:#087f98;background:#d9f4f7;border-color:#9edce5}
 .admin-side-link:hover .admin-icon{transform:translateY(-1px);border-color:#9edce5}
 @media(max-width:760px){.admin-side-link .admin-icon{width:32px;height:32px;flex-basis:32px}.admin-side-link .admin-icon svg{width:18px;height:18px}}
+
+
+/* Visão geral administrativa · painel futurista e hierarquia visual */
+.admin-content:has(.admin-overview-hero){padding-top:25px}
+.admin-overview-hero{
+ position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:24px;
+ min-height:164px;margin:0 0 19px;padding:26px 29px;overflow:hidden;
+ border:1px solid #cfdde5;border-radius:19px;
+ background:linear-gradient(112deg,#fff 0%,#f4f8fb 56%,#e4f4f5 100%);
+ box-shadow:0 12px 30px #20394b12;
+}
+.admin-overview-hero:before{
+ content:"";position:absolute;z-index:-1;right:-65px;top:-135px;width:300px;height:300px;
+ border:1px solid #56c7cb55;border-radius:50%;
+ box-shadow:0 0 0 22px #56c7cb0b,0 0 0 48px #56c7cb08,0 0 0 76px #56c7cb06;
+}
+.admin-overview-hero:after{
+ content:"";position:absolute;z-index:-1;left:0;top:0;bottom:0;width:4px;
+ background:linear-gradient(180deg,#35c6d0,#4f7f9a);
+}
+.admin-overview-heading{display:flex;align-items:center;gap:17px;min-width:0}
+.admin-overview-symbol{
+ display:grid;place-items:center;flex:0 0 58px;width:58px;height:58px;
+ border:1px solid #b9e1e8;border-radius:17px;
+ background:linear-gradient(145deg,#e8f8fa,#d8edf3);
+ color:#168ba2;box-shadow:0 7px 18px #2e9db31a;
+}
+.admin-overview-symbol svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.admin-overview-heading .eyebrow{display:block;margin-bottom:6px;color:#2796a5;font-size:9px;font-weight:900;letter-spacing:1.7px}
+.admin-overview-heading h2{margin:0;color:#243b4e;font-size:27px;font-weight:850;letter-spacing:-.7px}
+.admin-overview-heading p{margin:6px 0 0;color:#718494;font-size:12px;line-height:1.5}
+.admin-reference-month{
+ display:flex;flex:0 0 220px;flex-direction:column;gap:8px;
+ padding:13px 15px;border:1px solid #d5e5eb;border-radius:13px;
+ background:#ffffffd9;box-shadow:0 6px 18px #23495b0b;
+}
+.admin-reference-month span{color:#658092;font-size:9px;font-weight:900;letter-spacing:1.2px}
+.admin-reference-month input{
+ width:100%;min-width:0;min-height:39px;padding:7px 9px;
+ border:1px solid #cfe0e7;border-radius:9px;background:#f8fbfc;
+ color:#29465a;font-size:13px;font-weight:750;
+}
+.admin-content:has(.admin-overview-hero) .expense-summary{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:0 0 17px;
+}
+.admin-content:has(.admin-overview-hero) .expense-summary article{
+ position:relative;min-width:0;padding:18px 19px;overflow:hidden;
+ border:1px solid #dce6eb;border-radius:14px;background:#fff;
+ box-shadow:0 6px 20px #29475a0b;
+}
+.admin-content:has(.admin-overview-hero) .expense-summary article:before{
+ content:"";position:absolute;top:0;left:0;right:0;height:3px;
+ background:linear-gradient(90deg,#4fc3cd,#8acbd2);
+}
+.admin-content:has(.admin-overview-hero) .expense-summary small{
+ display:block;margin-bottom:9px;color:#718595;font-size:10px;font-weight:750;
+}
+.admin-content:has(.admin-overview-hero) .expense-summary b{
+ color:#263e51;font-size:clamp(18px,2vw,25px);font-weight:850;letter-spacing:-.5px;
+ overflow-wrap:anywhere;
+}
+.admin-content:has(.admin-overview-hero) > .card{
+ margin:14px 0;padding:20px;border:1px solid #dce6eb;border-radius:15px;
+ background:#fff;box-shadow:0 6px 20px #29475a0b;
+}
+.admin-content:has(.admin-overview-hero) > .card h3{margin:0 0 12px;color:#2b4558;font-size:15px}
+.admin-content:has(.admin-overview-hero) .overview-expense-report{padding:20px}
+@media(max-width:760px){
+ .admin-content:has(.admin-overview-hero){padding-top:14px}
+ .admin-overview-hero{align-items:stretch;flex-direction:column;gap:17px;margin-bottom:13px;padding:20px 17px;border-radius:15px}
+ .admin-overview-heading{align-items:flex-start;gap:12px}
+ .admin-overview-symbol{width:46px;height:46px;flex-basis:46px;border-radius:13px}
+ .admin-overview-symbol svg{width:24px;height:24px}
+ .admin-overview-heading h2{font-size:23px}
+ .admin-overview-heading p{font-size:11px}
+ .admin-reference-month{flex:1 1 auto;width:100%;padding:11px 12px}
+ .admin-content:has(.admin-overview-hero) .expense-summary{grid-template-columns:1fr;gap:8px}
+ .admin-content:has(.admin-overview-hero) .expense-summary article{padding:14px 16px}
+ .admin-content:has(.admin-overview-hero) .expense-summary b{font-size:21px}
+ .admin-content:has(.admin-overview-hero) > .card{padding:15px 13px}
+}
+@media(min-width:761px) and (max-width:1050px){
+ .admin-overview-hero{padding:22px;gap:14px}
+ .admin-reference-month{flex-basis:195px}
+}
