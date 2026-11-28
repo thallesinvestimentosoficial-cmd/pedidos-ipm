@@ -13,8 +13,27 @@
     $("#app-shell").hidden = true;
     $("#login-error").textContent = message;
   }
+  async function refreshSession() {
+    if (!session?.refresh_token) throw new Error("Sessão expirada. Entre novamente.");
+    const r = await fetch(SUPABASE_URL + "/auth/v1/token?grant_type=refresh_token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY },
+      body: JSON.stringify({ refresh_token: session.refresh_token })
+    });
+    const next = await r.json().catch(() => ({}));
+    if (!r.ok || !next.access_token) {
+      session = null;
+      window.IPM_AUTH = null;
+      localStorage.removeItem(STORAGE_KEY);
+      throw new Error("Sua sessão expirou. Entre novamente para continuar.");
+    }
+    session = { ...session, ...next };
+    if (localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    if (window.IPM_AUTH) window.IPM_AUTH.session = session;
+    return session.access_token;
+  }
   function showApp(profile) {
-    window.IPM_AUTH = { session, profile, roleName: roleNames[profile.role] || "Usuário" };
+    window.IPM_AUTH = { session, profile, roleName: roleNames[profile.role] || "Usuário", refreshSession };
     $("#login-screen").hidden = true;
     $("#app-shell").hidden = false;
     const displayName = profile.display_name || profile.username || "Usuário";
@@ -55,7 +74,8 @@
     if (!raw) return showLogin();
     try {
       session = JSON.parse(raw);
-      if (!session.access_token || (session.expires_at && session.expires_at * 1000 < Date.now())) throw new Error("Sessão expirada. Entre novamente.");
+      if (!session.access_token) throw new Error("Sessão expirada. Entre novamente.");
+      if (!session.expires_at || session.expires_at * 1000 < Date.now() + 60000) await refreshSession();
       const profile = await loadProfile(session.access_token);
       showApp(profile);
     } catch (e) {
