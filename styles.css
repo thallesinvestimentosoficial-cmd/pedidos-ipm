@@ -193,3 +193,12 @@ tbody tr:hover{background:#fafbfd}
 .coca-heading-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#fff0f0,#ffe0e2);font-size:22px;box-shadow:inset 0 0 0 1px #f6c9cd}
 .coca-product strong{display:flex;align-items:center;gap:7px;text-transform:uppercase;letter-spacing:.18px}
 .coca-product-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 27px;width:27px;height:27px;border-radius:9px;background:#fff0f1;font-size:16px}
+
+/* Seleção de subcategorias em Pedidos 1.0 */
+.count-category-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:12px 0 18px}
+.count-category-tile{display:flex;align-items:center;gap:10px;min-height:62px;padding:12px 15px;border:1px solid #e1e7ef;border-radius:13px;background:#fff;color:#263750;font:inherit;font-size:13px;font-weight:800;text-align:left;cursor:pointer;box-shadow:0 3px 12px #15243b08;transition:border-color .15s,background .15s,transform .15s}
+.count-category-tile:hover{transform:translateY(-1px);border-color:#c4cfdd}
+.count-category-tile.active{border-color:#d92732;background:#fff6f6;color:#b51f2b;box-shadow:0 0 0 2px #d9273212}
+.count-category-symbol{display:flex;align-items:center;justify-content:center;width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#f2f5f9;font-size:19px}
+.count-category-tile.active .count-category-symbol{background:#ffe5e7}
+@media(max-width:700px){.count-category-tiles{gap:7px}.count-category-tile{min-height:58px;padding:9px 7px;gap:6px;flex-direction:column;justify-content:center;text-align:center;font-size:10px}.count-category-symbol{width:29px;height:29px;flex-basis:29px;font-size:16px}}
