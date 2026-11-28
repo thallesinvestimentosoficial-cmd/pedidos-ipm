@@ -22,13 +22,13 @@
     const topInitials = $("#top-initials");
     const topName = $("#top-profile-name");
     const topRole = $("#top-profile-role");
-    if (topInitials) topInitials.textContent = initials(displayName);
+    if (topInitials) topInitials.innerHTML = profile.avatar_url ? '<img src="' + profile.avatar_url + '" alt="Foto de perfil">' : initials(displayName);
     if (topName) topName.textContent = displayName;
     if (topRole) topRole.textContent = displayRole;
     document.dispatchEvent(new CustomEvent("ipm:authenticated"));
   }
   async function loadProfile(accessToken) {
-    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active&limit=1", {
+    const r = await fetch(SUPABASE_URL + "/rest/v1/profiles?select=username,display_name,role,active,avatar_url&limit=1", {
       headers: { apikey: SUPABASE_KEY, Authorization: "Bearer " + accessToken }
     });
     if (!r.ok) throw new Error("Não foi possível validar o perfil.");
