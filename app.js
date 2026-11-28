@@ -21,7 +21,7 @@ function render(){
  const role=window.IPM_AUTH?.profile?.role||"viewer";
  const visibleNav=isGun()?nav:isGp()?nav.filter(x=>["overview","inputs","count","other_orders","analysis","settings","profile"].includes(x[0])):nav.filter(x=>["overview","count","other_orders","analysis","profile"].includes(x[0]));
  const pageTitles={products:"Produtos",orders:"Pedidos",history:"Histórico",users:"Gerenciar usuários",profile:"Perfil",settings:"Configurações",other_orders:"Coca-Cola"};
- const pageViews={overview,products:productsPage,inputs,count,other_orders:otherOrders,analysis,orders,history,settings:settingsPage,profile:profilePage,users:usersSettingsPage};
+ const pageViews={overview,products:productsPage,inputs,count:countPage,other_orders:otherOrders,analysis,orders,history,settings:settingsPage,profile:profilePage,users:usersSettingsPage};
  const deniedSupervisor=["inputs","settings","products","orders","history","users"].includes(page);
  const deniedGp=["history","users"].includes(page);
  if(!pageViews[page]||(isSupervisor()&&deniedSupervisor)||(isGp()&&deniedGp)||(!isGun()&&!isGp()&&["products","orders"].includes(page)))page="overview";
