@@ -875,3 +875,47 @@ input,select,textarea{max-width:100%}
 .utensil-toolbar,.utensil-editor-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:12px 0 18px}.utensil-toolbar h2{font-size:18px;margin:0}.utensil-toolbar p{font-size:12px;color:#7b8798;margin:5px 0 0}.utensil-projection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.utensil-projection-card{background:#fff;border:1px solid #e5eaf1;border-radius:14px;padding:18px}.utensil-card-top{display:flex;justify-content:space-between;gap:8px}.utensil-card-top b{font-size:13px}.utensil-card-top span,.utensil-projection-card small{font-size:10px;color:#7b8798}.utensil-projection-card>strong{display:block;font-size:25px;margin:17px 0 2px}.utensil-card-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px;padding-top:13px;border-top:1px solid #edf0f4}.utensil-card-actions button{border:0;border-radius:8px;background:#eef3f8;color:#31445c;padding:8px 10px;font-size:10px;font-weight:800;cursor:pointer}.utensil-card-actions button.danger{background:#fff0f0;color:#b42332}.utensil-empty{text-align:center;padding:35px 18px}.utensil-empty h3{margin:0 0 7px}.utensil-empty p{color:#7b8798;font-size:12px}.utensil-period-fields{display:flex;gap:10px}.utensil-period-fields label,.utensil-product-fields label{display:grid;gap:6px;font-size:11px;font-weight:800;color:#536176}.utensil-period-fields select,.utensil-period-fields input,.utensil-product-fields input,.utensil-product-fields select,.utensil-freight input{height:40px;border:1px solid #dce3ec;border-radius:9px;padding:0 10px;background:white;color:#26364a;font:inherit}.utensil-editor-actions{display:flex;gap:8px;flex-wrap:wrap}.utensil-add-form{padding:18px;margin:12px 0}.utensil-add-form h3{margin:0;font-size:16px}.utensil-product-fields{display:grid;grid-template-columns:1fr 2fr 1fr 1.2fr 1fr;gap:10px;margin:16px 0}.utensil-search{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:16px 0}.utensil-search input{width:min(440px,100%);height:42px;border:1px solid #dce3ec;border-radius:10px;padding:0 12px}.utensil-search span{font-size:11px;color:#7b8798}.utensil-supplier-section{padding:0;margin:14px 0;overflow:hidden}.utensil-supplier-section>header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #edf0f4}.utensil-supplier-section>header h3{margin:4px 0;font-size:16px}.utensil-supplier-section>header small{font-size:10px;color:#7b8798}.utensil-supplier-section>header>strong{font-size:17px}.utensil-table-wrap{width:100%;overflow:auto}.utensil-table{width:100%;border-collapse:collapse;min-width:700px}.utensil-table th,.utensil-table td{padding:9px 10px;border-bottom:1px solid #edf0f4;text-align:left;font-size:11px}.utensil-table th{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:#758398;background:#f8fafc}.utensil-table td b{font-size:11px}.utensil-table td small{display:block;color:#7b8798;font-size:9px;margin-top:3px}.utensil-table .money{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.utensil-qty{width:82px;height:34px;border:1px solid #dce3ec;border-radius:7px;padding:0 7px;font:inherit;text-align:center}.utensil-freight{display:flex;align-items:end;justify-content:space-between;gap:12px;padding:13px 17px;background:#fafbfd}.utensil-freight label{display:grid;gap:6px;font-size:10px;font-weight:800;color:#627087}.utensil-freight input{width:170px}.utensil-freight>b{font-size:11px}.utensil-grand-total{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px;background:#17243a;color:white;border-radius:14px;margin:18px 0}.utensil-grand-total span{font-size:12px;font-weight:900;letter-spacing:.5px}.utensil-grand-total small{display:block;color:#b8c5d6;margin-top:5px;font-size:10px}.utensil-grand-total strong{font-size:26px;font-variant-numeric:tabular-nums}
 @media(max-width:900px){.utensil-product-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.utensil-toolbar,.utensil-editor-head{align-items:stretch;flex-direction:column}.utensil-toolbar .btn{width:100%}.utensil-projection-grid{grid-template-columns:1fr}.utensil-editor-actions{display:grid;grid-template-columns:1fr 1fr}.utensil-editor-actions .btn:last-child{grid-column:1/-1}.utensil-period-fields{display:grid;grid-template-columns:1fr 1fr}.utensil-product-fields{grid-template-columns:1fr}.utensil-freight{align-items:stretch;flex-direction:column}.utensil-freight input{width:100%}.utensil-grand-total strong{font-size:20px}.utensil-search{align-items:stretch;flex-direction:column}}
+
+
+/* Projeção de utensílios: grupos por fornecedor e tabela compacta responsiva */
+.utensil-supplier-section{margin:7px 0;border-radius:10px}
+.utensil-supplier-section>header{padding:7px 11px;gap:8px;min-height:34px}
+.utensil-supplier-section>header h3{font-size:11px;margin:0;font-weight:850;letter-spacing:.25px}
+.utensil-supplier-section>header small{font-size:9px;margin-left:auto}
+.utensil-supplier-section>header>strong{font-size:11px;min-width:82px;text-align:right}
+.utensil-table-wrap{overflow:visible;width:100%}
+.utensil-table{width:100%;min-width:0;table-layout:fixed}
+.utensil-table th,.utensil-table td{padding:4px 6px;font-size:10px;line-height:1.2}
+.utensil-table th{font-size:8px;letter-spacing:.15px}
+.utensil-table td b{font-size:10px;font-weight:650;overflow-wrap:anywhere}
+.utensil-table .money{white-space:nowrap;font-size:9px}
+.utensil-product-name{overflow-wrap:anywhere}
+.utensil-qty{width:100%;max-width:58px;height:27px;padding:0 3px;font-size:10px;border-radius:6px}
+.utensil-grand-total{padding:12px 15px;margin:10px 0}
+.utensil-grand-total span{font-size:10px}
+.utensil-grand-total small{font-size:9px}
+.utensil-grand-total strong{font-size:20px}
+@media(max-width:700px){
+ .utensil-editor-head{gap:8px;margin:8px 0}
+ .utensil-period-fields{gap:7px}
+ .utensil-period-fields label{font-size:10px}
+ .utensil-period-fields select,.utensil-period-fields input{height:34px;font-size:12px}
+ .utensil-editor-actions{gap:6px}
+ .utensil-editor-actions .btn{padding:8px 7px;font-size:11px;min-height:34px}
+ .utensil-search{margin:8px 0;gap:5px}
+ .utensil-search input{height:35px;font-size:12px}
+ .utensil-search span{font-size:9px}
+ .utensil-supplier-section{margin:6px 0}
+ .utensil-supplier-section>header{padding:6px 8px}
+ .utensil-table th,.utensil-table td{padding:4px 3px}
+ .utensil-table th{font-size:7px}
+ .utensil-table td b{font-size:9px}
+ .utensil-table .money{font-size:8px}
+ .utensil-qty{max-width:48px;height:25px;font-size:10px}
+}
+@media(max-width:360px){
+ .utensil-table th,.utensil-table td{padding:3px 2px}
+ .utensil-table td b{font-size:8px}
+ .utensil-table .money{font-size:7px}
+ .utensil-supplier-section>header h3{font-size:10px}
+}
