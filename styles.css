@@ -782,3 +782,10 @@ input,select,textarea{max-width:100%}
 @media(min-width:621px) and (max-width:900px){
  .analysis-table th,.analysis-table td{padding:8px 6px;font-size:11px}
 }
+
+/* Indicador individual sempre visível ao lado de cada produto */
+.analysis-product-name{display:inline-flex!important;align-items:center!important;gap:9px!important;min-width:0}
+.analysis-product-name .analysis-dot{display:inline-block!important;visibility:visible!important;opacity:1!important}
+.analysis-status{display:inline-flex!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}
+.analysis-status .analysis-dot{display:inline-block!important;visibility:visible!important;opacity:1!important}
+.analysis-table td.analysis-product{vertical-align:middle}
