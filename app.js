@@ -286,7 +286,7 @@ function expenseProjectionPage(){
  const rows=data.adminExpenses.filter(x=>{const d=x.dueDate?new Date(x.dueDate+"T12:00:00"):new Date(x.createdAt||0);return d>=start&&d<=end});
  const actualFor=cat=>rows.filter(x=>x.category===cat&&x.status==="Pago").reduce((sum,x)=>sum+n(x.amount),0);
  const budgetFor=cat=>n(budgets[cat]);
- const allCats=[...expenseStandalone,...expenseGroups.flatMap(g=>g[1])];
+ const allCats=["Publicidade","Promoção","Serviços com Segurança","Custos de Comissões","Serviços com Mc Entrega","Outros Serviços Externos","Uniformes","Insumos Operacionais","Salários Manutenção","Equipamentos de Manutenção","Conservação de Restaurante","Outros","Eletricidade","Outros Gastos Públicos","Despesas de Material de Escritório","Diferença de Caixa","Gastos Pré Abertura","Telecomunicação","Suporte ao Campo","Help Desk","Back office","Outros Gastos Controláveis"];
  const actual=rows.filter(x=>x.status==="Pago").reduce((sum,x)=>sum+n(x.amount),0);
  const projected=allCats.reduce((sum,cat)=>sum+budgetFor(cat),0);
  const rowsHtml=allCats.map(cat=>'<tr><td>'+escAdmin(cat)+'</td><td><input class="expense-budget-input" type="number" min="0" step="0.01" data-expense-budget="'+escAdmin(cat)+'" value="'+(budgetFor(cat)||"")+'" placeholder="0,00"></td><td class="expense-money">'+brl(actualFor(cat))+'</td><td class="expense-money">'+brl(budgetFor(cat)-actualFor(cat))+'</td></tr>').join("");
