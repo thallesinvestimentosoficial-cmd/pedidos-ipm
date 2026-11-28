@@ -428,3 +428,29 @@ tbody tr:hover{background:#fafbfd}
 .overview-category-over li strong{color:#bd2635}
 .overview-category-note{font-size:10px;color:#7b8798;margin:9px 0 0;line-height:1.5}
 @media(max-width:600px){.overview-category-chart{min-width:760px}.overview-category-over ul{grid-template-columns:1fr}.overview-category-card{padding:14px 12px}}
+
+/* Identidade visual renovada: azul profundo, índigo e teal */
+:root{--navy:#17243a;--red:#5269e8;--yellow:#22b8a7;--muted:#718096;--line:#e3e9f1;color-scheme:light}
+body,.content{background:#f4f7fb}
+.sidebar{background:linear-gradient(160deg,#17243a 0%,#1e3150 65%,#243b5d 100%)}
+.brand-hero{background:linear-gradient(160deg,#17243a,#223a5b);border-bottom:2px solid #22b8a7}
+.brand-monogram{width:76px;height:58px;margin:2px auto 12px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(135deg,#5269e8,#22b8a7);color:#fff;font-size:25px;font-weight:950;letter-spacing:2px;box-shadow:0 10px 26px #0b142b55}
+.brand-title b{color:#68d6ca}
+.nav-item.active{background:linear-gradient(105deg,#5269e8,#4056c9);box-shadow:0 7px 18px #5269e84a}
+.nav-item:hover:not(.active){background:#ffffff12}
+.topbar-ribbon{background:linear-gradient(100deg,#5269e8 0%,#394fb4 72%,#17243a 72%,#17243a 100%);border-bottom:3px solid #22b8a7}
+.header-context{border-left-color:#22b8a7}
+.pagebar-symbol{color:#5269e8}
+.pagebar-symbol:before{background:linear-gradient(135deg,#5269e8,#22b8a7)}
+.primary,.header-shortcut{background:#5269e8;color:#fff;box-shadow:0 5px 14px #5269e833}
+.header-shortcut.active{background:#22b8a7;color:#10243a;border-color:#22b8a7}
+.category-tab.active,.count-category-tile.active,.bread-cycle-option.active{background:#eef1ff;color:#4056c9;border-color:#5269e8}
+.count-category-tile.active .count-category-symbol,.bread-cycle-option.active .bread-cycle-day{background:#dfe5ff;color:#4056c9}
+.product-section-icon{background:#edf0ff;color:#5269e8}
+.product-create-form input:focus,.product-create-form select:focus,.product-filter-card input:focus,.product-filter-card select:focus{border-color:#5269e8;box-shadow:0 0 0 3px #5269e81a}
+.legend-stock{background:#5269e8}.legend-projection{background:#22b8a7}
+.overview-risk-item b{color:#b45360;background:#fff0f2}
+.risk-dot{background:#d45b72}
+.pill.red{background:#fff0f2;color:#b45360}.pill.amber{background:#eaf8f6;color:#178c81}
+.overview-welcome{background:linear-gradient(110deg,#fff 0%,#f0f4ff 55%,#eefaf8 100%);grid-template-columns:1fr;min-height:0}
+@media(max-width:700px){.brand-monogram{width:58px;height:48px;font-size:21px}}
