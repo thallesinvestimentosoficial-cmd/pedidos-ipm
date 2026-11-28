@@ -512,23 +512,31 @@ async function startApp(){
   const localData=readLocal("pedidos-ipm",{gc:{},counts:{},orders:[],audit:[]});
   const localProducts=readLocal("pedidos-ipm-products",null);
   products=mergeProducts(base,localProducts);
-  const rows=await cloudRequest("app_state?select=payload,updated_at&id=eq.restaurante-ipm");
-  if(rows&&rows.length&&rows[0].payload){
-   const remote=rows[0].payload;
-   data={...{gc:{},counts:{},orders:[],audit:[],countSaved:{}},...(remote.data&&typeof remote.data==="object"?remote.data:{})};
-   data.audit??=[];data.orders??=[];data.gc??={};data.counts??={};data.countSaved??={};
-   products=mergeProducts(base,remote.products);
-   cloudUpdatedAt=rows[0].updated_at;
-   localStorage.setItem("pedidos-ipm",JSON.stringify(data));
-   localStorage.setItem("pedidos-ipm-products",JSON.stringify(products));
-  }else{
-   data={...{gc:{},counts:{},orders:[],audit:[],countSaved:{}},...(localData||{})};
-   data.audit??=[];data.orders??=[];data.gc??={};data.counts??={};data.countSaved??={};
-   localStorage.setItem("pedidos-ipm",JSON.stringify(data));
-   localStorage.setItem("pedidos-ipm-products",JSON.stringify(products));
-   cloudReady=true;await writeCloudState();cloudUpdatedAt=new Date().toISOString();
+  data={...{gc:{},counts:{},orders:[],audit:[],countSaved:{}},...(localData||{})};
+  data.audit??=[];data.orders??=[];data.gc??={};data.counts??={};data.countSaved??={};
+  render();
+  try{
+   const rows=await cloudRequest("app_state?select=payload,updated_at&id=eq.restaurante-ipm");
+   if(rows&&rows.length&&rows[0].payload){
+    const remote=rows[0].payload;
+    data={...{gc:{},counts:{},orders:[],audit:[],countSaved:{}},...(remote.data&&typeof remote.data==="object"?remote.data:{})};
+    data.audit??=[];data.orders??=[];data.gc??={};data.counts??={};data.countSaved??={};
+    products=mergeProducts(base,remote.products);
+    cloudUpdatedAt=rows[0].updated_at;
+    localStorage.setItem("pedidos-ipm",JSON.stringify(data));
+    localStorage.setItem("pedidos-ipm-products",JSON.stringify(products));
+   }else{
+    localStorage.setItem("pedidos-ipm",JSON.stringify(data));
+    localStorage.setItem("pedidos-ipm-products",JSON.stringify(products));
+    cloudReady=true;await writeCloudState();cloudUpdatedAt=new Date().toISOString();
+   }
+   cloudReady=true;render();window.dispatchEvent(new CustomEvent("ipm:cloud-ready"));
+  }catch(syncError){
+   console.error("Falha ao sincronizar Pedido IPM; exibindo os dados locais:",syncError);
+   cloudReady=false;
+   render();
+   toast("Exibindo dados deste aparelho. Não foi possível conectar à nuvem.");
   }
-  cloudReady=true;render();window.dispatchEvent(new CustomEvent("ipm:cloud-ready"));
  }catch(error){
   console.error("Falha ao iniciar Pedido IPM:",error);cloudReady=false;
   const message=String(error?.message||"Falha inesperada ao carregar o aplicativo.").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
