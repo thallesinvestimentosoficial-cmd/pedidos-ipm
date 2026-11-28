@@ -419,3 +419,12 @@ tbody tr:hover{background:#fafbfd}
 .risk-dot{width:7px;height:7px;border-radius:50%;background:#d7192d}
 @media(max-width:650px){.overview-analytics{padding:14px 12px;margin:11px 0;border-radius:14px}.overview-section-heading h3{font-size:14px}.overview-pie-layout{grid-template-columns:1fr;justify-items:center;gap:12px}.overview-pie-list{width:100%;grid-template-columns:1fr 1fr}.overview-risk-item{grid-template-columns:7px minmax(0,1fr) auto;gap:7px}.overview-risk-item b{grid-column:2/-1;justify-self:start}.overview-excess-total{font-size:16px}.overview-line-chart{min-width:850px}}
 @media(max-width:380px){.overview-pie-list{grid-template-columns:1fr}.overview-status-row{gap:8px;font-size:9px}.overview-risk-item{font-size:10px}}
+
+.overview-category-card{margin-top:14px}
+.overview-category-chart-scroll{width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.overview-category-chart{display:block;width:100%;min-width:620px;height:auto}
+.overview-category-over{margin-top:9px;padding-top:9px;border-top:1px solid #edf0f5;font-size:11px;color:#a66e00}
+.overview-category-over ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px;padding-left:18px;margin:8px 0 2px;color:#56647a}
+.overview-category-over li strong{color:#bd2635}
+.overview-category-note{font-size:10px;color:#7b8798;margin:9px 0 0;line-height:1.5}
+@media(max-width:600px){.overview-category-chart{min-width:760px}.overview-category-over ul{grid-template-columns:1fr}.overview-category-card{padding:14px 12px}}
