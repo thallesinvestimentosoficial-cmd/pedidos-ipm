@@ -241,6 +241,7 @@ function otherOrders(){
  '</div><div class="count-actions"><button class="btn secondary" id="clear-count" type="button">Limpar campos</button><button class="btn primary" id="save-count" type="button">Salvar contagem</button></div>';
 }
 function analysis(){
+ const safe=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/\'/g,"&#39;");
  const rows=products.map(p=>{
   const current=n(stock(p).stock),incoming=n(stock(p).incoming),total=current+incoming,projected=need(p),delta=total-projected;
   let status="healthy",label="Saudável",detail="Dentro da faixa saudável";
