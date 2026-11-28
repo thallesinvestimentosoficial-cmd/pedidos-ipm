@@ -808,3 +808,22 @@ input,select,textarea{max-width:100%}
  .analysis-table td[data-label="Necessidade"],.analysis-table td[data-label="Projetado"]{font-weight:750}
  .analysis-table td[data-label="Status"]{grid-column:1/-1}
 }
+
+.nav-section-label{margin:20px 10px 7px;padding-top:15px;border-top:1px solid #ffffff20;color:#8998ad;font-size:9px;font-weight:800;letter-spacing:1.2px}
+.nav-admin-item{background:#ffffff0a;color:#f0c66a;border:1px solid #ffffff14}
+.nav-admin-item.active{background:linear-gradient(90deg,#9d762b,#76551e);color:#fff}
+.admin-page-intro{margin-bottom:20px}
+.admin-module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.admin-module-card{display:flex;align-items:center;gap:13px;min-width:0;padding:18px;background:var(--card,#fff);border:1px solid var(--border,#e5eaf1);border-radius:14px;text-align:left;color:var(--text,#172033);cursor:pointer;box-shadow:0 4px 14px #17203308;transition:transform .16s,border-color .16s}
+.admin-module-card:hover{transform:translateY(-2px);border-color:#d6b15c}
+.admin-module-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:12px;background:#f8f0df;color:#9a7025;font-weight:850;font-size:17px}
+.admin-module-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:5px}
+.admin-module-copy b{font-size:13px;line-height:1.3}
+.admin-module-copy small{font-size:10px;color:var(--muted,#7b8798)}
+.admin-module-arrow{font-size:23px;color:#9aa5b4}
+.admin-back-link{display:block;margin:0 0 13px;padding:0;border:0;background:none;color:#a47a2b;font-weight:750;font-size:12px;cursor:pointer}
+.admin-module-placeholder{max-width:760px;padding:28px;text-align:center}
+.admin-placeholder-icon{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 12px;border-radius:15px;background:#f8f0df;color:#9a7025;font-size:24px}
+.admin-module-placeholder h3{margin:0 0 8px;font-size:17px}
+.admin-module-placeholder p{max-width:520px;margin:0 auto 16px;color:var(--muted,#7b8798);font-size:12px;line-height:1.6}
+@media(max-width:650px){.admin-module-grid{grid-template-columns:1fr}.admin-module-card{padding:15px}.admin-module-copy b{font-size:12px}}
