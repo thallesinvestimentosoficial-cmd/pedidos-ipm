@@ -19,7 +19,7 @@ const nav=[["overview","Visão geral","home"],["inputs","Inputs","chart"],["coun
 function navIcon(name){const paths={home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',package:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 8v9l9 5 9-5V8M12 13v9"/>',chart:'<path d="M4 19V5m0 14h17"/><path d="m7 15 4-4 3 2 6-7"/>',clipboard:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6V7H9zM8 11h8m-8 4h8"/>',layers:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>',activity:'<path d="M3 12h4l3-8 4 16 3-8h4"/>',profile:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',settings:'<circle cx="12" cy="12" r="3"/><path d="M19 13.5a7 7 0 0 0 0-3l2-1.5-2-3.5-2.3 1a7 7 0 0 0-2.7-1.5L13.5 2h-3L10 5a7 7 0 0 0-2.7 1.5L5 5.5 3 9l2 1.5a7 7 0 0 0 0 3L3 15l2 3.5 2.3-1A7 7 0 0 0 10 19l.5 3h3l.5-3a7 7 0 0 0 2.7-1.5l2.3 1L21 15z"/>',truck:'<path d="M3 6h12v12H3zM15 10h4l3 4v4h-7"/><circle cx="7.5" cy="19" r="2"/><circle cx="18.5" cy="19" r="2"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'};return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +(paths[name]||paths.home)+'</svg>'}
 
 const adminModules=[["uniform","Projeção de estoque de uniforme","Uniformes"],["utensils","Projeção de utensílios","Utensílios"],["intermitentes","Projeção de intermitentes","Equipe"],["mercado_livre","Projeção de Mercado Livre","Compras"],["manutencao","Projeção de itens de manutenção","Manutenção"],["gastos","Controle de gastos","Financeiro"]];
-const projectionModules=[...adminModules.filter(([id])=>id!=="gastos"),["projecao_agua_luz","Projeção de Água e Luz","Contas do próximo mês"]];
+const projectionModules=[...adminModules.filter(([id])=>id!=="gastos"),["projecao_agua_luz","Projeção de Água e Luz","Contas do próximo mês"],["gastos","Gastos","Projeção e realizado do restaurante"],["consumo","Consumo","Aguardando lista de itens"]];
 let uniformEditingId=null,uniformFormOpen=false,uniformDraftRows=[];
 function uniformBlankRow(){return {description:"",size:"",code:"",supplier:"",unitPrice:0,quantity:0}}
 function uniformProjectionTotal(p){return (p.items||[]).reduce((sum,x)=>sum+n(x.unitPrice)*n(x.quantity),0)}
@@ -278,9 +278,40 @@ function wireWaterLightProjection(){
   save();render();
  }));
 }
+let expenseProjectionMonth=new Date().toISOString().slice(0,7);
+function expenseProjectionPage(){
+ data.adminExpenses??=[];data.adminExpenseBudgets??={};
+ const month=expenseProjectionMonth||new Date().toISOString().slice(0,7),budgets=data.adminExpenseBudgets[month]??{};
+ const [yy,mm]=month.split("-").map(Number),start=new Date(yy,mm-1,1),end=new Date(yy,mm,0,23,59,59,999);
+ const rows=data.adminExpenses.filter(x=>{const d=x.dueDate?new Date(x.dueDate+"T12:00:00"):new Date(x.createdAt||0);return d>=start&&d<=end});
+ const actualFor=cat=>rows.filter(x=>x.category===cat&&x.status==="Pago").reduce((sum,x)=>sum+n(x.amount),0);
+ const budgetFor=cat=>n(budgets[cat]);
+ const allCats=[...expenseStandalone,...expenseGroups.flatMap(g=>g[1])];
+ const actual=rows.filter(x=>x.status==="Pago").reduce((sum,x)=>sum+n(x.amount),0);
+ const projected=allCats.reduce((sum,cat)=>sum+budgetFor(cat),0);
+ const rowsHtml=allCats.map(cat=>'<tr><td>'+escAdmin(cat)+'</td><td><input class="expense-budget-input" type="number" min="0" step="0.01" data-expense-budget="'+escAdmin(cat)+'" value="'+(budgetFor(cat)||"")+'" placeholder="0,00"></td><td class="expense-money">'+brl(actualFor(cat))+'</td><td class="expense-money">'+brl(budgetFor(cat)-actualFor(cat))+'</td></tr>').join("");
+ const groupRows=expenseGroups.map(([group,cats])=>{const b=cats.reduce((sum,c)=>sum+budgetFor(c),0),a=cats.reduce((sum,c)=>sum+actualFor(c),0);return '<div class="expense-total-row"><b>'+escAdmin(group)+' Total</b><strong>'+brl(a)+' / '+brl(b)+'</strong></div>'}).join("");
+ const sum=projected+actual,projectedPct=sum?projected/sum*100:50,actualPct=sum?actual/sum*100:50;
+ const chart='<div class="expense-pie-layout"><div class="expense-pie" style="background:conic-gradient(#d92732 0% '+projectedPct+'%,#e5a323 '+projectedPct+'% 100%)"><div><b>'+Math.round(projectedPct)+'%</b><small>Projetado</small></div></div><div class="expense-pie-legend"><span><i class="projected"></i><b>Valor projetado</b><strong>'+brl(projected)+'</strong></span><span><i class="actual"></i><b>Valor já gasto</b><strong>'+brl(actual)+'</strong></span></div></div>';
+ return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>Gastos do restaurante</h2><p>Informe a previsão por categoria e acompanhe o valor efetivamente pago no mês.</p></div><label class="expense-month-picker">Mês de referência<input id="expense-projection-month" type="month" value="'+month+'"></label></div><div class="expense-summary"><article><small>Total projetado</small><b>'+brl(projected)+'</b></article><article><small>Total já gasto</small><b>'+brl(actual)+'</b></article><article><small>Saldo da projeção</small><b>'+brl(projected-actual)+'</b></article></div><section class="card expense-projection-card"><div class="expense-list-heading"><div><h2>Projeção x realizado</h2><p>O gráfico compara o total previsto com os lançamentos marcados como pagos.</p></div></div>'+chart+'</section><section class="card expense-projection-card"><div class="expense-list-heading"><div><h2>Gastos por categoria</h2><p>Preencha o valor projetado. O realizado é atualizado pelos lançamentos pagos no mês.</p></div></div><div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>Categoria</th><th>Valor projetado (R$)</th><th>Já gasto (R$)</th><th>Diferença (R$)</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div><div class="expense-projection-totals">'+groupRows+'<div class="expense-total-row grand"><b>TOTAL GASTOS CONTROLÁVEIS</b><strong>'+brl(projected)+' / '+brl(actual)+'</strong></div></div></section><p class="wl-note">O valor já gasto considera somente despesas lançadas como “Pago” na tela de Lançamentos de Despesas, dentro do mês selecionado.</p>');
+}
+function wireExpenseProjection(){
+ $("#expense-projection-month")?.addEventListener("change",e=>{expenseProjectionMonth=e.target.value||new Date().toISOString().slice(0,7);render()});
+ document.querySelectorAll("[data-expense-budget]").forEach(input=>input.addEventListener("change",()=>{
+  if(!isGun())return;
+  const month=expenseProjectionMonth||new Date().toISOString().slice(0,7);
+  data.adminExpenseBudgets??={};data.adminExpenseBudgets[month]??={};
+  data.adminExpenseBudgets[month][input.dataset.expenseBudget]=Math.max(0,n(input.value));
+  save();render();
+ }));
+}
+function consumptionPlaceholderPage(){
+ return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>Consumo</h2><p>Área preparada para cadastrar e acompanhar os itens de consumo do restaurante.</p></div></div><section class="card admin-module-placeholder"><div class="admin-placeholder-icon">↗</div><h3>Lista de consumo pendente</h3><p>Assim que você enviar a lista de itens, vou organizar os campos, os cálculos e os indicadores desta área.</p><span class="pill blue">Aguardando lista</span></section>');
+}
 function adminModulePage(){
  const item=projectionModules.find(x=>x[0]===page.slice(6));
- if(page==="admin_gastos")return expensesPage();
+ if(page==="admin_gastos")return expenseProjectionPage();
+ if(page==="admin_consumo")return consumptionPlaceholderPage();
  if(page==="admin_projecao_agua_luz"&&isGun())return waterLightProjectionPage();
  if(page==="admin_uniform")return uniformPage();
  if(page==="admin_utensils")return utensilPage();
@@ -308,7 +339,7 @@ function render(){
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
  $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
  $("#content").innerHTML=pageViews[page]();
- wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireWaterLight();wireWaterLightProjection();wireProfile();wireUsers();
+ wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireWaterLight();wireWaterLightProjection();wireExpenseProjection();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
  if(topProfile)topProfile.onclick=()=>{page="profile";render()};
  updateCountExportState();applyPermissions();
