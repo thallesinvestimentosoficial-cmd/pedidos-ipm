@@ -17,12 +17,14 @@
     window.IPM_AUTH = { session, profile, roleName: roleNames[profile.role] || "Usuário" };
     $("#login-screen").hidden = true;
     $("#app-shell").hidden = false;
-    $("#profile-name").textContent = profile.display_name || profile.username;
-    $("#profile-role").textContent = roleNames[profile.role] || "Usuário";
-    $("#profile-initials").textContent = initials(profile.display_name || profile.username);
-    $("#top-initials").textContent = initials(profile.display_name || profile.username);
-    $("#top-profile-name").textContent = profile.display_name || profile.username;
-    $("#top-profile-role").textContent = roleNames[profile.role] || "Usuário";
+    const displayName = profile.display_name || profile.username || "Usuário";
+    const displayRole = roleNames[profile.role] || "Usuário";
+    const topInitials = $("#top-initials");
+    const topName = $("#top-profile-name");
+    const topRole = $("#top-profile-role");
+    if (topInitials) topInitials.textContent = initials(displayName);
+    if (topName) topName.textContent = displayName;
+    if (topRole) topRole.textContent = displayRole;
     document.dispatchEvent(new CustomEvent("ipm:authenticated"));
   }
   async function loadProfile(accessToken) {
