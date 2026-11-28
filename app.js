@@ -18,7 +18,7 @@ function audit(action,detail){data.audit.unshift({date:new Date().toISOString(),
 const nav=[["overview","Visão geral","home"],["inputs","Inputs","chart"],["count","Pedidos 1.0","clipboard"],["other_orders","Coca-Cola","layers"],["analysis","Análise","activity"],["settings","Configurações","settings"],["profile","Perfil","profile"]];
 function navIcon(name){const paths={home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',package:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 8v9l9 5 9-5V8M12 13v9"/>',chart:'<path d="M4 19V5m0 14h17"/><path d="m7 15 4-4 3 2 6-7"/>',clipboard:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6V7H9zM8 11h8m-8 4h8"/>',layers:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>',activity:'<path d="M3 12h4l3-8 4 16 3-8h4"/>',profile:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',settings:'<circle cx="12" cy="12" r="3"/><path d="M19 13.5a7 7 0 0 0 0-3l2-1.5-2-3.5-2.3 1a7 7 0 0 0-2.7-1.5L13.5 2h-3L10 5a7 7 0 0 0-2.7 1.5L5 5.5 3 9l2 1.5a7 7 0 0 0 0 3L3 15l2 3.5 2.3-1A7 7 0 0 0 10 19l.5 3h3l.5-3a7 7 0 0 0 2.7-1.5l2.3 1L21 15z"/>',truck:'<path d="M3 6h12v12H3zM15 10h4l3 4v4h-7"/><circle cx="7.5" cy="19" r="2"/><circle cx="18.5" cy="19" r="2"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'};return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +(paths[name]||paths.home)+'</svg>'}
 
-const adminModules=[["uniform","Projeção de estoque de uniforme","Uniformes"],["utensils","Projeção de utensílios","Utensílios"],["intermitentes","Projeção de intermitentes","Equipe"],["mercado_livre","Projeção de Mercado Livre","Compras"],["agua","Projeção de água","Consumo"],["luz","Projeção de gasto de luz","Energia"],["manutencao","Projeção de itens de manutenção","Manutenção"],["gastos","Controle de gastos","Financeiro"]];
+const adminModules=[["uniform","Projeção de estoque de uniforme","Uniformes"],["utensils","Projeção de utensílios","Utensílios"],["intermitentes","Projeção de intermitentes","Equipe"],["mercado_livre","Projeção de Mercado Livre","Compras"],["agua_luz","Controle de Água e Luz","Consumo e energia"],["manutencao","Projeção de itens de manutenção","Manutenção"],["gastos","Controle de gastos","Financeiro"]];
 const projectionModules=adminModules.filter(([id])=>id!=="gastos");
 let uniformEditingId=null,uniformFormOpen=false,uniformDraftRows=[];
 function uniformBlankRow(){return {description:"",size:"",code:"",supplier:"",unitPrice:0,quantity:0}}
@@ -224,6 +224,30 @@ function wireMercadoLivre(){
  $("[data-ml-print]")?.addEventListener("click",()=>{const w=window.open("","_blank");if(!w)return toast("Permita pop-ups para imprimir ou salvar em PDF.");w.document.open();w.document.write(mlReportHtml(data.adminMercadoLivreItems||[]));w.document.close()});
  $("[data-ml-share]")?.addEventListener("click",async()=>{const items=data.adminMercadoLivreItems||[],summary="Projeção de Mercado Livre · IPM\nTotal: "+brl(mlTotal(items))+"\n"+items.map(x=>x.name+" · "+fmt(x.quantity)+" un. · "+brl(n(x.price)*n(x.quantity))+" · "+x.url).join("\n");try{if(navigator.share){await navigator.share({title:"Projeção de Mercado Livre · IPM",text:summary});return}if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(summary);toast("Resumo copiado para compartilhar.");return}toast("Compartilhamento não disponível neste aparelho.")}catch(e){if(e.name!=="AbortError")toast("Não foi possível compartilhar a lista.")}});
 }
+let waterLightType="agua",waterLightDate=dateKey(new Date());
+function waterLightConfig(type){return type==="luz"?{label:"Luz",unit:"kWh",factor:20,operation:"multiply"}:{label:"Água",unit:"m³",factor:10,operation:"divide"}}
+function waterLightEntries(type){data.adminWaterLight??={agua:{},luz:{}};data.adminWaterLight[type]??={};return data.adminWaterLight[type]}
+function waterLightConsumption(type,entry){if(!entry)return 0;const diff=n(entry.current)-n(entry.previous);return type==="luz"?diff*20:diff/10}
+function waterLightFormat(value){return n(value).toLocaleString("pt-BR",{minimumFractionDigits:0,maximumFractionDigits:2})}
+function waterLightPage(){
+ const type=waterLightType,cfg=waterLightConfig(type),entries=waterLightEntries(type),entry=entries[waterLightDate]||null;
+ const selected=new Date(waterLightDate+"T12:00:00"),prevDate=new Date(selected);prevDate.setDate(prevDate.getDate()-1);
+ const prevKey=dateKey(prevDate),previous=entry?entry.previous:(entries[prevKey]?.current??"");
+ const current=entry?.current??"",consumption=entry?waterLightConsumption(type,entry):0;
+ const weekStart=new Date(selected);weekStart.setDate(weekStart.getDate()-((weekStart.getDay()+6)%7));
+ const weekEnd=new Date(weekStart);weekEnd.setDate(weekEnd.getDate()+6);
+ const monthStart=new Date(selected.getFullYear(),selected.getMonth(),1),monthEnd=new Date(selected.getFullYear(),selected.getMonth()+1,0);
+ const sumRange=(start,end)=>Object.entries(entries).reduce((sum,[key,x])=>{const d=new Date(key+"T12:00:00");return d>=start&&d<=end?sum+waterLightConsumption(type,x):sum},0);
+ const weekly=sumRange(weekStart,weekEnd),monthly=sumRange(monthStart,monthEnd);
+ const fmtDate=d=>d.toLocaleDateString("pt-BR");
+ const daily=entry?'<div class="wl-daily-result"><span>Consumo do dia</span><strong>'+waterLightFormat(consumption)+' <small>'+cfg.unit+'</small></strong></div>':'<div class="wl-daily-result wl-no-reading"><span>Consumo do dia</span><strong>— <small>'+cfg.unit+'</small></strong><small>Preencha as leituras para calcular o consumo.</small></div>';
+ return adminShell('<div class="wl-wrap"><div class="wl-choice"><button type="button" class="'+(type==="agua"?"active":"")+'" data-wl-type="agua">Água <small>Metros cúbicos</small></button><button type="button" class="'+(type==="luz"?"active":"")+'" data-wl-type="luz">Luz <small>Quilowatts</small></button></div><section class="card wl-entry"><div class="wl-entry-head"><div><span class="eyebrow">CONTROLE DIÁRIO</span><h2>Leitura de '+cfg.label+'</h2></div><label>Data da leitura<input id="wl-date" type="date" value="'+waterLightDate+'"></label></div><form id="wl-form"><div class="wl-fields"><label>Leitura anterior ('+cfg.unit+')<input name="previous" type="number" min="0" step="0.001" value="'+previous+'" required></label><label>Leitura atual ('+cfg.unit+')<input name="current" type="number" min="0" step="0.001" value="'+current+'" required></label></div><div class="wl-form-actions"><button class="btn primary" type="submit">'+(entry?"Atualizar leitura":"Salvar leitura")+'</button></div></form>'+daily+'</section><div class="wl-reports"><article class="card wl-report"><span class="eyebrow">RELATÓRIO DA SEMANA</span><small>'+fmtDate(weekStart)+' a '+fmtDate(weekEnd)+'</small><strong>'+waterLightFormat(weekly)+' <small>'+cfg.unit+'</small></strong><span>Consumo total da semana</span></article><article class="card wl-report"><span class="eyebrow">ACUMULADO DO MÊS</span><small>'+monthStart.toLocaleDateString("pt-BR",{month:"long",year:"numeric"})+'</small><strong>'+waterLightFormat(monthly)+' <small>'+cfg.unit+'</small></strong><span>Consumo acumulado no mês</span></article></div><p class="wl-note">Os consumos são calculados automaticamente a partir da diferença entre a leitura atual e a anterior, seguindo a regra da planilha original.</p></div>');
+}
+function wireWaterLight(){
+ document.querySelectorAll("[data-wl-type]").forEach(b=>b.onclick=()=>{waterLightType=b.dataset.wlType;render()});
+ $("#wl-date")?.addEventListener("change",e=>{if(!e.target.value)return;waterLightDate=e.target.value;render()});
+ $("#wl-form")?.addEventListener("submit",e=>{e.preventDefault();if(!isGun())return;const f=new FormData(e.currentTarget),previous=Number(f.get("previous")),current=Number(f.get("current"));if(!Number.isFinite(previous)||!Number.isFinite(current)||previous<0||current<previous)return toast("Confira as leituras. A leitura atual não pode ser menor que a anterior.");const entries=waterLightEntries(waterLightType);entries[waterLightDate]={previous,current,updatedAt:new Date().toISOString(),updatedBy:window.IPM_AUTH?.profile?.username||""};audit("Leitura de "+waterLightConfig(waterLightType).label+" registrada",waterLightDate+" · "+waterLightFormat(waterLightConsumption(waterLightType,entries[waterLightDate]))+" "+waterLightConfig(waterLightType).unit);save();toast("Leitura salva com sucesso.");render()});
+}
 function adminModulePage(){
  const item=projectionModules.find(x=>x[0]===page.slice(6));
  if(page==="admin_gastos")return expensesPage();
@@ -231,6 +255,7 @@ function adminModulePage(){
  if(page==="admin_utensils")return utensilPage();
  if(page==="admin_intermitentes")return intermitentesPage();
  if(page==="admin_mercado_livre")return mercadoLivrePage();
+ if(page==="admin_agua_luz")return waterLightPage();
  if(!item)return adminPanel();
  return adminShell('<div class="page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>'+item[1]+'</h2><p>Área independente de planejamento e acompanhamento.</p></div></div><section class="card admin-module-placeholder"><div class="admin-placeholder-icon">↗</div><h3>'+item[1]+'</h3><p>Esta área está criada no painel administrativo. Aqui serão desenvolvidos os cadastros, projeções, cálculos e relatórios específicos deste controle.</p><span class="pill blue">Estrutura inicial</span></section>');
 }
@@ -239,7 +264,7 @@ function render(){
  const role=window.IPM_AUTH?.profile?.role||"viewer";
  const visibleNav=isGun()?nav:isGp()?nav.filter(x=>["overview","inputs","count","other_orders","analysis","settings","profile"].includes(x[0])):nav.filter(x=>["overview","count","other_orders","analysis","profile"].includes(x[0]));
  const pageTitles={admin_projections:"Projeções",admin_gastos:"Lançamentos de Despesas",products:"Produtos",orders:"Pedidos",history:"Histórico",users:"Gerenciar usuários",profile:"Perfil",settings:"Configurações",other_orders:"Coca-Cola"};
- const pageViews={admin_projections:adminPanel,admin_uniform:adminModulePage,admin_utensils:adminModulePage,admin_intermitentes:adminModulePage,admin_mercado_livre:adminModulePage,admin_agua:adminModulePage,admin_luz:adminModulePage,admin_manutencao:adminModulePage,admin_gastos:adminModulePage,overview,products:productsPage,inputs,count:countPage,other_orders:otherOrders,analysis,orders,history,settings:settingsPage,profile:profilePage,users:usersSettingsPage};
+ const pageViews={admin_projections:adminPanel,admin_uniform:adminModulePage,admin_utensils:adminModulePage,admin_intermitentes:adminModulePage,admin_mercado_livre:adminModulePage,admin_agua_luz:adminModulePage,admin_manutencao:adminModulePage,admin_gastos:adminModulePage,overview,products:productsPage,inputs,count:countPage,other_orders:otherOrders,analysis,orders,history,settings:settingsPage,profile:profilePage,users:usersSettingsPage};
  const deniedSupervisor=["inputs","settings","products","orders","history","users"].includes(page);
  const deniedGp=["history","users"].includes(page);
  if((page==="admin_projections"||page.startsWith("admin_"))&&!isGun())page="overview";
@@ -251,7 +276,7 @@ function render(){
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
  $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Projeções</span></button>':"");
  $("#content").innerHTML=pageViews[page]();
- wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireProfile();wireUsers();
+ wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireWaterLight();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
  if(topProfile)topProfile.onclick=()=>{page="profile";render()};
  updateCountExportState();applyPermissions();
