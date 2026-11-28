@@ -392,7 +392,10 @@ function render(){
  $("#today-label").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"long"});
  const links=visibleNav.map(([id,title,ico])=>'<button class="nav-item '+(page===id?"active":"")+'" data-page="'+id+'"><span class="nav-icon">'+navIcon(ico)+'</span><span>'+title+'</span></button>').join("");
  $("#side-nav").innerHTML=links+(isGun()?'<div class="nav-section-label">ADMINISTRAÇÃO</div><button class="nav-item nav-admin-item '+(page==="admin_projections"||page.startsWith("admin_")?"active":"")+'" data-page="admin_projections"><span class="nav-icon">'+navIcon("layers")+'</span><span>Administração</span></button>':"");
- $("#content").innerHTML=pageViews[page]();
+ let pageMarkup="";
+ try{pageMarkup=pageViews[page]();if(typeof pageMarkup!=="string"||!pageMarkup.trim())throw new Error("A página "+page+" não retornou conteúdo.");}
+ catch(error){console.error("Falha ao montar a página do IPM:",page,error);const message=String(error?.message||error||"Erro desconhecido").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));$("#content").innerHTML='<section class="card" style="margin:20px;padding:20px"><h2>Não foi possível carregar esta tela</h2><p>O aplicativo está conectado, mas ocorreu uma falha ao montar o conteúdo.</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere">'+message+'</pre><button class="btn primary" onclick="location.reload()">Tentar novamente</button></section>';return}
+ $("#content").innerHTML=pageMarkup;
  wire();wireAdmin();wireUniforms();wireUtensils();wireIntermitentes();wireMercadoLivre();wireWaterLight();wireWaterLightProjection();wireExpenseProjection();wireProfile();wireUsers();
  const topProfile=document.querySelector(".top-profile");
  if(topProfile)topProfile.onclick=()=>{page="profile";render()};
