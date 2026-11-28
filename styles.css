@@ -789,3 +789,12 @@ input,select,textarea{max-width:100%}
 .analysis-status{display:inline-flex!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}
 .analysis-status .analysis-dot{display:inline-block!important;visibility:visible!important;opacity:1!important}
 .analysis-table td.analysis-product{vertical-align:middle}
+
+/* Saldo numérico colorido conforme a distância da projeção */
+.analysis-balance{font-weight:850!important;font-variant-numeric:tabular-nums}
+.analysis-balance.healthy,.analysis-status.healthy,.analysis-legend .healthy{color:#128653!important}
+.analysis-balance.warning,.analysis-status.warning,.analysis-legend .warning{color:#bd8300!important}
+.analysis-balance.danger,.analysis-status.danger,.analysis-legend .danger{color:#d12f40!important}
+.analysis-balance.pending,.analysis-status.pending{color:#8291a5!important}
+.analysis-status{display:inline-flex!important;align-items:center!important;font-weight:750!important}
+.analysis-product-name,.analysis-product-name .analysis-dot{display:none!important}
