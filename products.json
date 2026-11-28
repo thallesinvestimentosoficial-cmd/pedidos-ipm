@@ -542,12 +542,6 @@
     "packageSize": 18
   },
   {
-    "id": "hortifruti-3",
-    "category": "hortifruti",
-    "name": "HORTIFRUT",
-    "mtc": null
-  },
-  {
     "id": "hortifruti-4",
     "category": "hortifruti",
     "name": "TIRAS DE ALFACE",
@@ -564,14 +558,14 @@
   {
     "id": "hortifruti-6",
     "category": "hortifruti",
-    "name": "CEBOLA",
+    "name": "CEBOLA CRESPA",
     "mtc": 197,
     "packageSize": 5
   },
   {
     "id": "hortifruti-7",
     "category": "hortifruti",
-    "name": "TOMATE CREPS",
+    "name": "TOMATE CREPES",
     "mtc": 197
   },
   {
