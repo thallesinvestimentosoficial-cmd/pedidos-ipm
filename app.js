@@ -50,13 +50,12 @@ function wireAdmin(){
 }
 
 function adminShell(content){
- const links=adminModules.map(([id,title])=>'<button class="admin-side-link '+(page==="admin_"+id?"active":"")+'" data-admin-module="'+id+'"><span>↗</span>'+title+'</button>').join("");
- const heading=page==="admin"?"Painel administrativo":(adminModules.find(x=>"admin_"+x[0]===page)?.[1]||"Gestão Administrativa");
- return '<div class="admin-workspace"><aside class="admin-sidebar"><div class="admin-brand"><span class="admin-brand-mark">GA</span><div><b>Gestão Administrativa</b><small>Planejamento e controle</small></div></div><button class="admin-return" data-page="overview">‹ Voltar ao Pedido IPM</button><div class="admin-nav-label">ÁREAS ADMINISTRATIVAS</div><button class="admin-side-link '+(page==="admin"?"active":"")+'" data-page="admin"><span>⌂</span>Visão geral</button>'+links+'<div class="admin-side-bottom">Ambiente administrativo</div></aside><section class="admin-main"><header class="admin-topbar"><div><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></div><button class="admin-return-mobile" data-page="overview">‹ Pedido IPM</button></header><div class="admin-content">'+content+'</div></section></div>';
+ const heading=page==="admin_projections"?"Projeções":(projectionModules.find(x=>"admin_"+x[0]===page)?.[1]||"Gestão Administrativa");
+ return '<div class="admin-workspace"><aside class="admin-sidebar"><div class="admin-brand"><div><b>Gestão Administrativa</b><small>Planejamento e controle</small></div></div><button class="admin-return" data-page="overview">‹ Voltar ao Pedido IPM</button><div class="admin-nav-label">MENU ADMINISTRATIVO</div><button class="admin-side-link '+(page==="admin_projections"?"active":"")+'" data-page="admin_projections"><span>▦</span>Projeções</button><div class="admin-side-bottom">Ambiente administrativo</div></aside><section class="admin-main"><header class="admin-topbar"><div><span class="eyebrow">RESTAURANTE IPM</span><h1>'+heading+'</h1></div><button class="admin-return-mobile" data-page="overview">‹ Pedido IPM</button></header><div class="admin-content">'+content+'</div></section></div>';
 }
 function adminPanel(){
  const cards=projectionModules.map(([id,title,subtitle])=>'<button class="admin-module-card" data-admin-module="'+id+'"><span class="admin-module-icon">'+(id==="gastos"?"R$":"↗")+'</span><span class="admin-module-copy"><b>'+title+'</b><small>'+subtitle+'</small></span><span class="admin-module-arrow">›</span></button>').join("");
- return adminShell('<div class="page-intro admin-page-intro"><div><span class="eyebrow">VISÃO GERAL</span><h2>Bem-vindo à Gestão Administrativa</h2><p>Escolha uma área para planejar, acompanhar projeções e controlar os gastos da unidade.</p></div></div><div class="admin-module-grid">'+cards+'</div>');
+ return adminShell('<div class="page-intro admin-page-intro"><div><span class="eyebrow">GESTÃO ADMINISTRATIVA</span><h2>Projeções</h2><p>Escolha uma projeção para consultar e acompanhar os controles administrativos da unidade.</p></div></div><div class="admin-module-grid">'+cards+'</div>');
 }
 function adminModulePage(){
  const item=projectionModules.find(x=>x[0]===page.slice(6));
