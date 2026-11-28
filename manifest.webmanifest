@@ -1,1 +1,18 @@
-{"name":"Pedido IPM 1.0","short_name":"Pedido IPM 1.0","description":"Pedido IPM 1.0 — contagem, análise de estoque e pedidos","start_url":"./","scope":"./","display":"standalone","background_color":"#f4f6fa","theme_color":"#111827","icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "Pedido IPM 1.0",
+  "short_name": "Pedido IPM",
+  "description": "Pedido IPM 1.0 — contagem, análise de estoque e pedidos",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1c2938",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
