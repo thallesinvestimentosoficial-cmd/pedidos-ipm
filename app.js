@@ -530,6 +530,7 @@ function wireUsers(){
 }
 
 function overview(){
+ const safe=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
  const eligible=products.filter(p=>p.mtc!=null&&n(p.mtc)>0&&n(p.packageSize)>0&&p.category!=="paes").map(p=>{const projected=(gcTotal()*n(p.mtc)/1000)/n(p.packageSize),s=stock(p),available=n(s.stock)+n(s.incoming),excess=Math.max(0,available-projected),ratio=projected>0?available/projected:available>0?Infinity:1;return {...p,projected,available,excess,ratio}});
  const above=eligible.filter(p=>p.excess>0).sort((a,b)=>b.excess-a.excess),risk=eligible.filter(p=>p.available===0||p.ratio<.25),ok=eligible.filter(p=>p.ratio>=.25&&p.ratio<=1);
  const max=Math.max(1,...eligible.flatMap(p=>[p.projected,p.available])),w=1000,h=300,left=42,right=18,top=20,bottom=54,innerW=w-left-right,innerH=h-top-bottom;
@@ -549,7 +550,6 @@ function overview(){
  const legend=pieItems.map((p,i)=>'<div class="overview-pie-legend"><i style="background:'+colors[i]+'"></i><span>'+p.name+'</span><b>'+fmt(p.excess)+'</b></div>').join("")+(other>0?'<div class="overview-pie-legend"><i style="background:'+colors[7]+'"></i><span>Outros produtos</span><b>'+fmt(other)+'</b></div>':"");
  const excessTotal=above.reduce((s,p)=>s+p.excess,0),zero=eligible.filter(p=>p.available===0).length;
 
- const safe=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
  const cocaProducts=products.filter(p=>p.category==="coca_cola"&&p.mtc!=null&&n(p.mtc)>0&&n(p.packageSize)>0).map(p=>{const projected=(gcTotal()*n(p.mtc)/1000)/n(p.packageSize),counted=n(stock(p).stock),ratio=projected>0?counted/projected:counted>0?1:0,percent=Math.round(ratio*100),excess=Math.max(0,counted-projected),shortage=Math.max(0,projected-counted);return {...p,projected,counted,ratio,percent,excess,shortage}}).sort((a,b)=>b.shortage-a.shortage);
  const cocaTotalExcess=cocaProducts.reduce((sum,p)=>sum+p.excess,0);
  const cocaChartRows=cocaProducts.map(p=>{const pct=Math.max(0,Math.min(100,p.ratio))*100,circ=2*Math.PI*18,dash=circ*pct/100,status=p.excess>0?"Acima da projeção":p.shortage>0?"Abaixo da projeção":"No nível da projeção";return '<div class="overview-coca-item"><div class="overview-coca-donut" role="img" aria-label="'+safe(p.name)+': estoque '+fmt(p.counted)+', projeção '+fmt(p.projected)+'"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" class="coca-donut-track"/><circle cx="24" cy="24" r="18" class="coca-donut-value" stroke-dasharray="'+dash.toFixed(1)+' '+(circ-dash).toFixed(1)+'" transform="rotate(-90 24 24)"/></svg><b>'+p.percent+'%</b></div><div class="overview-coca-item-info"><strong>'+safe(p.name)+'</strong><span>Estoque: <b>'+fmt(p.counted)+'</b> · Projeção: <b>'+fmt(p.projected)+'</b></span><small class="'+(p.excess>0?"is-over":p.shortage>0?"is-short":"is-balanced")+'">'+status+(p.excess>0?" · +"+fmt(p.excess):p.shortage>0?" · faltam "+fmt(p.shortage):"")+'</small></div></div>'}).join("");
