@@ -202,3 +202,8 @@ tbody tr:hover{background:#fafbfd}
 .count-category-symbol{display:flex;align-items:center;justify-content:center;width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#f2f5f9;font-size:19px}
 .count-category-tile.active .count-category-symbol{background:#ffe5e7}
 @media(max-width:700px){.count-category-tiles{gap:7px}.count-category-tile{min-height:58px;padding:9px 7px;gap:6px;flex-direction:column;justify-content:center;text-align:center;font-size:10px}.count-category-symbol{width:29px;height:29px;flex-basis:29px;font-size:16px}}
+
+.count-export-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:12px 0 24px;padding:14px 16px;border:1px solid #e3e8ef;border-radius:13px;background:#fafbfd}
+.count-export-actions>span{font-size:12px;color:#657186;font-weight:600}
+.count-export-actions>div{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:600px){.count-export-actions{align-items:stretch}.count-export-actions>div{display:grid;grid-template-columns:1fr; width:100%}.count-export-actions .btn{width:100%;justify-content:center}}
