@@ -21,6 +21,8 @@
     $("#profile-role").textContent = roleNames[profile.role] || "Usuário";
     $("#profile-initials").textContent = initials(profile.display_name || profile.username);
     $("#top-initials").textContent = initials(profile.display_name || profile.username);
+    $("#top-profile-name").textContent = profile.display_name || profile.username;
+    $("#top-profile-role").textContent = roleNames[profile.role] || "Usuário";
     document.dispatchEvent(new CustomEvent("ipm:authenticated"));
   }
   async function loadProfile(accessToken) {
