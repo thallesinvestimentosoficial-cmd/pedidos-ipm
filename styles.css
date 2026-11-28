@@ -236,3 +236,31 @@ tbody tr:hover{background:#fafbfd}
 .bread-need-value.frozen strong{color:#bd2637}
 .bread-need-value small{font-size:10px;color:#bd2637;font-weight:750}
 @media(max-width:650px){.bread-need-head{display:none}.bread-need-row{grid-template-columns:1fr 1fr;gap:10px;padding:12px}.bread-need-row .count-product{grid-column:1/-1;padding-bottom:7px;border-bottom:1px solid #edf0f5}.bread-need-value>span{font-size:10px}.bread-need-value strong{font-size:14px}}
+
+
+/* Inputs: projeção compacta e ajuste de venda */
+.gc-adjust-card{display:flex;align-items:center;gap:13px;max-width:620px;margin:0 0 14px;padding:13px 15px;border:1px solid #e5eaf1;border-radius:15px;background:linear-gradient(120deg,#fff 0%,#f8faff 100%);box-shadow:0 5px 16px #17243b08}
+.gc-adjust-icon{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#fff0e7;font-size:22px}
+.gc-adjust-copy{display:flex;flex:1;min-width:120px;flex-direction:column;gap:4px}
+.gc-adjust-copy strong{font-size:13px;color:#263750;font-weight:850}
+.gc-adjust-copy small{font-size:10px;color:#8290a4;line-height:1.4}
+.gc-percent-field{display:flex;flex-direction:column;gap:5px;min-width:135px;color:#6e7b8f;font-size:10px;font-weight:800}
+.gc-percent-field>div{display:flex;align-items:center;gap:6px}
+.gc-percent-field input{width:90px;height:37px;padding:0 9px;border:1px solid #dfe5ed;border-radius:10px;background:#fff;color:#20314a;font:700 15px inherit;text-align:center}
+.gc-percent-field b{font-size:15px;color:#bd2637}
+.gc-input-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:1000px}
+.gc-day-card{min-width:0;padding:11px 12px;border:1px solid #e5eaf1;border-radius:13px;background:#fff;box-shadow:0 4px 13px #17243b07}
+.gc-day-top{display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.gc-day-icon{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#f2f5fa;font-size:15px}
+.gc-day-top label{font-size:11px;font-weight:850;color:#394a62;text-transform:capitalize}
+.gc-day-input{height:36px!important;padding:0 9px!important;font-size:13px!important}
+.gc-day-card>small{display:block;margin-top:7px;font-size:10px;color:#8793a5}
+.gc-day-card>small b{color:#bd2637;font-size:11px;font-variant-numeric:tabular-nums}
+.gc-total-card{display:flex;align-items:center;gap:14px;max-width:1000px;margin-top:13px;padding:14px 16px;border:1px solid #e5eaf1;border-radius:15px;background:#fff;box-shadow:0 5px 16px #17243b08}
+.gc-total-card>div{display:flex;flex:1;flex-direction:column;gap:3px}
+.gc-total-card>div>span{font-size:10px;color:#8290a4;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.gc-total-card strong{font-size:23px;line-height:1.15;color:#20314a;font-weight:900;font-variant-numeric:tabular-nums}
+.gc-total-card small{font-size:10px;color:#8290a4}
+.gc-total-illustration{font-size:27px}
+@media(max-width:800px){.gc-input-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.gc-adjust-card{gap:9px;padding:10px}.gc-adjust-icon{width:35px;height:35px;flex-basis:35px;font-size:18px}.gc-adjust-copy strong{font-size:11px}.gc-adjust-copy small{font-size:9px}.gc-percent-field{min-width:100px;font-size:9px}.gc-percent-field input{width:70px;height:34px}.gc-input-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.gc-day-card{padding:9px}.gc-day-top{gap:5px}.gc-day-top label{font-size:10px}.gc-day-icon{width:24px;height:24px;flex-basis:24px;font-size:13px}.gc-total-card{gap:8px;padding:11px}.gc-total-card strong{font-size:19px}.gc-total-card .btn{padding:10px 11px;font-size:11px}.gc-total-illustration{font-size:22px}}
