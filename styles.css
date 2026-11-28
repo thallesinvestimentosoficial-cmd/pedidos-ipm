@@ -1512,3 +1512,12 @@ body{background:#e9eef2}
 .admin-night .admin-content :is(.uniform-empty-icon,.admin-module-icon){color:#79d2ef!important}
 .admin-night .admin-content :is(button:disabled,input:disabled,select:disabled,textarea:disabled){opacity:.62}
 .admin-night .admin-content ::selection{background:#28627a;color:#fff}
+
+
+/* Relatório imprimível e compartilhável de água e luz */
+.wl-analysis-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px}
+.wl-report-actions{display:flex;flex-wrap:wrap;gap:8px}
+.wl-report-actions .btn{white-space:nowrap}
+.wl-highlights{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:700px){.wl-analysis-head{align-items:stretch;flex-direction:column}.wl-report-actions{display:grid;grid-template-columns:1fr 1fr}.wl-report-actions .btn{width:100%;padding:10px 8px;font-size:11px}}
+@media(max-width:430px){.wl-report-actions{grid-template-columns:1fr}.wl-highlights{grid-template-columns:1fr}}
