@@ -1274,3 +1274,49 @@ body{background:#e9eef2}
  .overview-welcome h2{font-size:21px}
  .overview-analytics{padding:14px 10px}
 }
+
+
+/* Menu administrativo em gaveta com botão hambúrguer no celular */
+.admin-menu-toggle{display:none}
+.admin-menu-backdrop{display:none}
+@media(max-width:760px){
+ .admin-topbar{display:flex!important;align-items:center;justify-content:flex-start!important;gap:12px}
+ .admin-menu-toggle{
+  display:flex;flex:0 0 42px;width:42px;height:42px;padding:10px;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  border:1px solid #d5e0e7;border-radius:11px;background:#fff;
+  box-shadow:0 3px 10px #26354512;cursor:pointer;
+ }
+ .admin-menu-toggle span{display:block;width:19px;height:2px;border-radius:3px;background:#42596a;transition:transform .2s,opacity .2s}
+ .admin-menu-open .admin-menu-toggle span:first-child{transform:translateY(7px) rotate(45deg)}
+ .admin-menu-open .admin-menu-toggle span:nth-child(2){opacity:0}
+ .admin-menu-open .admin-menu-toggle span:last-child{transform:translateY(-7px) rotate(-45deg)}
+ .admin-topbar-title{min-width:0;flex:1}
+ .admin-topbar-title h1{overflow-wrap:anywhere}
+ .admin-sidebar{
+  position:fixed!important;top:0!important;bottom:0!important;left:0!important;z-index:1002!important;
+  display:flex!important;width:min(290px,84vw)!important;height:100dvh!important;min-height:100dvh!important;
+  padding:calc(18px + env(safe-area-inset-top)) 15px calc(18px + env(safe-area-inset-bottom))!important;
+  flex-direction:column!important;align-items:stretch!important;gap:9px!important;
+  overflow-y:auto!important;overflow-x:hidden!important;white-space:normal!important;
+  background:linear-gradient(180deg,#e7f3fa,#dcecf5)!important;
+  box-shadow:12px 0 35px #182b3d30!important;
+  transform:translateX(-110%);visibility:hidden;
+  transition:transform .24s ease,visibility .24s ease;
+ }
+ .admin-menu-open .admin-sidebar{transform:translateX(0);visibility:visible}
+ .admin-sidebar .admin-brand{display:block!important;padding-bottom:17px}
+ .admin-sidebar .admin-return{display:block!important;text-align:left}
+ .admin-sidebar .admin-nav-label{display:block!important;margin:12px 5px 3px}
+ .admin-sidebar .admin-side-bottom{display:block!important;margin-top:auto}
+ .admin-sidebar .admin-side-link{
+  display:flex!important;width:100%!important;min-height:46px!important;flex:0 0 auto!important;
+  justify-content:flex-start;padding:11px 13px!important;font-size:13px!important;
+ }
+ .admin-menu-backdrop{
+  display:block;position:fixed;inset:0;z-index:1001;background:#15263880;
+  opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;
+ }
+ .admin-menu-open .admin-menu-backdrop{opacity:1;visibility:visible}
+ body.admin-menu-lock{overflow:hidden}
+}
