@@ -224,3 +224,15 @@ tbody tr:hover{background:#fafbfd}
 .bread-cycle-option small{display:block;margin-top:3px;color:#78869b;font-size:9px}
 .bread-cycle-hint{padding:12px 14px;border:1px dashed #d7dee8;border-radius:11px;background:#fafbfd;color:#7b8798;font-size:11px;text-align:center}
 @media(max-width:600px){.bread-cycle-picker{padding:10px;margin:9px 0 13px}.bread-cycle-heading{display:block}.bread-cycle-heading small{display:block;margin-top:3px}.bread-cycle-options{gap:6px}.bread-cycle-option{padding:8px 7px;gap:6px}.bread-cycle-day{width:28px;height:28px;flex-basis:28px;font-size:9px}.bread-cycle-option b{font-size:10px}.bread-cycle-option small{font-size:8px}}
+
+/* Necessidade de pães: sem contagem de estoque ou recebimento */
+.bread-need-list{background:#fff;border:1px solid #e5eaf1;border-radius:15px;overflow:hidden;box-shadow:0 5px 18px #18294308}
+.bread-need-head,.bread-need-row{display:grid;grid-template-columns:minmax(170px,1.3fr) minmax(150px,1fr) minmax(170px,1.1fr);align-items:center;gap:14px;padding:13px 16px}
+.bread-need-head{background:#f5f7fa;color:#536178;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.45px}
+.bread-need-row{min-height:72px;border-top:1px solid #edf0f5}
+.bread-need-value{display:flex;flex-direction:column;gap:4px}
+.bread-need-value>span{font-size:11px;color:#7b8798}
+.bread-need-value strong{font-size:16px;color:#20314a;font-weight:850;font-variant-numeric:tabular-nums}
+.bread-need-value.frozen strong{color:#bd2637}
+.bread-need-value small{font-size:10px;color:#bd2637;font-weight:750}
+@media(max-width:650px){.bread-need-head{display:none}.bread-need-row{grid-template-columns:1fr 1fr;gap:10px;padding:12px}.bread-need-row .count-product{grid-column:1/-1;padding-bottom:7px;border-bottom:1px solid #edf0f5}.bread-need-value>span{font-size:10px}.bread-need-value strong{font-size:14px}}
